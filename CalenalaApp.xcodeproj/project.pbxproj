@@ -1,0 +1,523 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2A403D5E1DD1F9D7007EBA0A /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A403D5D1DD1F9D7007EBA0A /* APIManager.swift */; };
+		2A403D611DD30E07007EBA0A /* MeetingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A403D601DD30E07007EBA0A /* MeetingDetailViewController.swift */; };
+		2A403D641DD30EF3007EBA0A /* MeetingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A403D631DD30EF3007EBA0A /* MeetingDetailView.swift */; };
+		2A403D661DD313A9007EBA0A /* MeetingDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A403D651DD313A9007EBA0A /* MeetingDetail.swift */; };
+		2A5297711DD4905400DB18A7 /* String+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5297701DD4905400DB18A7 /* String+Date.swift */; };
+		2A5297731DD5CFAF00DB18A7 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5297721DD5CFAF00DB18A7 /* RatingView.swift */; };
+		2A66D6841DEC38E6008C4239 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A66D6831DEC38E6008C4239 /* UIViewController+Alert.swift */; };
+		2A687B4F1DCBB1FF00AB88F5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A687B4E1DCBB1FF00AB88F5 /* LoginViewController.swift */; };
+		2A687B511DCBB24A00AB88F5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A687B501DCBB24A00AB88F5 /* LoginView.swift */; };
+		2A8AD8081DC7E050009D7918 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8AD8071DC7E050009D7918 /* User.swift */; };
+		2AB64F161DCC9341005A058E /* MeetingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB64F151DCC9341005A058E /* MeetingsViewController.swift */; };
+		2AB64F181DCCADE2005A058E /* MeetingsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB64F171DCCADE2005A058E /* MeetingsDataSource.swift */; };
+		2AB64F1B1DCCAEB4005A058E /* MeetingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB64F1A1DCCAEB4005A058E /* MeetingCell.swift */; };
+		2AB64F1D1DCCAECB005A058E /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB64F1C1DCCAECB005A058E /* Meeting.swift */; };
+		2AD36D551DC5141600F63E90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD36D541DC5141600F63E90 /* AppDelegate.swift */; };
+		2AD36D5C1DC5141600F63E90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AD36D5B1DC5141600F63E90 /* Assets.xcassets */; };
+		2AD36D5F1DC5141600F63E90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AD36D5D1DC5141600F63E90 /* LaunchScreen.storyboard */; };
+		5A80DD37F9CE1D430B98C144 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CA63E0FD7895AEB0A765D5 /* Pods.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2A0F0CDD1DDBC59000698A82 /* CalenalaApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CalenalaApp.entitlements; sourceTree = "<group>"; };
+		2A403D5D1DD1F9D7007EBA0A /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		2A403D601DD30E07007EBA0A /* MeetingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingDetailViewController.swift; sourceTree = "<group>"; };
+		2A403D631DD30EF3007EBA0A /* MeetingDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingDetailView.swift; sourceTree = "<group>"; };
+		2A403D651DD313A9007EBA0A /* MeetingDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingDetail.swift; sourceTree = "<group>"; };
+		2A5297701DD4905400DB18A7 /* String+Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Date.swift"; sourceTree = "<group>"; };
+		2A5297721DD5CFAF00DB18A7 /* RatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
+		2A66D6831DEC38E6008C4239 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
+		2A687B4E1DCBB1FF00AB88F5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2A687B501DCBB24A00AB88F5 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		2A8AD8071DC7E050009D7918 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2AB64F151DCC9341005A058E /* MeetingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingsViewController.swift; sourceTree = "<group>"; };
+		2AB64F171DCCADE2005A058E /* MeetingsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingsDataSource.swift; sourceTree = "<group>"; };
+		2AB64F1A1DCCAEB4005A058E /* MeetingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingCell.swift; sourceTree = "<group>"; };
+		2AB64F1C1DCCAECB005A058E /* Meeting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
+		2AD36D511DC5141600F63E90 /* CalenalaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalenalaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AD36D541DC5141600F63E90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2AD36D5B1DC5141600F63E90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2AD36D5E1DC5141600F63E90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2AD36D601DC5141600F63E90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D9EBD1E82C38EB493687E06 /* Pods_CalenalaApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalenalaApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		602659FDEEF25591413A4F03 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		C814227CA2AE15D0BCDFDC84 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		D0CA63E0FD7895AEB0A765D5 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2AD36D4E1DC5141600F63E90 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A80DD37F9CE1D430B98C144 /* Pods.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2A403D5B1DD1D9FC007EBA0A /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				2AB64F1C1DCCAECB005A058E /* Meeting.swift */,
+				2A8AD8071DC7E050009D7918 /* User.swift */,
+				2A403D651DD313A9007EBA0A /* MeetingDetail.swift */,
+				2A5297701DD4905400DB18A7 /* String+Date.swift */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
+		2A403D5C1DD1F9C2007EBA0A /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				2A403D5D1DD1F9D7007EBA0A /* APIManager.swift */,
+			);
+			name = Manager;
+			sourceTree = "<group>";
+		};
+		2A403D5F1DD30DD5007EBA0A /* Meeting detail */ = {
+			isa = PBXGroup;
+			children = (
+				2A403D621DD30EE1007EBA0A /* View */,
+				2A403D601DD30E07007EBA0A /* MeetingDetailViewController.swift */,
+			);
+			name = "Meeting detail";
+			sourceTree = "<group>";
+		};
+		2A403D621DD30EE1007EBA0A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2A403D631DD30EF3007EBA0A /* MeetingDetailView.swift */,
+				2A5297721DD5CFAF00DB18A7 /* RatingView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		2A66D6821DEC38C4008C4239 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2A66D6831DEC38E6008C4239 /* UIViewController+Alert.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		2A687B4B1DCBB1C200AB88F5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2A403D5F1DD30DD5007EBA0A /* Meeting detail */,
+				2AB64F141DCC930E005A058E /* Meeting list */,
+				2A687B4C1DCBB1E600AB88F5 /* Login */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		2A687B4C1DCBB1E600AB88F5 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				2A687B4E1DCBB1FF00AB88F5 /* LoginViewController.swift */,
+				2A687B501DCBB24A00AB88F5 /* LoginView.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		2AB64F141DCC930E005A058E /* Meeting list */ = {
+			isa = PBXGroup;
+			children = (
+				2AB64F191DCCAE9E005A058E /* View */,
+				2AB64F151DCC9341005A058E /* MeetingsViewController.swift */,
+				2AB64F171DCCADE2005A058E /* MeetingsDataSource.swift */,
+			);
+			name = "Meeting list";
+			sourceTree = "<group>";
+		};
+		2AB64F191DCCAE9E005A058E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2AB64F1A1DCCAEB4005A058E /* MeetingCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		2AD36D481DC5141600F63E90 = {
+			isa = PBXGroup;
+			children = (
+				2AD36D531DC5141600F63E90 /* CalenalaApp */,
+				2AD36D521DC5141600F63E90 /* Products */,
+				5E3BA76E2942EC889E73A935 /* Pods */,
+				CBDFB59D505ED05324D3D9E2 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2AD36D521DC5141600F63E90 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2AD36D511DC5141600F63E90 /* CalenalaApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2AD36D531DC5141600F63E90 /* CalenalaApp */ = {
+			isa = PBXGroup;
+			children = (
+				2A66D6821DEC38C4008C4239 /* Extensions */,
+				2A0F0CDD1DDBC59000698A82 /* CalenalaApp.entitlements */,
+				2A403D5C1DD1F9C2007EBA0A /* Manager */,
+				2A403D5B1DD1D9FC007EBA0A /* Entities */,
+				2A687B4B1DCBB1C200AB88F5 /* Controllers */,
+				2AD36D541DC5141600F63E90 /* AppDelegate.swift */,
+				2AD36D5B1DC5141600F63E90 /* Assets.xcassets */,
+				2AD36D5D1DC5141600F63E90 /* LaunchScreen.storyboard */,
+				2AD36D601DC5141600F63E90 /* Info.plist */,
+			);
+			path = CalenalaApp;
+			sourceTree = "<group>";
+		};
+		5E3BA76E2942EC889E73A935 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C814227CA2AE15D0BCDFDC84 /* Pods.debug.xcconfig */,
+				602659FDEEF25591413A4F03 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CBDFB59D505ED05324D3D9E2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3D9EBD1E82C38EB493687E06 /* Pods_CalenalaApp.framework */,
+				D0CA63E0FD7895AEB0A765D5 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2AD36D501DC5141600F63E90 /* CalenalaApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2AD36D631DC5141600F63E90 /* Build configuration list for PBXNativeTarget "CalenalaApp" */;
+			buildPhases = (
+				140520DB1192E5CD089A6929 /* Check Pods Manifest.lock */,
+				2AD36D4D1DC5141600F63E90 /* Sources */,
+				2AD36D4E1DC5141600F63E90 /* Frameworks */,
+				2AD36D4F1DC5141600F63E90 /* Resources */,
+				2DAB227670B0D0816F12D285 /* Embed Pods Frameworks */,
+				9C6EC6F2163C33C4EAA29E0C /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CalenalaApp;
+			productName = CalenalaApp;
+			productReference = 2AD36D511DC5141600F63E90 /* CalenalaApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2AD36D491DC5141600F63E90 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "Krezelok, Daniel";
+				TargetAttributes = {
+					2AD36D501DC5141600F63E90 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = L5425Y5HQ6;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 2AD36D4C1DC5141600F63E90 /* Build configuration list for PBXProject "CalenalaApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2AD36D481DC5141600F63E90;
+			productRefGroup = 2AD36D521DC5141600F63E90 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2AD36D501DC5141600F63E90 /* CalenalaApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2AD36D4F1DC5141600F63E90 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AD36D5F1DC5141600F63E90 /* LaunchScreen.storyboard in Resources */,
+				2AD36D5C1DC5141600F63E90 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		140520DB1192E5CD089A6929 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2DAB227670B0D0816F12D285 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9C6EC6F2163C33C4EAA29E0C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2AD36D4D1DC5141600F63E90 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A66D6841DEC38E6008C4239 /* UIViewController+Alert.swift in Sources */,
+				2AB64F1B1DCCAEB4005A058E /* MeetingCell.swift in Sources */,
+				2A403D641DD30EF3007EBA0A /* MeetingDetailView.swift in Sources */,
+				2A5297711DD4905400DB18A7 /* String+Date.swift in Sources */,
+				2A403D661DD313A9007EBA0A /* MeetingDetail.swift in Sources */,
+				2AB64F1D1DCCAECB005A058E /* Meeting.swift in Sources */,
+				2A687B4F1DCBB1FF00AB88F5 /* LoginViewController.swift in Sources */,
+				2A403D5E1DD1F9D7007EBA0A /* APIManager.swift in Sources */,
+				2A8AD8081DC7E050009D7918 /* User.swift in Sources */,
+				2AB64F181DCCADE2005A058E /* MeetingsDataSource.swift in Sources */,
+				2A687B511DCBB24A00AB88F5 /* LoginView.swift in Sources */,
+				2AD36D551DC5141600F63E90 /* AppDelegate.swift in Sources */,
+				2AB64F161DCC9341005A058E /* MeetingsViewController.swift in Sources */,
+				2A403D611DD30E07007EBA0A /* MeetingDetailViewController.swift in Sources */,
+				2A5297731DD5CFAF00DB18A7 /* RatingView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2AD36D5D1DC5141600F63E90 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2AD36D5E1DC5141600F63E90 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2AD36D611DC5141600F63E90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2AD36D621DC5141600F63E90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2AD36D641DC5141600F63E90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C814227CA2AE15D0BCDFDC84 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CalenalaApp/CalenalaApp.entitlements;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = L5425Y5HQ6;
+				INFOPLIST_FILE = CalenalaApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = technology.tomorrow.calenalarating;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		2AD36D651DC5141600F63E90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 602659FDEEF25591413A4F03 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CalenalaApp/CalenalaApp.entitlements;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = L5425Y5HQ6;
+				INFOPLIST_FILE = CalenalaApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = technology.tomorrow.calenalarating;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2AD36D4C1DC5141600F63E90 /* Build configuration list for PBXProject "CalenalaApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2AD36D611DC5141600F63E90 /* Debug */,
+				2AD36D621DC5141600F63E90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2AD36D631DC5141600F63E90 /* Build configuration list for PBXNativeTarget "CalenalaApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2AD36D641DC5141600F63E90 /* Debug */,
+				2AD36D651DC5141600F63E90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2AD36D491DC5141600F63E90 /* Project object */;
+}

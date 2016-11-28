@@ -1,0 +1,21 @@
+PODS:
+  - IQKeyboardManagerSwift (4.0.7)
+  - Mantle (2.1.0):
+    - Mantle/extobjc (= 2.1.0)
+  - Mantle/extobjc (2.1.0)
+  - MBProgressHUD (1.0.0)
+  - PureLayout (3.0.2)
+
+DEPENDENCIES:
+  - IQKeyboardManagerSwift
+  - Mantle
+  - MBProgressHUD
+  - PureLayout
+
+SPEC CHECKSUMS:
+  IQKeyboardManagerSwift: 58bbcf46b5cf9fd4ed625d28a60cb2fbae4ab0f4
+  Mantle: 2fa750afa478cd625a94230fbf1c13462f29395b
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
+
+COCOAPODS: 0.39.0
