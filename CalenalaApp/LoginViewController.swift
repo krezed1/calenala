@@ -26,7 +26,7 @@ class LoginViewController: UIViewController {
     }
 
     override func viewDidLoad() {
-        loginView?.loginButton?.addTarget(self, action: #selector(LoginViewController.loginButtonDidPress), for: .touchUpInside)
+        loginView?.loginButton.addTarget(self, action: #selector(LoginViewController.loginButtonDidPress), for: .touchUpInside)
     }
 
 // MARK: UserActions
@@ -37,7 +37,7 @@ class LoginViewController: UIViewController {
         hud.mode = .indeterminate
 
         weak var weakSelf = self
-        User.login(username: loginView!.usernameField!.text!, password: loginView!.passwordField!.text!, completion: {
+        User.login(username: loginView!.usernameField.text!, password: loginView!.passwordField.text!, completion: {
             hud.hide(animated: true)
             let meetingsViewController = MeetingsViewController()
             let navigationController = UINavigationController(rootViewController: meetingsViewController)

@@ -12,73 +12,89 @@ import PureLayout
 
 class LoginView: UIView {
 
-    var usernameField: UITextField?
-    var passwordField: UITextField?
-    var loginButton: UIButton?
-    private var loginContentView: UIView?
+    var titleLabel: UILabel = UILabel()
+    var usernameLabel: UILabel = UILabel()
+    var usernameField: UITextField = UITextField()
+    var passwordField: UITextField = UITextField()
+    var loginButton: UIButton = UIButton(type: .custom)
 
-    private var didSetupConstraints = false
+    private var loginContentView: UIView = UIView()
 
     init() {
         super.init(frame: CGRect.zero)
-        self.backgroundColor = UIColor.white
+        backgroundColor = UIColor(colorLiteralRed: 66/255, green: 189/255, blue: 216/255, alpha: 1)
 
-        usernameField = UITextField()
-        passwordField = UITextField()
-        passwordField?.isSecureTextEntry = true
-
-        usernameField?.font = UIFont.systemFont(ofSize: 16)
-        passwordField?.font = UIFont.systemFont(ofSize: 16)
-
-        usernameField?.placeholder = NSLocalizedString("example@mail.com", comment: "USERNAME_FIELD")
-        passwordField?.placeholder = NSLocalizedString("password", comment: "PASSWORD_FIELD")
-
-        loginButton = UIButton(type: .custom)
-        loginButton?.setTitle(NSLocalizedString("Login", comment: "LOGIN_BUTTON"), for: .normal)
-        loginButton?.titleLabel?.font = UIFont.systemFont(ofSize: 24)
-        loginButton?.backgroundColor = UIColor.darkGray
-
-        loginContentView = UIView()
-
-        loginContentView?.addSubview(usernameField!)
-        loginContentView?.addSubview(passwordField!)
-        loginContentView?.addSubview(loginButton!)
-
-        self.addSubview(loginContentView!)
-
-        self.updateConstraints()
+        setUpView()
+        layoutView()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func updateConstraints() {
+//  MARK: Private
 
-        if didSetupConstraints == false {
-            didSetupConstraints = true
+    private func setUpView() {
+        loginContentView.addSubview(usernameLabel)
+        loginContentView.addSubview(usernameField)
+        loginContentView.addSubview(loginButton)
 
-            usernameField?.autoPinEdge(toSuperviewEdge: .top, withInset: 0)
-            usernameField?.autoPinEdge(toSuperviewEdge: .left, withInset: 16)
-            usernameField?.autoPinEdge(toSuperviewEdge: .right, withInset: 16)
+        addSubview(titleLabel)
+        addSubview(loginContentView)
 
-            passwordField?.autoPinEdge(.top, to: .bottom, of: usernameField!, withOffset: 8)
-            passwordField?.autoPinEdge(toSuperviewEdge: .left, withInset: 16)
-            passwordField?.autoPinEdge(toSuperviewEdge: .right, withInset: 16)
+        passwordField.isSecureTextEntry = true
 
-            loginButton?.autoPinEdge(.top, to: .bottom, of: passwordField!, withOffset: 64)
-            loginButton?.autoPinEdge(toSuperviewEdge: .left, withInset: 16)
-            loginButton?.autoPinEdge(toSuperviewEdge: .right, withInset: 16)
+        usernameField.font = UIFont.systemFont(ofSize: 16)
+        usernameField.layer.cornerRadius = 5
+        usernameField.layer.borderColor = UIColor(colorLiteralRed: 223/255, green: 223/255, blue: 223/255, alpha: 1).cgColor
+        usernameField.layer.borderWidth = 1
 
-            loginButton?.autoPinEdge(.bottom, to: .bottom, of: loginContentView!, withOffset: 0)
+        passwordField.font = UIFont.systemFont(ofSize: 16)
 
-            loginContentView?.autoPinEdge(toSuperviewEdge: .left, withInset: 0)
-            loginContentView?.autoPinEdge(toSuperviewEdge: .right, withInset: 0)
+        titleLabel.text = NSLocalizedString("CALENALA", comment: "")
+        titleLabel.textColor = UIColor.white
+        titleLabel.textAlignment = .center
+        titleLabel.font = UIFont.systemFont(ofSize: 17)
 
-            loginContentView?.autoAlignAxis(toSuperviewAxis: .horizontal)
-        }
+        usernameLabel.text = NSLocalizedString("Your e-mail", comment: "")
+        usernameLabel.textColor = UIColor(colorLiteralRed: 102/255, green: 102/255, blue: 102/255, alpha: 1)
+        usernameLabel.textAlignment = .center
+        usernameLabel.font = UIFont.systemFont(ofSize: 15)
 
-        super.updateConstraints()
+        loginButton.setTitle(NSLocalizedString("Log in", comment: "LOGIN_BUTTON"), for: .normal)
+        loginButton.titleLabel?.font = UIFont.systemFont(ofSize: 24)
+        loginButton.backgroundColor = UIColor(colorLiteralRed: 238/255 , green: 215/255, blue: 75/255, alpha: 1)
+        loginButton.setTitleColor(UIColor(colorLiteralRed: 102/255, green: 102/255, blue: 102/255, alpha: 1), for: .normal)
+        loginButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+
+        loginContentView.backgroundColor = UIColor.white
+    }
+
+    private func layoutView() {
+
+
+        usernameLabel.autoAlignAxis(toSuperviewAxis: .vertical)
+        usernameLabel.autoPinEdge(.bottom, to: .top, of: usernameField, withOffset: -17)
+
+        usernameField.autoAlignAxis(toSuperviewAxis: .horizontal)
+        usernameField.autoPinEdge(toSuperviewEdge: .left, withInset: 30)
+        usernameField.autoPinEdge(toSuperviewEdge: .right, withInset: 30)
+        usernameField.autoSetDimension(.height, toSize: 30)
+        
+//        passwordField?.autoPinEdge(.top, to: .bottom, of: usernameField!, withOffset: 8)
+//        passwordField?.autoPinEdge(toSuperviewEdge: .left, withInset: 16)
+//        passwordField?.autoPinEdge(toSuperviewEdge: .right, withInset: 16)
+
+        loginButton.autoPinEdge(toSuperviewEdge: .left, withInset: 0)
+        loginButton.autoPinEdge(toSuperviewEdge: .right, withInset: 0)
+        loginButton.autoPinEdge(.bottom, to: .bottom, of: loginContentView, withOffset: 0)
+        loginButton.autoSetDimension(.height, toSize: 50)
+
+        loginContentView.autoPinEdge(toSuperviewEdge: .left, withInset: 30)
+        loginContentView.autoPinEdge(toSuperviewEdge: .right, withInset: 30)
+
+        loginContentView.autoAlignAxis(toSuperviewAxis: .horizontal)
+        loginContentView.autoMatch(.height, to: .width, of: loginContentView, withMultiplier: 0.66)
     }
 }
 

@@ -28,12 +28,12 @@ class MeetingsViewController: UITableViewController, MeetingDetailDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(colorLiteralRed: 66/255, green: 189/255, blue: 216/255, alpha: 1)
         tableView.register(MeetingCell.self, forCellReuseIdentifier: MeetingCell.MEETING_CELL_IDENTIFIER)
         tableView.separatorStyle = .none
         tableView.dataSource = dataSource
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = 300
+//        tableView.estimatedRowHeight = 100
 
         initializeMeetings()
     }

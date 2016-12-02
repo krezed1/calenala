@@ -12,18 +12,24 @@ import UIKit
 class MeetingCell: UITableViewCell {
     static let MEETING_CELL_IDENTIFIER = "MEETING_CELL_IDENTIFIER"
 
+    private var timeView: TimeView = TimeView()
     private var nameLabel: UILabel = UILabel()
+    private var placeIconView: UIImageView = UIImageView()
+    private var placeLabel: UILabel = UILabel()
+
+    private var intervalIconView: UIImageView = UIImageView()
     private var intervalLabel: UILabel = UILabel()
-    private var oraganizerLabel: UILabel = UILabel()
     private var separatorView: UIView = UIView()
     private var ratingView: RatingView = RatingView()
 
+    private var cellContentView: UIView = UIView()
+
     public var meeting: Meeting? {
         didSet {
-            nameLabel.text = meeting!.name
+            nameLabel.text = String(format: "%@ - %@", meeting!.name!, meeting!.organizer!)
             intervalLabel.text = meeting!.populatedMeetingInterval
-            oraganizerLabel.text = meeting!.organizer
-
+            timeView.startLabel.text = meeting?.start?.populateHours()
+            timeView.endLabel.text = meeting?.end?.populateHours()
             if meeting!.rating != nil && meeting!.rating!.intValue > 0 {
                 ratingView.setRating(rating: meeting!.rating!.intValue)
                 ratingView.isHidden = false
@@ -48,39 +54,78 @@ class MeetingCell: UITableViewCell {
 // MARK: Private
 
     private func setUpCell() {
-        selectionStyle = .none
-        contentView.addSubview(nameLabel)
-        contentView.addSubview(intervalLabel)
-        contentView.addSubview(oraganizerLabel)
-        contentView.addSubview(separatorView)
-        contentView.addSubview(ratingView)
+        addSubview(cellContentView)
+        addSubview(timeView)
 
-        nameLabel.font = UIFont.systemFont(ofSize: 20, weight: 0.8)
-        intervalLabel.font = UIFont.systemFont(ofSize: 14, weight: 0.2)
-        oraganizerLabel.font = UIFont.systemFont(ofSize: 14, weight: 0.2)
-        separatorView.backgroundColor = UIColor.black
+        cellContentView.addSubview(nameLabel)
+        cellContentView.addSubview(intervalIconView)
+        cellContentView.addSubview(intervalLabel)
+
+        cellContentView.addSubview(placeIconView)
+        cellContentView.addSubview(placeLabel)
+
+        cellContentView.addSubview(separatorView)
+        cellContentView.addSubview(ratingView)
+
+        selectionStyle = .none
+
+        backgroundColor = UIColor.clear
+        contentView.backgroundColor = UIColor.clear
+
+        cellContentView.backgroundColor = UIColor.white
+
+        nameLabel.font = UIFont.systemFont(ofSize: 15)
+        nameLabel.textColor = UIColor(colorLiteralRed: 102/255, green: 102/255, blue: 102/255, alpha: 1)
+
+        intervalLabel.font = UIFont.systemFont(ofSize: 15)
+        intervalLabel.textColor = UIColor(colorLiteralRed: 153/255, green: 153/255, blue: 153/255, alpha: 1)
+
+        intervalIconView.image = UIImage(named: "time-icon")
+
+        placeLabel.font = UIFont.systemFont(ofSize: 15)
+        placeLabel.textColor = UIColor(colorLiteralRed: 153/255, green: 153/255, blue: 153/255, alpha: 1)
+
+        placeIconView.image = UIImage(named: "location-icon")
+        placeLabel.text = "Big meeting room"
+
+        separatorView.backgroundColor = UIColor(colorLiteralRed: 223/255, green: 223/255, blue: 223/255, alpha: 1)
     }
 
     private func layoutView() {
-
         nameLabel.autoPinEdge(toSuperviewEdge: .left, withInset: 16)
-        nameLabel.autoPinEdge(toSuperviewEdge: .top, withInset: 8)
-        nameLabel.autoPinEdge(.right, to: .left, of: ratingView, withOffset: 16)
+        nameLabel.autoPinEdge(toSuperviewEdge: .right, withInset: 16)
+        nameLabel.autoPinEdge(toSuperviewEdge: .top, withInset: 16)
 
-        intervalLabel.autoPinEdge(toSuperviewEdge: .left, withInset: 16)
-        intervalLabel.autoPinEdge(.top, to: .bottom, of: nameLabel, withOffset: 2)
-
-        oraganizerLabel.autoPinEdge(.top, to: .bottom, of: intervalLabel, withOffset: 20)
-        oraganizerLabel.autoPinEdge(toSuperviewEdge: .right, withInset: 16)
-        oraganizerLabel.autoPinEdge(toSuperviewEdge: .bottom, withInset: 8)
+        ratingView.autoPinEdge(toSuperviewEdge: .left, withInset: 16)
+        ratingView.autoPinEdge(.top, to: .bottom, of: nameLabel, withOffset: 8)
+        ratingView.autoSetDimension(.height, toSize: 10)
 
         separatorView.autoSetDimension(.height, toSize: 1)
-        separatorView.autoPinEdge(toSuperviewEdge: .left, withInset: 0)
-        separatorView.autoPinEdge(toSuperviewEdge: .right, withInset: 0)
-        separatorView.autoPinEdge(toSuperviewEdge: .bottom, withInset: 0)
+        separatorView.autoPinEdge(toSuperviewEdge: .left, withInset: 16)
+        separatorView.autoPinEdge(toSuperviewEdge: .right, withInset: 16)
+        separatorView.autoPinEdge(.top, to: .bottom, of: ratingView, withOffset: 16)
 
-        ratingView.autoPinEdge(toSuperviewEdge: .top, withInset: 8)
-        ratingView.autoPinEdge(toSuperviewEdge: .right, withInset: 8)
-        ratingView.autoSetDimension(.height, toSize: 15)
+        placeIconView.autoPinEdge(toSuperviewEdge: .left, withInset: 16)
+        placeIconView.autoPinEdge(.top, to: .bottom, of: separatorView, withOffset: 16)
+
+        placeLabel.autoPinEdge(.left, to: .right, of: placeIconView, withOffset: 4)
+        placeLabel.autoPinEdge(.top, to: .bottom, of: separatorView, withOffset: 14)
+
+        intervalIconView.autoPinEdge(toSuperviewEdge: .left, withInset: 16)
+        intervalIconView.autoPinEdge(.top, to: .bottom, of: placeLabel, withOffset: 16)
+
+        intervalLabel.autoPinEdge(.left, to: .right, of: intervalIconView, withOffset: 4)
+        intervalLabel.autoPinEdge(.top, to: .bottom, of: placeLabel, withOffset: 14)
+
+        cellContentView.autoPinEdge(toSuperviewEdge: .left, withInset: 50)
+        cellContentView.autoPinEdge(toSuperviewEdge: .right, withInset: 10)
+
+        cellContentView.autoPinEdge(toSuperviewEdge: .top, withInset: 0)
+        cellContentView.autoPinEdge(toSuperviewEdge: .bottom, withInset: 32)
+
+        timeView.autoPinEdge(toSuperviewEdge: .top, withInset: 0)
+        timeView.autoPinEdge(toSuperviewEdge: .bottom, withInset: 32)
+        timeView.autoPinEdge(toSuperviewEdge: .left, withInset: 0)
+        timeView.autoPinEdge(.right, to: .left, of: cellContentView, withOffset: 0)
     }
 }
