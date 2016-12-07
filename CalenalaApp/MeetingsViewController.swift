@@ -32,7 +32,7 @@ class MeetingsViewController: UITableViewController, MeetingDetailDelegate {
         tableView.register(MeetingCell.self, forCellReuseIdentifier: MeetingCell.MEETING_CELL_IDENTIFIER)
         tableView.separatorStyle = .none
         tableView.dataSource = dataSource
-        tableView.rowHeight = 300
+        tableView.rowHeight = 182
 //        tableView.estimatedRowHeight = 100
 
         initializeMeetings()
