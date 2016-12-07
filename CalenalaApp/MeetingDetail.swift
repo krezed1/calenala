@@ -89,5 +89,4 @@ class MeetingDetail: MTLModel, MTLJSONSerializing {
             }
         }
     }
-
 }

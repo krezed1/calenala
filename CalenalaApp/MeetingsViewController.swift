@@ -47,7 +47,6 @@ class MeetingsViewController: UITableViewController, MeetingDetailDelegate {
 //  MARK: Private
 
     func initializeMeetings() {
-
         let hud = MBProgressHUD.showAdded(to: view, animated: true)
         hud.mode = .indeterminate
 
