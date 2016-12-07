@@ -11,8 +11,12 @@ import UIKit
 
 class RatingView: UIStackView {
 
-    private static let BUTTON_OFF: UIImage = UIImage(named: "favorite_off", in: nil, compatibleWith: nil)!
-    private static let BUTTON_ON: UIImage = UIImage(named: "favorite_on", in: nil, compatibleWith: nil)!
+    private static let BUTTON_OFF: UIImage = UIImage(named: "star-empty", in: nil, compatibleWith: nil)!
+    private static let BUTTON_1: UIImage = UIImage(named: "star1-icon", in: nil, compatibleWith: nil)!
+    private static let BUTTON_2: UIImage = UIImage(named: "star2-icon", in: nil, compatibleWith: nil)!
+    private static let BUTTON_3: UIImage = UIImage(named: "star3-icon", in: nil, compatibleWith: nil)!
+    private static let BUTTON_4: UIImage = UIImage(named: "star4-icon", in: nil, compatibleWith: nil)!
+    private static let BUTTON_5: UIImage = UIImage(named: "star5-icon", in: nil, compatibleWith: nil)!
     private static let BUTTON_SIZE: CGSize = CGSize(width: 64, height: 64)
 
     private var button1: UIButton = UIButton(type: .custom)
@@ -90,11 +94,11 @@ class RatingView: UIStackView {
         button4.setImage(RatingView.BUTTON_OFF, for: .normal)
         button5.setImage(RatingView.BUTTON_OFF, for: .normal)
 
-        button1.setImage(RatingView.BUTTON_ON, for: .selected)
-        button2.setImage(RatingView.BUTTON_ON, for: .selected)
-        button3.setImage(RatingView.BUTTON_ON, for: .selected)
-        button4.setImage(RatingView.BUTTON_ON, for: .selected)
-        button5.setImage(RatingView.BUTTON_ON, for: .selected)
+        button1.setImage(RatingView.BUTTON_1, for: .selected)
+        button2.setImage(RatingView.BUTTON_2, for: .selected)
+        button3.setImage(RatingView.BUTTON_3, for: .selected)
+        button4.setImage(RatingView.BUTTON_4, for: .selected)
+        button5.setImage(RatingView.BUTTON_5, for: .selected)
 
         button1.addTarget(self, action: #selector(button1DidPress), for: .touchUpInside)
         button2.addTarget(self, action: #selector(button2DidPress), for: .touchUpInside)
@@ -104,16 +108,16 @@ class RatingView: UIStackView {
     }
 
     private func layoutView() {
-        button1.autoMatch(.height, to: .height, of: self)
-        button1.autoMatch(.width, to: .height, of: self)
-        button2.autoMatch(.height, to: .height, of: self)
-        button2.autoMatch(.width, to: .height, of: self)
-        button3.autoMatch(.height, to: .height, of: self)
-        button3.autoMatch(.width, to: .height, of: self)
-        button4.autoMatch(.height, to: .height, of: self)
-        button4.autoMatch(.width, to: .height, of: self)
-        button5.autoMatch(.height, to: .height, of: self)
-        button5.autoMatch(.width, to: .height, of: self)
+        button1.imageView?.autoMatch(.height, to: .height, of: self)
+        button1.imageView?.autoMatch(.width, to: .height, of: self)
+        button2.imageView?.autoMatch(.height, to: .height, of: self)
+        button2.imageView?.autoMatch(.width, to: .height, of: self)
+        button3.imageView?.autoMatch(.height, to: .height, of: self)
+        button3.imageView?.autoMatch(.width, to: .height, of: self)
+        button4.imageView?.autoMatch(.height, to: .height, of: self)
+        button4.imageView?.autoMatch(.width, to: .height, of: self)
+        button5.imageView?.autoMatch(.height, to: .height, of: self)
+        button5.imageView?.autoMatch(.width, to: .height, of: self)
 
 //        button1.autoSetDimensions(to: RatingView.BUTTON_SIZE)
 //        button2.autoSetDimensions(to: RatingView.BUTTON_SIZE)

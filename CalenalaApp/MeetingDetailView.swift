@@ -9,35 +9,51 @@
 import Foundation
 import UIKit
 
-class MeetingDetailView: UIView {
+class MeetingDetailView: UIScrollView {
+    
+    public var centerView: UIView = UIView()
 
+    public var titleLabel: UILabel = UILabel()
     public var nameLabel: UILabel = UILabel()
-    private var whenLabel: UILabel = UILabel()
+    public var organizerNameLabel: UILabel = UILabel()
+    public var ratingView: RatingView = RatingView()
+    private var firstSeparatorView: UIView = UIView()
+    
+    private var whereIcon: UIImageView = UIImageView()
     public var whenValueLabel: UILabel = UILabel()
 
-    private var whereLabel: UILabel = UILabel()
+    private var whenIcon: UIImageView = UIImageView()
     public var whereValueLabel: UILabel = UILabel()
+    private var secondSeparatorView: UIView = UIView()
+    
+    private var attendeesLabel: UILabel = UILabel()
+    public var emailStackView: EmailStackView = EmailStackView()
+    private var thirdSeparatorView: UIView = UIView()
+    
+    public var commentsLabel: UILabel = UILabel()
+    public var commentViewLayout: CommentViewLayout = CommentViewLayout()
 
-    private var whoLabel: UILabel = UILabel()
-    public var whoValueLabel: UILabel = UILabel()
-
-    private var oraganizerLabel: UILabel = UILabel()
-    public var oraganizerValueLabel: UILabel = UILabel()
-
-    public var ratingView: RatingView = RatingView()
+    public var organizerValueLabel: UILabel = UILabel()
 
     private var messageLabel: UILabel = UILabel()
     public var messageView: UITextView = UITextView()
     public var sendButton: UIButton = UIButton(type: .custom)
 
     static let LABEL_FONT = UIFont.systemFont(ofSize: 14)
+    
+    private let VERTICAL_INSET = UIScreen.main.bounds.size.width * 20/320
+    private let HORIZONTAL_INSET = UIScreen.main.bounds.size.width * 30/320
+    private let SEPARATOR_COLOR = UIColor(colorLiteralRed: 223/255, green: 223/255, blue: 223/255, alpha: 1)
+    private let BACKGROUND_BLUE_COLOR = UIColor(colorLiteralRed: 66/255, green: 189/255, blue: 216/255, alpha: 1)
+    private let SEND_BUTTON_COLOR = UIColor(colorLiteralRed: 239/255, green: 214/255, blue: 100/255, alpha: 1)
+    private let WHERE_IMAGE = UIImage(named: "location-icon")
+    private let WHEN_IMAGE = UIImage(named: "time-icon")
 
 //  MARK: LifeCycles
 
     init() {
         super.init(frame: CGRect.zero)
-        backgroundColor = UIColor.white
-
+        backgroundColor = BACKGROUND_BLUE_COLOR
         setUpView()
         layoutView()
     }
@@ -49,99 +65,145 @@ class MeetingDetailView: UIView {
 // MARK: Public
 
     public func disableMessageView() {
-        messageLabel.isHidden = true
-        messageView.isHidden = true
         ratingView.isUserInteractionEnabled = false
-        sendButton.isHidden = true
     }
 
 // MARK: Private
 
     private func setUpView() {
-        addSubview(nameLabel)
-        addSubview(whenLabel)
-        addSubview(whenValueLabel)
-        addSubview(whereLabel)
-        addSubview(whereValueLabel)
-        addSubview(whoLabel)
-        addSubview(whoValueLabel)
-        addSubview(oraganizerLabel)
-        addSubview(oraganizerValueLabel)
-        addSubview(ratingView)
-        addSubview(messageLabel)
-        addSubview(messageView)
-        addSubview(sendButton)
+        addSubview(centerView)
+        centerView.addSubview(titleLabel)
+        centerView.addSubview(nameLabel)
+        centerView.addSubview(organizerNameLabel)
+        centerView.addSubview(firstSeparatorView)
+        centerView.addSubview(whereIcon)
+        centerView.addSubview(whereValueLabel)
+        centerView.addSubview(whenIcon)
+        centerView.addSubview(whenValueLabel)
+        centerView.addSubview(secondSeparatorView)
+        centerView.addSubview(attendeesLabel)
+        centerView.addSubview(emailStackView)
+        centerView.addSubview(thirdSeparatorView)
+        centerView.addSubview(commentsLabel)
+        centerView.addSubview(commentViewLayout)
+        centerView.addSubview(organizerValueLabel)
+        centerView.addSubview(ratingView)
+        centerView.addSubview(messageLabel)
+        centerView.addSubview(messageView)
+        centerView.addSubview(sendButton)
+        
+        centerView.backgroundColor = UIColor.white
+        
+        firstSeparatorView.backgroundColor = SEPARATOR_COLOR
 
         messageLabel.text = NSLocalizedString("Message (optional)", comment: "MESSAGE_LABEL")
-        whenLabel.text = NSLocalizedString("When", comment: "WHEN_LABEL")
-        whereLabel.text = NSLocalizedString("Where", comment: "WHERE_LABEL")
-        whoLabel.text = NSLocalizedString("Who", comment: "WHO_LABEL")
-        oraganizerLabel.text = NSLocalizedString("Organizer", comment: "ORGANIZER_LABEL")
+        
+        whereIcon.image = WHERE_IMAGE
+        
+        whereValueLabel.textColor = UIColor.gray
+        
+        whenIcon.image = WHEN_IMAGE
+        
+        whenValueLabel.textColor = UIColor.gray
+        
+        secondSeparatorView.backgroundColor = SEPARATOR_COLOR
+        
+        attendeesLabel.text = NSLocalizedString("Attendees", comment: "")
+        attendeesLabel.textColor = UIColor.gray
+        
+        thirdSeparatorView.backgroundColor = SEPARATOR_COLOR
+        
+        commentsLabel.text = NSLocalizedString("Comments", comment: "")
+        commentsLabel.textColor = UIColor.gray
+        
+        sendButton.backgroundColor = SEND_BUTTON_COLOR
+        sendButton.setTitle(NSLocalizedString("Send comment", comment: "SEND_BUTTON"), for: .normal)
+        sendButton.setTitleColor(UIColor.black, for: .normal)
 
-        sendButton.backgroundColor = UIColor.darkGray
-        sendButton.setTitle(NSLocalizedString("Send", comment: "SEND_BUTTON"), for: .normal)
-        sendButton.setTitleColor(UIColor.white, for: .normal)
+        messageView.layer.borderColor = SEPARATOR_COLOR.cgColor
+        messageView.layer.borderWidth = 2
+        messageView.layer.cornerRadius = 5
+        messageView.placeholderText = NSLocalizedString("Write your comment here", comment: "")
+        messageView.textColor = UIColor.lightGray
 
-        messageView.layer.borderColor = UIColor.black.cgColor
-        messageView.layer.borderWidth = 1
-        messageView.layer.cornerRadius = 12
-
-        nameLabel.font = UIFont.systemFont(ofSize: 20)
-        whenLabel.font = MeetingDetailView.LABEL_FONT
+        titleLabel.font = UIFont.systemFont(ofSize: 20)
         whenValueLabel.font = MeetingDetailView.LABEL_FONT
-        whereLabel.font = MeetingDetailView.LABEL_FONT
         whereValueLabel.font = MeetingDetailView.LABEL_FONT
-        whoLabel.font = MeetingDetailView.LABEL_FONT
-        whoValueLabel.font = MeetingDetailView.LABEL_FONT
-        oraganizerLabel.font = MeetingDetailView.LABEL_FONT
-        oraganizerValueLabel.font = MeetingDetailView.LABEL_FONT
+        attendeesLabel.font = MeetingDetailView.LABEL_FONT
+        commentsLabel.font = MeetingDetailView.LABEL_FONT
+        organizerValueLabel.font = MeetingDetailView.LABEL_FONT
         messageLabel.font = MeetingDetailView.LABEL_FONT
         messageView.font = MeetingDetailView.LABEL_FONT
     }
 
     private func layoutView() {
+        
+        centerView.autoPinEdge(toSuperviewEdge: .top, withInset: 10)
+        centerView.autoMatch(.width, to: .width, of: self, withMultiplier: 0.95)
+        centerView.autoAlignAxis(toSuperviewAxis: .vertical)
+        centerView.autoPinEdge(toSuperviewEdge: .bottom, withInset: 10)
 
-        nameLabel.autoAlignAxis(toSuperviewAxis: .vertical)
-        nameLabel.autoPinEdge(toSuperviewEdge: .top, withInset: 70)
-
-        whenLabel.autoPinEdge(.top, to: .bottom, of: nameLabel, withOffset: 16)
-        whenLabel.autoPinEdge(toSuperviewEdge: .left, withInset: 16)
-
-        whenValueLabel.autoPinEdge(.top, to: .bottom, of: whenLabel, withOffset: 0)
-        whenValueLabel.autoPinEdge(toSuperviewEdge: .left, withInset: 48)
-
-        whereLabel.autoPinEdge(.top, to: .bottom, of: whenValueLabel, withOffset: 8)
-        whereLabel.autoPinEdge(toSuperviewEdge: .left, withInset: 16)
-
-        whereValueLabel.autoPinEdge(.top, to: .bottom, of: whereLabel, withOffset: 0)
-        whereValueLabel.autoPinEdge(toSuperviewEdge: .left, withInset: 48)
-
-        whoLabel.autoPinEdge(.top, to: .bottom, of: whereValueLabel, withOffset: 8)
-        whoLabel.autoPinEdge(toSuperviewEdge: .left, withInset: 16)
-
-        whoValueLabel.autoPinEdge(.top, to: .bottom, of: whoLabel, withOffset: 0)
-        whoValueLabel.autoPinEdge(toSuperviewEdge: .left, withInset: 48)
-
-        oraganizerLabel.autoPinEdge(.top, to: .bottom, of: whoValueLabel, withOffset: 8)
-        oraganizerLabel.autoPinEdge(toSuperviewEdge: .left, withInset: 16)
-
-        oraganizerValueLabel.autoPinEdge(.top, to: .bottom, of: oraganizerLabel, withOffset: 0)
-        oraganizerValueLabel.autoPinEdge(toSuperviewEdge: .left, withInset: 48)
-
-        ratingView.autoPinEdge(.top, to: .bottom, of: oraganizerValueLabel, withOffset: 40)
+        titleLabel.autoAlignAxis(toSuperviewAxis: .vertical)
+        titleLabel.autoPinEdge(.top, to: .top, of: centerView, withOffset: VERTICAL_INSET)
+        
+        ratingView.autoPinEdge(.top, to: .bottom, of: titleLabel, withOffset: VERTICAL_INSET)
         ratingView.autoAlignAxis(toSuperviewAxis: .vertical)
-        ratingView.autoSetDimension(.height, toSize: 64)
+        ratingView.autoMatch(.height, to: .width, of: self, withMultiplier: 17/320)
+        
+        firstSeparatorView.autoPinEdge(.top, to: .bottom, of: ratingView, withOffset: VERTICAL_INSET)
+        firstSeparatorView.autoSetDimension(.height, toSize: 2)
+        firstSeparatorView.autoMatch(.width, to: .width, of: centerView)
+        firstSeparatorView.autoAlignAxis(toSuperviewAxis: .vertical)
+        
+        whereIcon.autoPinEdge(.top, to: .bottom, of: firstSeparatorView, withOffset: VERTICAL_INSET * 1.5)
+        whereIcon.autoAlignAxis(.vertical, toSameAxisOf: centerView, withMultiplier: 0.3)
+        whereIcon.autoMatch(.width, to: .width, of: self, withMultiplier: 10/320)
+        whereIcon.autoMatch(.height, to: .width, of: whereIcon, withMultiplier: 15/10)
+        
+        whereValueLabel.autoAlignAxis(.horizontal, toSameAxisOf: whereIcon)
+        whereValueLabel.autoPinEdge(.leading, to: .trailing, of: whereIcon, withOffset: 10)
+        
+        whenIcon.autoAlignAxis(.vertical, toSameAxisOf: whereIcon)
+        whenIcon.autoPinEdge(.top, to: .bottom, of: whereIcon, withOffset: VERTICAL_INSET)
+        whenIcon.autoMatch(.width, to: .width, of: self, withMultiplier: 13/320)
+        whenIcon.autoMatch(.height, to: .width, of: whenIcon)
+        
+        whenValueLabel.autoAlignAxis(.horizontal, toSameAxisOf: whenIcon)
+        whenValueLabel.autoPinEdge(.leading, to: .leading, of: whereValueLabel)
+        
+        secondSeparatorView.autoPinEdge(.top, to: .bottom, of: whenIcon, withOffset: VERTICAL_INSET * 1.5)
+        secondSeparatorView.autoSetDimension(.height, toSize: 2)
+        secondSeparatorView.autoMatch(.width, to: .width, of: centerView)
+        secondSeparatorView.autoAlignAxis(toSuperviewAxis: .vertical)
 
-        messageLabel.autoPinEdge(.top, to: .bottom, of: ratingView, withOffset: 40)
-        messageLabel.autoPinEdge(toSuperviewEdge: .left, withInset: 16)
+        attendeesLabel.autoPinEdge(.top, to: .bottom, of: secondSeparatorView, withOffset: VERTICAL_INSET)
+        attendeesLabel.autoAlignAxis(toSuperviewAxis: .vertical)
+        
+        emailStackView.autoAlignAxis(toSuperviewAxis: .vertical)
+        emailStackView.autoPinEdge(.top, to: .bottom, of: attendeesLabel, withOffset: VERTICAL_INSET)
+        emailStackView.autoMatch(.width, to: .width, of: self, withMultiplier: 260/320)
+        
+        thirdSeparatorView.autoPinEdge(.top, to: .bottom, of: emailStackView, withOffset: VERTICAL_INSET)
+        thirdSeparatorView.autoSetDimension(.height, toSize: 2)
+        thirdSeparatorView.autoMatch(.width, to: .width, of: centerView)
+        thirdSeparatorView.autoAlignAxis(toSuperviewAxis: .vertical)
+        
+        commentsLabel.autoPinEdge(.top, to: .bottom, of: thirdSeparatorView, withOffset: VERTICAL_INSET)
+        commentsLabel.autoAlignAxis(toSuperviewAxis: .vertical)
+        
+        commentViewLayout.autoPinEdge(.top, to: .bottom, of: commentsLabel, withOffset: VERTICAL_INSET)
+        commentViewLayout.autoMatch(.width, to: .width, of: self, withMultiplier: 240/320)
+        commentViewLayout.autoAlignAxis(toSuperviewAxis: .vertical)
 
-        messageView.autoPinEdge(toSuperviewEdge: .left, withInset: 16)
-        messageView.autoPinEdge(toSuperviewEdge: .right, withInset: 16)
-        messageView.autoPinEdge(.top, to: .bottom, of: messageLabel, withOffset: 4)
-        messageView.autoSetDimension(.height, toSize: 160)
+        messageView.autoMatch(.width, to: .width, of: commentViewLayout)
+        messageView.autoAlignAxis(toSuperviewAxis: .vertical)
+        messageView.autoPinEdge(.top, to: .bottom, of: commentViewLayout, withOffset: VERTICAL_INSET)
+        messageView.autoMatch(.height, to: .width, of: self, withMultiplier: 85/320)
 
-        sendButton.autoMatch(.width, to: .width, of: self)
-        sendButton.autoSetDimension(.height, toSize: 60)
-        sendButton.autoPinEdge(.bottom, to: .bottom, of: self)
+        sendButton.autoPinEdge(.top, to: .bottom, of: messageView, withOffset: VERTICAL_INSET)
+        sendButton.autoMatch(.width, to: .width, of: centerView)
+        sendButton.autoMatch(.height, to: .width, of: self, withMultiplier: 50/320)
+        sendButton.autoAlignAxis(toSuperviewAxis: .vertical)
+        sendButton.autoPinEdge(.bottom, to: .bottom, of: centerView)
    }
 }
