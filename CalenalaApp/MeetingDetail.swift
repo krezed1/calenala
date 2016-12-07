@@ -13,6 +13,7 @@ class MeetingDetail: MTLModel, MTLJSONSerializing {
 
     public var meeting: Meeting?
     public var meetingDesc: String?
+    public var roomName: String?
     public var duration: String?
     public var peopleCount: String?
     public var accepted: String?
@@ -20,6 +21,7 @@ class MeetingDetail: MTLModel, MTLJSONSerializing {
     public var tentative: String?
     public var price: String?
     public var potentialPrice: String?
+    public var attendees: Array<Attende>?
 
 //  MARK: MTLJSONSerializing
 
@@ -35,6 +37,11 @@ class MeetingDetail: MTLModel, MTLJSONSerializing {
                 "potentialPrice" : "potentional_price"
         ]
     }
+
+//    + (NSValueTransformer *)HTMLURLJSONTransformer {
+//    return [NSValueTransformer valueTransformerForName:MTLURLValueTransformerName];
+//    }
+
 
 //  MARK: Public
 
@@ -74,7 +81,9 @@ class MeetingDetail: MTLModel, MTLJSONSerializing {
 
         APIManager.callRequest(request: request) { (JSON) in
             let meetingInfoJSON = JSON?["meeting_info"] as? [AnyHashable : Any]
+            let attendeesJSON = JSON?["attendees"] as? [Any]
             let meetingDetail = try! MTLJSONAdapter.model(of: MeetingDetail.self, fromJSONDictionary: meetingInfoJSON!) as? MeetingDetail
+            meetingDetail?.attendees = try! MTLJSONAdapter.models(of: Attende.self, fromJSONArray: attendeesJSON!) as? Array<Attende>
             DispatchQueue.main.async {
                 completion(meetingDetail)
             }

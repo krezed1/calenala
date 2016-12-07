@@ -25,6 +25,7 @@
 		2AD36D551DC5141600F63E90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD36D541DC5141600F63E90 /* AppDelegate.swift */; };
 		2AD36D5C1DC5141600F63E90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AD36D5B1DC5141600F63E90 /* Assets.xcassets */; };
 		2AD36D5F1DC5141600F63E90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AD36D5D1DC5141600F63E90 /* LaunchScreen.storyboard */; };
+		2AF62AC91DF8AABF005EEC23 /* Attende.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF62AC81DF8AABF005EEC23 /* Attende.swift */; };
 		5A80DD37F9CE1D430B98C144 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CA63E0FD7895AEB0A765D5 /* Pods.framework */; };
 		F649C8CC1DF5AFA700046CE3 /* EmailStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F649C8CB1DF5AFA700046CE3 /* EmailStackView.swift */; };
 		F649C8CE1DF5EE3D00046CE3 /* CommentViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F649C8CD1DF5EE3D00046CE3 /* CommentViewLayout.swift */; };
@@ -52,6 +53,7 @@
 		2AD36D5B1DC5141600F63E90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2AD36D5E1DC5141600F63E90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2AD36D601DC5141600F63E90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2AF62AC81DF8AABF005EEC23 /* Attende.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attende.swift; sourceTree = "<group>"; };
 		3D9EBD1E82C38EB493687E06 /* Pods_CalenalaApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalenalaApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		602659FDEEF25591413A4F03 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C814227CA2AE15D0BCDFDC84 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				2A8AD8071DC7E050009D7918 /* User.swift */,
 				2A403D651DD313A9007EBA0A /* MeetingDetail.swift */,
 				2A5297701DD4905400DB18A7 /* String+Date.swift */,
+				2AF62AC81DF8AABF005EEC23 /* Attende.swift */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				2AB64F181DCCADE2005A058E /* MeetingsDataSource.swift in Sources */,
 				2A687B511DCBB24A00AB88F5 /* LoginView.swift in Sources */,
 				2AD36D551DC5141600F63E90 /* AppDelegate.swift in Sources */,
+				2AF62AC91DF8AABF005EEC23 /* Attende.swift in Sources */,
 				2AB64F161DCC9341005A058E /* MeetingsViewController.swift in Sources */,
 				2A403D611DD30E07007EBA0A /* MeetingDetailViewController.swift in Sources */,
 				2A5297731DD5CFAF00DB18A7 /* RatingView.swift in Sources */,

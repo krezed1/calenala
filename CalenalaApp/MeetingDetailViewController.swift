@@ -90,7 +90,7 @@ class  MeetingDetailViewController: UIViewController {
     private func initializeMeetingDetail() {
         detailView?.nameLabel.text = meetingDetail?.meeting?.name
         detailView?.whenValueLabel.text = meetingDetail?.meeting?.populatedMeetingInterval
-        detailView?.whereValueLabel.text = "Big meeting room"
+        detailView?.whereValueLabel.text = meetingDetail?.meeting?.locationName
         detailView?.organizerNameLabel.text = " - Zdeněk"
         detailView?.organizerValueLabel.text = meetingDetail?.meeting?.organizer
         detailView?.titleLabel.text = (detailView?.nameLabel.text)! + (detailView?.organizerNameLabel.text)!
