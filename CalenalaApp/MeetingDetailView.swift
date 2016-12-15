@@ -45,7 +45,8 @@ class MeetingDetailView: UIScrollView {
     private let HORIZONTAL_INSET = UIScreen.main.bounds.size.width * 30/320
     private let SEPARATOR_COLOR = UIColor(colorLiteralRed: 223/255, green: 223/255, blue: 223/255, alpha: 1)
     private let BACKGROUND_BLUE_COLOR = UIColor(colorLiteralRed: 66/255, green: 189/255, blue: 216/255, alpha: 1)
-    private let SEND_BUTTON_COLOR = UIColor(colorLiteralRed: 239/255, green: 214/255, blue: 100/255, alpha: 1)
+    private let SEND_BUTTON_COLOR = UIColor(colorLiteralRed: 238/255, green: 215/255, blue: 75/255, alpha: 1)
+    private let SEND_TEXT_COLOR = UIColor(colorLiteralRed: 102/255, green: 102/255, blue: 102/255, alpha: 1)
     private let WHERE_IMAGE = UIImage(named: "location-icon")
     private let WHEN_IMAGE = UIImage(named: "time-icon")
 
@@ -118,7 +119,7 @@ class MeetingDetailView: UIScrollView {
         
         sendButton.backgroundColor = SEND_BUTTON_COLOR
         sendButton.setTitle(NSLocalizedString("Send comment", comment: "SEND_BUTTON"), for: .normal)
-        sendButton.setTitleColor(UIColor.black, for: .normal)
+        sendButton.setTitleColor(SEND_TEXT_COLOR, for: .normal)
 
         messageView.layer.borderColor = SEPARATOR_COLOR.cgColor
         messageView.layer.borderWidth = 2
