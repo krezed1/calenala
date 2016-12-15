@@ -17,6 +17,7 @@ class Meeting: MTLModel, MTLJSONSerializing {
     public var end: String?
     public var organizer: String?
     public var rating: NSNumber?
+    public var locationName: String?
 
     public var populatedMeetingInterval: String? {
         let meetingInterval = String(format:"%@, %@ - %@", start!.populateBaseDate(), start!.populateHours(), end!.populateHours())
@@ -32,7 +33,8 @@ class Meeting: MTLModel, MTLJSONSerializing {
                 "start" : "start",
                 "end" : "end",
                 "organizer" : "organizer",
-                "rating" : "rating"
+                "rating" : "rating",
+                "locationName" : "location_name"
         ]
     }
 

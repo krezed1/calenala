@@ -30,6 +30,7 @@ class MeetingCell: UITableViewCell {
             intervalLabel.text = meeting!.populatedMeetingInterval
             timeView.startLabel.text = meeting?.start?.populateHours()
             timeView.endLabel.text = meeting?.end?.populateHours()
+            placeLabel.text = meeting?.locationName
             if meeting!.rating != nil && meeting!.rating!.intValue > 0 {
                 ratingView.setRating(rating: meeting!.rating!.intValue)
                 ratingView.isHidden = false
@@ -86,7 +87,6 @@ class MeetingCell: UITableViewCell {
         placeLabel.textColor = UIColor(colorLiteralRed: 153/255, green: 153/255, blue: 153/255, alpha: 1)
 
         placeIconView.image = UIImage(named: "location-icon")
-        placeLabel.text = "Big meeting room"
 
         separatorView.backgroundColor = UIColor(colorLiteralRed: 223/255, green: 223/255, blue: 223/255, alpha: 1)
     }
