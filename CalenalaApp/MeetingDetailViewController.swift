@@ -15,6 +15,8 @@ protocol MeetingDetailDelegate {
 }
 class  MeetingDetailViewController: UIViewController {
 
+    let commentDataSource: CommentTableViewDataSource = CommentTableViewDataSource()
+    public var commentTableViewCell: CommentTableViewCell?
     public var meetingDelegate: MeetingDetailDelegate?
     private var meetingDetail: MeetingDetail?
     private var detailView: MeetingDetailView? {
@@ -41,6 +43,7 @@ class  MeetingDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        detailView?.commentTableView.dataSource = commentDataSource
 
         loadMeetingDetail()
         detailView?.sendButton.addTarget(self, action: #selector(sendButtonDidPress), for: .touchUpInside)

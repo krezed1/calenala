@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class MeetingDetailView: UIScrollView {
+class MeetingDetailView: UIScrollView, UITextViewDelegate {
     
     public var centerView: UIView = UIView()
 
@@ -31,7 +31,7 @@ class MeetingDetailView: UIScrollView {
     private var thirdSeparatorView: UIView = UIView()
     
     public var commentsLabel: UILabel = UILabel()
-    public var commentViewLayout: CommentViewLayout = CommentViewLayout()
+    public var commentTableView: UITableView = UITableView()
 
     public var organizerValueLabel: UILabel = UILabel()
 
@@ -73,23 +73,23 @@ class MeetingDetailView: UIScrollView {
 
     private func setUpView() {
         addSubview(centerView)
+        centerView.addSubview(ratingView)
         centerView.addSubview(titleLabel)
         centerView.addSubview(nameLabel)
-        centerView.addSubview(organizerNameLabel)
         centerView.addSubview(firstSeparatorView)
+        
         centerView.addSubview(whereIcon)
         centerView.addSubview(whereValueLabel)
         centerView.addSubview(whenIcon)
         centerView.addSubview(whenValueLabel)
         centerView.addSubview(secondSeparatorView)
+        
         centerView.addSubview(attendeesLabel)
         centerView.addSubview(emailStackView)
         centerView.addSubview(thirdSeparatorView)
+        
         centerView.addSubview(commentsLabel)
-        centerView.addSubview(commentViewLayout)
-        centerView.addSubview(organizerValueLabel)
-        centerView.addSubview(ratingView)
-        centerView.addSubview(messageLabel)
+        centerView.addSubview(commentTableView)
         centerView.addSubview(messageView)
         centerView.addSubview(sendButton)
         
@@ -117,14 +117,22 @@ class MeetingDetailView: UIScrollView {
         commentsLabel.text = NSLocalizedString("Comments", comment: "")
         commentsLabel.textColor = UIColor.gray
         
+        commentTableView.backgroundColor = .white
+        commentTableView.separatorStyle = .none
+        commentTableView.rowHeight = UITableViewAutomaticDimension
+        commentTableView.estimatedRowHeight = 100
+        commentTableView.register(CommentTableViewCell.self, forCellReuseIdentifier: CommentTableViewCell.commentTableViewCellReuseIdentifier)
+        
         sendButton.backgroundColor = SEND_BUTTON_COLOR
         sendButton.setTitle(NSLocalizedString("Send comment", comment: "SEND_BUTTON"), for: .normal)
         sendButton.setTitleColor(SEND_TEXT_COLOR, for: .normal)
 
+        messageView.delegate = self
         messageView.layer.borderColor = SEPARATOR_COLOR.cgColor
         messageView.layer.borderWidth = 2
         messageView.layer.cornerRadius = 5
-        messageView.placeholderText = NSLocalizedString("Write your comment here", comment: "")
+        messageView.text = NSLocalizedString("Write your comment here", comment: "")
+        messageView.font = UIFont.systemFont(ofSize: 10)
         messageView.textColor = UIColor.lightGray
 
         titleLabel.font = UIFont.systemFont(ofSize: 20)
@@ -134,7 +142,6 @@ class MeetingDetailView: UIScrollView {
         commentsLabel.font = MeetingDetailView.LABEL_FONT
         organizerValueLabel.font = MeetingDetailView.LABEL_FONT
         messageLabel.font = MeetingDetailView.LABEL_FONT
-        messageView.font = MeetingDetailView.LABEL_FONT
     }
 
     private func layoutView() {
@@ -192,13 +199,14 @@ class MeetingDetailView: UIScrollView {
         commentsLabel.autoPinEdge(.top, to: .bottom, of: thirdSeparatorView, withOffset: VERTICAL_INSET)
         commentsLabel.autoAlignAxis(toSuperviewAxis: .vertical)
         
-        commentViewLayout.autoPinEdge(.top, to: .bottom, of: commentsLabel, withOffset: VERTICAL_INSET)
-        commentViewLayout.autoMatch(.width, to: .width, of: self, withMultiplier: 240/320)
-        commentViewLayout.autoAlignAxis(toSuperviewAxis: .vertical)
+        commentTableView.autoPinEdge(.top, to: .bottom, of: commentsLabel, withOffset: VERTICAL_INSET)
+        commentTableView.autoMatch(.width, to: .width, of: self, withMultiplier: 260/320)
+        commentTableView.autoMatch(.height, to: .height, of: self, withMultiplier: 0.4)
+        commentTableView.autoAlignAxis(toSuperviewAxis: .vertical)
 
-        messageView.autoMatch(.width, to: .width, of: commentViewLayout)
+        messageView.autoMatch(.width, to: .width, of: self, withMultiplier: 260/320)
         messageView.autoAlignAxis(toSuperviewAxis: .vertical)
-        messageView.autoPinEdge(.top, to: .bottom, of: commentViewLayout, withOffset: VERTICAL_INSET)
+        messageView.autoPinEdge(.top, to: .bottom, of: commentTableView, withOffset: VERTICAL_INSET)
         messageView.autoMatch(.height, to: .width, of: self, withMultiplier: 85/320)
 
         sendButton.autoPinEdge(.top, to: .bottom, of: messageView, withOffset: VERTICAL_INSET)
@@ -207,4 +215,21 @@ class MeetingDetailView: UIScrollView {
         sendButton.autoAlignAxis(toSuperviewAxis: .vertical)
         sendButton.autoPinEdge(.bottom, to: .bottom, of: centerView)
    }
+
+// messageView placeholder settings
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if messageView.textColor == UIColor.lightGray {
+            messageView.text = nil
+            messageView.textColor = UIColor.black
+            messageView.font = UIFont.systemFont(ofSize: 16)
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if messageView.text.isEmpty {
+            messageView.text = NSLocalizedString("Write your comment here", comment: "")
+            messageView.font = UIFont.systemFont(ofSize: 10)
+            messageView.textColor = UIColor.lightGray
+        }
+    }
 }

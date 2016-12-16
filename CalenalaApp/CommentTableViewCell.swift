@@ -1,28 +1,48 @@
 //
-//  CommentViewLayout.swift
+//  CommentTableViewCell.swift
 //  CalenalaApp
 //
 //  Created by Michael Pohl on 05.12.16.
 //  Copyright © 2016 Krezelok, Daniel. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import PureLayout
 
-class CommentViewLayout: UIView {
+class CommentTableViewCell: UITableViewCell {
     
-    private var ratingView: RatingView = RatingView()
-    private var timeAgoLabel: UILabel = UILabel()
+    static var commentTableViewCellReuseIdentifier = "commentTableViewCellReuseIdentifier"
+    
+    public var ratingView: RatingView = RatingView()
+    public var timeAgoLabel: UILabel = UILabel()
     public var commentLabel: UILabel = UILabel()
     
     private let VERTICAL_SPACING = UIScreen.main.bounds.size.width * 15/320
     private let TIME_FONT_AND_SIZE = UIFont.systemFont(ofSize: 14)
     private let COMMENT_FONT_AND_SIZE = UIFont.systemFont(ofSize: 12)
     private let TEXT_COLOR = UIColor(colorLiteralRed: 153/255, green: 153/255, blue: 153/255, alpha: 1)
+    
+    public var attende: Attende? {
+        didSet {
+            
+        if let rating = attende?.rating,
+            let ratingDesc = attende?.ratingDesc,
+            let numericRating = Int(rating) {
+                if numericRating > 0 {
+                    ratingView.setRating(rating: numericRating)
+                    ratingView.isHidden = false
+                    } else {
+                    ratingView.isHidden = true
+                    }
+            commentLabel.text = ratingDesc
+            timeAgoLabel.text = "4 hours ago" // TODO: změnit podle API
+            }
+        }
+    }
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = .white
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         setupViewItems()
         layoutView()
@@ -32,6 +52,9 @@ class CommentViewLayout: UIView {
         addSubview(ratingView)
         addSubview(timeAgoLabel)
         addSubview(commentLabel)
+        
+        selectionStyle = .none
+        backgroundColor = .white
         
         timeAgoLabel.text = NSLocalizedString("4 hours ago", comment: "")
         timeAgoLabel.font = TIME_FONT_AND_SIZE
@@ -45,7 +68,7 @@ class CommentViewLayout: UIView {
     }
     
     private func layoutView() {
-        ratingView.autoPinEdge(toSuperviewEdge: .top)
+        ratingView.autoPinEdge(toSuperviewEdge: .top, withInset: 10)
         ratingView.autoPinEdge(toSuperviewEdge: .leading)
         ratingView.autoMatch(.height, to: .width, of: self, withMultiplier: 15/320)
         
@@ -55,7 +78,7 @@ class CommentViewLayout: UIView {
         commentLabel.autoPinEdge(toSuperviewEdge: .leading)
         commentLabel.autoPinEdge(.top, to: .bottom, of: ratingView, withOffset: VERTICAL_SPACING)
         commentLabel.autoMatch(.width, to: .width, of: self, withMultiplier: 240/320)
-        commentLabel.autoPinEdge(toSuperviewEdge: .bottom)
+        commentLabel.autoPinEdge(toSuperviewEdge: .bottom, withInset: 10)
     }
     
     required init?(coder aDecoder: NSCoder) {
