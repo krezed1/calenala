@@ -10,17 +10,30 @@ import UIKit
 
 class CommentTableViewDataSource: NSObject, UITableViewDataSource {
     
-    public var attende: [Attende] = []
-    
+    public var meetingDetail: MeetingDetail?
+
+//  MARK: LifeCycles
+
+    init(meeting: Meeting) {
+        meetingDetail = MeetingDetail()
+        meetingDetail?.meeting = meeting
+    }
+
+//  MARK: UITableViewDataSource
+
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        guard let count = meetingDetail?.attendeesRated()?.count, count > 0 else {
+            return 0
+        }
+
+        return count
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let comment = attende[indexPath.row]
+        let attende = meetingDetail?.attendeesRated()?[indexPath.row]
         let cell: CommentTableViewCell = tableView.dequeueReusableCell(withIdentifier: CommentTableViewCell.commentTableViewCellReuseIdentifier) as! CommentTableViewCell
-//        cell.attende = comment
-        
+        cell.attende = attende
+
         return cell
     }
 }

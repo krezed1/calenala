@@ -29,12 +29,7 @@ class CommentTableViewCell: UITableViewCell {
         if let rating = attende?.rating,
             let ratingDesc = attende?.ratingDesc,
             let numericRating = Int(rating) {
-                if numericRating > 0 {
-                    ratingView.setRating(rating: numericRating)
-                    ratingView.isHidden = false
-                    } else {
-                    ratingView.isHidden = true
-                    }
+            ratingView.setRating(rating: numericRating)
             commentLabel.text = ratingDesc
             timeAgoLabel.text = "4 hours ago" // TODO: změnit podle API
             }

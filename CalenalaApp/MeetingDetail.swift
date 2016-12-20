@@ -45,6 +45,21 @@ class MeetingDetail: MTLModel, MTLJSONSerializing {
 
 //  MARK: Public
 
+    public func attendeesRated() -> Array<Attende>? {
+        var attendeesRated: Array<Attende> = Array<Attende>()
+        guard let atts = attendees else {
+            return attendeesRated
+        }
+
+        for attendee in atts {
+            if attendee.rated() == true {
+                attendeesRated.append(attendee)
+            }
+        }
+
+        return attendeesRated
+    }
+
     public func rateMeeting(rating: Int, ratingDesc: String, completion: @escaping (Bool) -> Swift.Void) {
         let url = URL(string: APIManager.BASE_API_URL)
         let params = String(format: "action=MobileApi&api_key=123456apikey&akce=rateMeeting&token=%@&meeting_id=%@&rating=%d&rating_description=%@", User.currentUser.token!, meeting!.meetingId!, rating, ratingDesc)

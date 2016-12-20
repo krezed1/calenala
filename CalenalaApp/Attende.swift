@@ -29,4 +29,15 @@ class Attende: MTLModel, MTLJSONSerializing {
         ]
     }
 
+    public func rated() -> Bool {
+        guard let rate = rating else  {
+            return false
+        }
+
+        guard let ratingInt = Int(rate), ratingInt > 0 else {
+            return false
+        }
+
+        return true
+    }
 }

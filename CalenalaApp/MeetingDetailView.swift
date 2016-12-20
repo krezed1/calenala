@@ -67,6 +67,8 @@ class MeetingDetailView: UIScrollView, UITextViewDelegate {
 
     public func disableMessageView() {
         ratingView.isUserInteractionEnabled = false
+        messageView.isHidden = true
+        sendButton.isHidden = true
     }
 
 // MARK: Private
