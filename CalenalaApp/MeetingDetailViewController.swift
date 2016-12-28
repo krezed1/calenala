@@ -17,6 +17,7 @@ class  MeetingDetailViewController: UIViewController {
 
     var commentDataSource: CommentTableViewDataSource?
     public var meetingDelegate: MeetingDetailDelegate?
+//    public var titleCell: TitleTableViewCell?
     private var detailView: MeetingDetailView? {
         return view as? MeetingDetailView
     }
@@ -39,44 +40,46 @@ class  MeetingDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        detailView?.commentTableView.dataSource = commentDataSource
-
+        navigationController?.navigationBar.barTintColor = .white
+        edgesForExtendedLayout = UIRectEdge.bottom
+        detailView?.dataSource = commentDataSource
+    
         loadMeetingDetail()
-        detailView?.sendButton.addTarget(self, action: #selector(sendButtonDidPress), for: .touchUpInside)
+//        detailView?.sendButton.addTarget(self, action: #selector(sendButtonDidPress), for: .touchUpInside)
 
         guard let rating = commentDataSource?.meetingDetail?.meeting?.rating?.intValue, rating > 0 else  {
             return
         }
 
-        detailView?.ratingView.setRating(rating: rating)
-        detailView?.disableMessageView()
+        detailView?.titleCell?.ratingView.setRating(rating: rating)
+//        detailView?.disableMessageView()
     }
 
 //  MARK: UserActions
 
-    func sendButtonDidPress() {
-        let rating = detailView?.ratingView.getRating()
-        let ratingDesc = detailView?.messageView.text
-
-        let hud = MBProgressHUD.showAdded(to: detailView!, animated: true)
-        hud.mode = .indeterminate
-
-        weak var weakSelf = self
-        commentDataSource?.meetingDetail?.rateMeeting(rating: rating!, ratingDesc: ratingDesc!, completion: { (result) in
-            hud.hide(animated: false)
-            if result == true {
-                if weakSelf?.meetingDelegate != nil {
-                    weakSelf?.commentDataSource?.meetingDetail?.meeting?.rating = NSNumber(integerLiteral: rating!)
-                    weakSelf?.meetingDelegate?.meetingDidRate(value: rating!)
-                }
-
-                _ = weakSelf?.navigationController?.popViewController(animated: true)
-            } else {
-                let ok = UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .cancel, handler: nil)
-                weakSelf?.showAlert(title: "Error", message: "Something went wrong", actions: [ok])
-            }
-        })
-    }
+//    func sendButtonDidPress() {
+//        let rating = detailView?.ratingView.getRating()
+//        let ratingDesc = detailView?.messageView.text
+//
+//        let hud = MBProgressHUD.showAdded(to: detailView!, animated: true)
+//        hud.mode = .indeterminate
+//
+//        weak var weakSelf = self
+//        commentDataSource?.meetingDetail?.rateMeeting(rating: rating!, ratingDesc: ratingDesc!, completion: { (result) in
+//            hud.hide(animated: false)
+//            if result == true {
+//                if weakSelf?.meetingDelegate != nil {
+//                    weakSelf?.commentDataSource?.meetingDetail?.meeting?.rating = NSNumber(integerLiteral: rating!)
+//                    weakSelf?.meetingDelegate?.meetingDidRate(value: rating!)
+//                }
+//
+//                _ = weakSelf?.navigationController?.popViewController(animated: true)
+//            } else {
+//                let ok = UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .cancel, handler: nil)
+//                weakSelf?.showAlert(title: "Error", message: "Something went wrong", actions: [ok])
+//            }
+//        })
+//    }
 
 //  MARK: Private
 
@@ -90,12 +93,12 @@ class  MeetingDetailViewController: UIViewController {
     }
 
     private func initializeMeetingDetail() {
-        detailView?.nameLabel.text = commentDataSource?.meetingDetail?.meeting?.name
-        detailView?.whenValueLabel.text = commentDataSource?.meetingDetail?.meeting?.populatedMeetingInterval
-        detailView?.whereValueLabel.text = commentDataSource?.meetingDetail?.meeting?.locationName
-        detailView?.organizerNameLabel.text = " - Zdeněk"
-        detailView?.organizerValueLabel.text = commentDataSource?.meetingDetail?.meeting?.organizer
-        detailView?.titleLabel.text = (detailView?.nameLabel.text)! + (detailView?.organizerNameLabel.text)!
-        detailView?.commentTableView.reloadData()
+        detailView?.titleCell?.nameLabel.text = commentDataSource?.meetingDetail?.meeting?.name
+//        detailView?.whenValueLabel.text = commentDataSource?.meetingDetail?.meeting?.populatedMeetingInterval
+//        detailView?.whereValueLabel.text = commentDataSource?.meetingDetail?.meeting?.locationName
+//        detailView?.titleCell?.organizerNameLabel.text = " - Zdeněk"
+        detailView?.titleCell?.organizerNameLabel.text = commentDataSource?.meetingDetail?.meeting?.organizer
+        detailView?.titleCell?.titleLabel.text = (detailView?.titleCell?.nameLabel.text)! + (detailView?.titleCell?.organizerNameLabel.text)!
+//        detailView?.commentTableView.reloadData()
     }
 }

@@ -30,6 +30,8 @@
 		F649C8CC1DF5AFA700046CE3 /* EmailStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F649C8CB1DF5AFA700046CE3 /* EmailStackView.swift */; };
 		F649C8CE1DF5EE3D00046CE3 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F649C8CD1DF5EE3D00046CE3 /* CommentTableViewCell.swift */; };
 		F67C0A791E02B4E500321EFA /* CommentTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67C0A781E02B4E500321EFA /* CommentTableViewDataSource.swift */; };
+		F6F878B51E093774001F44CC /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F878B41E093774001F44CC /* TitleTableViewCell.swift */; };
+		F6F878B71E096EBD001F44CC /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F878B61E096EBD001F44CC /* LocationTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		F649C8CB1DF5AFA700046CE3 /* EmailStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailStackView.swift; sourceTree = "<group>"; };
 		F649C8CD1DF5EE3D00046CE3 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		F67C0A781E02B4E500321EFA /* CommentTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewDataSource.swift; sourceTree = "<group>"; };
+		F6F878B41E093774001F44CC /* TitleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
+		F6F878B61E096EBD001F44CC /* LocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +231,8 @@
 			isa = PBXGroup;
 			children = (
 				F649C8CD1DF5EE3D00046CE3 /* CommentTableViewCell.swift */,
+				F6F878B41E093774001F44CC /* TitleTableViewCell.swift */,
+				F6F878B61E096EBD001F44CC /* LocationTableViewCell.swift */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -369,6 +375,8 @@
 				2A8D4BF21DEF21DC007A42CC /* TimeView.swift in Sources */,
 				2A5297711DD4905400DB18A7 /* String+Date.swift in Sources */,
 				F649C8CE1DF5EE3D00046CE3 /* CommentTableViewCell.swift in Sources */,
+				F6F878B51E093774001F44CC /* TitleTableViewCell.swift in Sources */,
+				F6F878B71E096EBD001F44CC /* LocationTableViewCell.swift in Sources */,
 				2A403D661DD313A9007EBA0A /* MeetingDetail.swift in Sources */,
 				2AB64F1D1DCCAECB005A058E /* Meeting.swift in Sources */,
 				2A687B4F1DCBB1FF00AB88F5 /* LoginViewController.swift in Sources */,
