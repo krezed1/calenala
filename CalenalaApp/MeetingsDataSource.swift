@@ -13,14 +13,25 @@ class MeetingsDataSource: NSObject, UITableViewDataSource {
 
 //  MARK: LifeCycles
 
-    public var meetings: [Meeting] = []
+    public var meetings: [Any] = []
 
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return meetings.count
     }
 
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let meetingsInDay:[Meeting]? = meetings[section] as? [Meeting]
+
+        guard let count = meetingsInDay?.count, count > 0 else {
+            return 0
+        }
+
+        return count
+    }
+
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let meeting = meetings[indexPath.row]
+        let meetingsInDay:[Meeting]! = meetings[indexPath.section] as! [Meeting]
+        let meeting: Meeting? = meetingsInDay[indexPath.row]
         let cell: MeetingCell = tableView.dequeueReusableCell(withIdentifier: MeetingCell.MEETING_CELL_IDENTIFIER) as! MeetingCell
         cell.meeting = meeting
 

@@ -65,6 +65,11 @@ class MeetingCell: UITableViewCell {
         cellContentView.addSubview(placeIconView)
         cellContentView.addSubview(placeLabel)
 
+        cellContentView.layer.shadowColor = UIColor.black.cgColor
+        cellContentView.layer.shadowOpacity = 0.6
+        cellContentView.layer.shadowOffset = CGSize(width: 5, height: 5)
+        cellContentView.layer.shadowRadius = 5
+
         cellContentView.addSubview(separatorView)
         cellContentView.addSubview(ratingView)
 
@@ -89,6 +94,7 @@ class MeetingCell: UITableViewCell {
         placeIconView.image = UIImage(named: "location-icon")
 
         separatorView.backgroundColor = UIColor(colorLiteralRed: 223/255, green: 223/255, blue: 223/255, alpha: 1)
+        ratingView.isUserInteractionEnabled = false
     }
 
     private func layoutView() {

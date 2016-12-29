@@ -30,10 +30,11 @@ class MeetingsViewController: UITableViewController, MeetingDetailDelegate {
 
         view.backgroundColor = UIColor(colorLiteralRed: 66/255, green: 189/255, blue: 216/255, alpha: 1)
         tableView.register(MeetingCell.self, forCellReuseIdentifier: MeetingCell.MEETING_CELL_IDENTIFIER)
+        tableView.register(MeetingHeaderView.self, forHeaderFooterViewReuseIdentifier: MeetingHeaderView.MEETING_HEADER_IDENTIFIER)
         tableView.separatorStyle = .none
         tableView.dataSource = dataSource
         tableView.rowHeight = 182
-//        tableView.estimatedRowHeight = 100
+        tableView.sectionHeaderHeight = 40
 
         initializeMeetings()
     }
@@ -60,10 +61,20 @@ class MeetingsViewController: UITableViewController, MeetingDetailDelegate {
 
 //  MARK: UITableViewDelegate
 
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let meetingsInDay:[Meeting]? = dataSource.meetings[section] as? [Meeting]
+        let title: String? = meetingsInDay?.first?.start?.populateBaseDate()
+
+        let headerView: MeetingHeaderView? = tableView.dequeueReusableHeaderFooterView(withIdentifier: MeetingHeaderView.MEETING_HEADER_IDENTIFIER) as? MeetingHeaderView
+        headerView?.titleLabel.text = title
+
+        return headerView
+    }
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let meeting = dataSource.meetings[indexPath.row]
-        let meetingDetailController = MeetingDetailViewController(meeting: meeting)
-        meetingDetailController.meetingDelegate = self
-        navigationController?.pushViewController(meetingDetailController, animated: true)
+//        let meeting = dataSource.meetings[indexPath.row]
+//        let meetingDetailController = MeetingDetailViewController(meeting: meeting)
+//        meetingDetailController.meetingDelegate = self
+//        navigationController?.pushViewController(meetingDetailController, animated: true)
     }
 }
