@@ -64,7 +64,7 @@ class User: MTLModel, MTLJSONSerializing {
         let url = URL(string: APIManager.BASE_API_URL)
 // TODO: Use login
 
-        let params = "action=MobileApi&api_key=123456apikey&akce=login&user=rudolf@calenala.com&password=40bd001563085fc35165329ea1ff5c5ecbdbbeef"
+        let params = "action=MobileApi&api_key=123456apikey&akce=login&user=" + username + "&password=" + password.sha1()
         let body = params.data(using: .utf8)
 
         var request = URLRequest(url: url!)

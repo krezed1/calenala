@@ -28,6 +28,8 @@
 		2AD8DD1B1E159CEC0076B8E9 /* MeetingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD8DD1A1E159CEC0076B8E9 /* MeetingHeaderView.swift */; };
 		2AD8DD301E1D6F390076B8E9 /* AttendeeesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD8DD2F1E1D6F390076B8E9 /* AttendeeesCell.swift */; };
 		2AD8DD321E1D7C7C0076B8E9 /* CreateCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD8DD311E1D7C7C0076B8E9 /* CreateCommentCell.swift */; };
+		2AD8DD341E1DA2AB0076B8E9 /* String+SHA1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD8DD331E1DA2AB0076B8E9 /* String+SHA1.swift */; };
+		2AD8DD391E1DA3D20076B8E9 /* Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD8DD381E1DA3D20076B8E9 /* Crypto.m */; };
 		2AF62AC91DF8AABF005EEC23 /* Attende.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF62AC81DF8AABF005EEC23 /* Attende.swift */; };
 		5A80DD37F9CE1D430B98C144 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CA63E0FD7895AEB0A765D5 /* Pods.framework */; };
 		F649C8CC1DF5AFA700046CE3 /* EmailStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F649C8CB1DF5AFA700046CE3 /* EmailStackView.swift */; };
@@ -62,6 +64,9 @@
 		2AD8DD1A1E159CEC0076B8E9 /* MeetingHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingHeaderView.swift; sourceTree = "<group>"; };
 		2AD8DD2F1E1D6F390076B8E9 /* AttendeeesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendeeesCell.swift; sourceTree = "<group>"; };
 		2AD8DD311E1D7C7C0076B8E9 /* CreateCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateCommentCell.swift; sourceTree = "<group>"; };
+		2AD8DD331E1DA2AB0076B8E9 /* String+SHA1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+SHA1.swift"; sourceTree = "<group>"; };
+		2AD8DD371E1DA3D20076B8E9 /* CalenalaApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CalenalaApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		2AD8DD381E1DA3D20076B8E9 /* Crypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Crypto.m; sourceTree = "<group>"; };
 		2AF62AC81DF8AABF005EEC23 /* Attende.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attende.swift; sourceTree = "<group>"; };
 		3D9EBD1E82C38EB493687E06 /* Pods_CalenalaApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalenalaApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		602659FDEEF25591413A4F03 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -131,6 +136,9 @@
 			isa = PBXGroup;
 			children = (
 				2A66D6831DEC38E6008C4239 /* UIViewController+Alert.swift */,
+				2AD8DD331E1DA2AB0076B8E9 /* String+SHA1.swift */,
+				2AD8DD381E1DA3D20076B8E9 /* Crypto.m */,
+				2AD8DD371E1DA3D20076B8E9 /* CalenalaApp-Bridging-Header.h */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -282,6 +290,7 @@
 					2AD36D501DC5141600F63E90 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = L5425Y5HQ6;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -402,6 +411,8 @@
 				2AB64F161DCC9341005A058E /* MeetingsViewController.swift in Sources */,
 				2A403D611DD30E07007EBA0A /* MeetingDetailViewController.swift in Sources */,
 				2A5297731DD5CFAF00DB18A7 /* RatingView.swift in Sources */,
+				2AD8DD391E1DA3D20076B8E9 /* Crypto.m in Sources */,
+				2AD8DD341E1DA2AB0076B8E9 /* String+SHA1.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,6 +528,7 @@
 			baseConfigurationReference = C814227CA2AE15D0BCDFDC84 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = CalenalaApp/CalenalaApp.entitlements;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -528,6 +540,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "CalenalaApp/CalenalaApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -537,6 +551,7 @@
 			baseConfigurationReference = 602659FDEEF25591413A4F03 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = CalenalaApp/CalenalaApp.entitlements;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -548,6 +563,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "CalenalaApp/CalenalaApp-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

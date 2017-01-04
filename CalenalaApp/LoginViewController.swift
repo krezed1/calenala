@@ -33,11 +33,15 @@ class LoginViewController: UIViewController {
 
     func loginButtonDidPress() {
 
+        guard let username = loginView?.usernameField.text, let password = loginView?.passwordField.text else {
+            return
+        }
+
         let hud = MBProgressHUD.showAdded(to: loginView!, animated: true)
         hud.mode = .indeterminate
 
         weak var weakSelf = self
-        User.login(username: loginView!.usernameField.text!, password: loginView!.passwordField.text!, completion: {
+        User.login(username: username, password: password, completion: {
             hud.hide(animated: true)
             let meetingsViewController = MeetingsViewController()
             let navigationController = UINavigationController(rootViewController: meetingsViewController)
