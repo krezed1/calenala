@@ -11,7 +11,8 @@ import UIKit
 class CommentTableViewDataSource: NSObject, UITableViewDataSource {
     
     public var meetingDetail: MeetingDetail?
-
+    public var titleCell: TitleTableViewCell?
+    public var createCommentCell: CreateCommentCell?
 //  MARK: LifeCycles
 
     init(meeting: Meeting) {
@@ -39,6 +40,12 @@ class CommentTableViewDataSource: NSObject, UITableViewDataSource {
         if indexPath.row == 0 {
             let cell: TitleTableViewCell = tableView.dequeueReusableCell(withIdentifier: TitleTableViewCell.titleTableViewCellReuseIdentifier) as! TitleTableViewCell
             cell.meeting = meetingDetail?.meeting
+            titleCell = cell
+            if let ratingValue = meetingDetail?.meeting?.rating?.intValue, ratingValue > 0 {
+                cell.ratingView.isUserInteractionEnabled = false
+            } else {
+                cell.ratingView.isUserInteractionEnabled = true
+            }
 
             return cell
         } else if indexPath.row == 1 {
@@ -60,10 +67,11 @@ class CommentTableViewDataSource: NSObject, UITableViewDataSource {
                     }
                 }
 
-                return cell                
+                return cell
             } else {
                 let cell: CreateCommentCell = tableView.dequeueReusableCell(withIdentifier: CreateCommentCell.createCommentCellReuseIdentifier) as! CreateCommentCell
-
+                createCommentCell = cell
+                
                 return cell
             }
         }

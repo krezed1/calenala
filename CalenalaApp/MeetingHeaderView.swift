@@ -30,7 +30,7 @@ class MeetingHeaderView: UITableViewHeaderFooterView {
 
     private func setUpCell() {
         self.backgroundView = UIView()
-        self.backgroundView?.backgroundColor = UIColor.clear
+        self.backgroundView?.backgroundColor = UIColor(colorLiteralRed: 66/255, green: 189/255, blue: 216/255, alpha: 1)
 
         contentView.addSubview(titleLabel)
         titleLabel.textColor = UIColor.white

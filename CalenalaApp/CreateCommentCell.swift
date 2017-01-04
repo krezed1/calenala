@@ -33,6 +33,8 @@ class CreateCommentCell: UITableViewCell, UITextViewDelegate {
     private func setupViewItems() {
         contentView.addSubview(textView)
 
+        selectionStyle = .none
+
         textView.layer.borderWidth = 1
         textView.layer.cornerRadius = 8
         textView.layer.borderColor = UIColor.lightGray.cgColor
@@ -66,5 +68,4 @@ class CreateCommentCell: UITableViewCell, UITextViewDelegate {
             textView.textColor = UIColor.lightGray
         }
     }
-
 }

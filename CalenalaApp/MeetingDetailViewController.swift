@@ -56,27 +56,34 @@ class  MeetingDetailViewController: UIViewController {
 //  MARK: UserActions
 
     func sendButtonDidPress() {
-//        let rating = detailView?.ratingView.getRating()
-//        let ratingDesc = detailView?.messageView.text
-//
-//        let hud = MBProgressHUD.showAdded(to: detailView!, animated: true)
-//        hud.mode = .indeterminate
-//
-//        weak var weakSelf = self
-//        commentDataSource?.meetingDetail?.rateMeeting(rating: rating!, ratingDesc: ratingDesc!, completion: { (result) in
-//            hud.hide(animated: false)
-//            if result == true {
-//                if weakSelf?.meetingDelegate != nil {
-//                    weakSelf?.commentDataSource?.meetingDetail?.meeting?.rating = NSNumber(integerLiteral: rating!)
-//                    weakSelf?.meetingDelegate?.meetingDidRate(value: rating!)
-//                }
-//
-//                _ = weakSelf?.navigationController?.popViewController(animated: true)
-//            } else {
-//                let ok = UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .cancel, handler: nil)
-//                weakSelf?.showAlert(title: "Error", message: "Something went wrong", actions: [ok])
-//            }
-//        })
+        guard let rating = commentDataSource?.titleCell?.ratingView.getRating(),
+            let ratingDesc = commentDataSource?.createCommentCell?.textView.text,
+            rating > 0 else {
+                let okAction = UIAlertAction(title: NSLocalizedString("Ok", comment: ""),
+                                             style: .cancel,
+                                             handler: nil)
+                self.showAlert(title: "Warrning", message: "Please rate the meeting", actions: [okAction])
+                return
+        }
+
+        let hud = MBProgressHUD.showAdded(to: detailView!, animated: true)
+        hud.mode = .indeterminate
+
+        weak var weakSelf = self
+        commentDataSource?.meetingDetail?.rateMeeting(rating: rating, ratingDesc: ratingDesc, completion: { (result) in
+            hud.hide(animated: false)
+            if result == true {
+                if weakSelf?.meetingDelegate != nil {
+                    weakSelf?.commentDataSource?.meetingDetail?.meeting?.rating = NSNumber(integerLiteral: rating)
+                    weakSelf?.meetingDelegate?.meetingDidRate(value: rating)
+                }
+
+                _ = weakSelf?.navigationController?.popViewController(animated: true)
+            } else {
+                let ok = UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .cancel, handler: nil)
+                weakSelf?.showAlert(title: "Error", message: "Something went wrong", actions: [ok])
+            }
+        })
     }
 
 //  MARK: Private
