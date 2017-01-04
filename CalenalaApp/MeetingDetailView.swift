@@ -69,20 +69,4 @@ class MeetingDetailView: UITableView, UITextViewDelegate {
 //        sendButton.autoSetDimension(.height, toSize: 60)
    }
 
-// messageView placeholder settings
-//    func textViewDidBeginEditing(_ textView: UITextView) {
-//        if messageView.textColor == UIColor.lightGray {
-//            messageView.text = nil
-//            messageView.textColor = UIColor.black
-//            messageView.font = UIFont.systemFont(ofSize: 16)
-//        }
-//    }
-//    
-//    func textViewDidEndEditing(_ textView: UITextView) {
-//        if messageView.text.isEmpty {
-//            messageView.text = NSLocalizedString("Write your comment here", comment: "")
-//            messageView.font = UIFont.systemFont(ofSize: 10)
-//            messageView.textColor = UIColor.lightGray
-//        }
-//    }
 }

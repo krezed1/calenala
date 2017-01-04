@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import PureLayout
 
-class CreateCommentCell: UITableViewCell {
+class CreateCommentCell: UITableViewCell, UITextViewDelegate {
 
     static var createCommentCellReuseIdentifier = "createCommentCellReuseIdentifier"
     public let textView: UITextView = UITextView()
@@ -34,8 +34,11 @@ class CreateCommentCell: UITableViewCell {
         contentView.addSubview(textView)
 
         textView.layer.borderWidth = 1
-        textView.layer.cornerRadius = 12
+        textView.layer.cornerRadius = 8
         textView.layer.borderColor = UIColor.lightGray.cgColor
+        textView.textColor = UIColor.lightGray
+        textView.text = NSLocalizedString("Write your comment here", comment: "")
+        textView.delegate = self
     }
 
     private func layoutView() {
@@ -45,4 +48,23 @@ class CreateCommentCell: UITableViewCell {
         textView.autoPinEdge(toSuperviewEdge: .bottom, withInset: 16)
         textView.autoSetDimension(.height, toSize: 150)
     }
+
+//    MARK: UITextViewDelegate
+
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+            textView.font = UIFont.systemFont(ofSize: 16)
+        }
+    }
+
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = NSLocalizedString("Write your comment here", comment: "")
+            textView.font = UIFont.systemFont(ofSize: 10)
+            textView.textColor = UIColor.lightGray
+        }
+    }
+
 }
