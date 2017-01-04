@@ -44,7 +44,7 @@ class  MeetingDetailViewController: UIViewController {
         edgesForExtendedLayout = UIRectEdge.bottom
         detailView?.dataSource = commentDataSource
     
-        loadMeetingDetail()
+//        loadMeetingDetail()
 //        detailView?.sendButton.addTarget(self, action: #selector(sendButtonDidPress), for: .touchUpInside)
 
         guard let rating = commentDataSource?.meetingDetail?.meeting?.rating?.intValue, rating > 0 else  {

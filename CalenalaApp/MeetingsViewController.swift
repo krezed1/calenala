@@ -72,9 +72,13 @@ class MeetingsViewController: UITableViewController, MeetingDetailDelegate {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let meeting = dataSource.meetings[indexPath.row]
-//        let meetingDetailController = MeetingDetailViewController(meeting: meeting)
-//        meetingDetailController.meetingDelegate = self
-//        navigationController?.pushViewController(meetingDetailController, animated: true)
+        let meetings: [Meeting]? = dataSource.meetings[indexPath.section] as? [Meeting]
+        guard let meeting = meetings?[indexPath.row] else {
+            return
+        }
+
+        let meetingDetailController = MeetingDetailViewController(meeting: meeting)
+        meetingDetailController.meetingDelegate = self
+        navigationController?.pushViewController(meetingDetailController, animated: true)
     }
 }
