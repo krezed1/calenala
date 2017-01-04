@@ -90,7 +90,8 @@ class MeetingCell: UITableViewCell {
 
         placeLabel.font = UIFont.systemFont(ofSize: 15)
         placeLabel.textColor = UIColor(colorLiteralRed: 153/255, green: 153/255, blue: 153/255, alpha: 1)
-
+        placeLabel.text = NSLocalizedString("None", comment: "")
+        
         placeIconView.image = UIImage(named: "location-icon")
 
         separatorView.backgroundColor = UIColor(colorLiteralRed: 223/255, green: 223/255, blue: 223/255, alpha: 1)

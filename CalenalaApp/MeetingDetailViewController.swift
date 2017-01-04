@@ -46,7 +46,7 @@ class  MeetingDetailViewController: UIViewController {
         detailView?.sendButton.addTarget(self, action: #selector(sendButtonDidPress), for: .touchUpInside)
 
 
-        guard let rating = commentDataSource?.meetingDetail?.meeting?.rating?.intValue, rating > 0 else  {
+        guard let rating = commentDataSource?.meetingDetail?.meeting?.ratedByMe?.intValue, rating > 0 else  {
             return
         }
 

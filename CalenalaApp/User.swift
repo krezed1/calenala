@@ -72,12 +72,20 @@ class User: MTLModel, MTLJSONSerializing {
         request.httpBody = body
 
         APIManager.callRequest(request: request) { (JSON) in
-            let user: User? = try! MTLJSONAdapter.model(of: User.self, fromJSONDictionary: JSON) as? User
-            if user != nil {
-                User.setCurrentUser(user: user!)
+            guard let jsonResponse = JSON else {
                 DispatchQueue.main.async {
                     completion()
                 }
+                return
+            }
+
+            guard let user: User = try! MTLJSONAdapter.model(of: User.self, fromJSONDictionary: jsonResponse) as? User else {
+                return
+            }
+
+            User.setCurrentUser(user: user)
+            DispatchQueue.main.async {
+                completion()
             }
         }
     }
