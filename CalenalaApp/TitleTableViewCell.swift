@@ -15,8 +15,6 @@ class TitleTableViewCell: UITableViewCell {
     static var titleTableViewCellReuseIdentifier = "titleTableViewCellReuseIdentifier"
     
     public var titleLabel: UILabel = UILabel()
-    public var nameLabel: UILabel = UILabel()
-    public var organizerNameLabel: UILabel = UILabel()
     public var ratingView: RatingView = RatingView()
     private var bottomSeparatorView: UIView = UIView()
     
@@ -29,9 +27,10 @@ class TitleTableViewCell: UITableViewCell {
             
             if let name = meeting?.name,
                 let organizer = meeting?.organizer {
-                nameLabel.text = name
-                organizerNameLabel.text = organizer
-                titleLabel.text = name + organizer
+                titleLabel.text = name + " - " + organizer
+                if let rating = meeting?.rating?.intValue {
+                    ratingView.setRating(rating: rating)
+                }
             }
         }
     }
@@ -44,17 +43,18 @@ class TitleTableViewCell: UITableViewCell {
     }
     
     private func setupViewItems() {
-        addSubview(titleLabel)
-        addSubview(nameLabel)
-        addSubview(ratingView)
-        addSubview(bottomSeparatorView)
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(ratingView)
+        contentView.addSubview(bottomSeparatorView)
         
         selectionStyle = .none
         backgroundColor = .white
         
         titleLabel.font = UIFont.systemFont(ofSize: 20)
         titleLabel.textColor = .black
-        titleLabel.text = NSLocalizedString("New Analytics Session - data na tvrdo", comment: "")
+        titleLabel.adjustsFontSizeToFitWidth = true
+        titleLabel.numberOfLines = 2
+        titleLabel.textAlignment = .center
         
         ratingView.isUserInteractionEnabled = false
         
@@ -63,8 +63,10 @@ class TitleTableViewCell: UITableViewCell {
     
     private func layoutView() {
         titleLabel.autoAlignAxis(toSuperviewAxis: .vertical)
-        titleLabel.autoPinEdge(.top, to: .top, of: self, withOffset: VERTICAL_INSET)
-        
+        titleLabel.autoPinEdge(toSuperviewEdge: .top, withInset: 16)
+        titleLabel.autoPinEdge(toSuperviewEdge: .left, withInset: 16)
+        titleLabel.autoPinEdge(toSuperviewEdge: .right, withInset: 16)
+
         ratingView.autoPinEdge(.top, to: .bottom, of: titleLabel, withOffset: VERTICAL_INSET)
         ratingView.autoAlignAxis(toSuperviewAxis: .vertical)
         ratingView.autoMatch(.height, to: .width, of: self, withMultiplier: 17/320)

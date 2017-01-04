@@ -28,18 +28,18 @@ class LocationTableViewCell: UITableViewCell {
     private let TEXT_COLOR = UIColor(colorLiteralRed: 153/255, green: 153/255, blue: 153/255, alpha: 1)
     private let SEPARATOR_COLOR = UIColor(colorLiteralRed: 223/255, green: 223/255, blue: 223/255, alpha: 1)
     
-//    public var meeting: Meeting? {
-//        didSet {
-//            
+    public var meeting: Meeting? {
+        didSet {
+            
 //            if let name = meeting?.name,
 //                let organizer = meeting?.organizer {
 //                nameLabel.text = name
 //                organizerNameLabel.text = organizer
 //                titleLabel.text = name + organizer
 //            }
-//        }
-//    }
-    
+        }
+    }
+
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         

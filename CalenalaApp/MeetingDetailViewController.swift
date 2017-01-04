@@ -50,8 +50,6 @@ class  MeetingDetailViewController: UIViewController {
         guard let rating = commentDataSource?.meetingDetail?.meeting?.rating?.intValue, rating > 0 else  {
             return
         }
-
-        detailView?.titleCell?.ratingView.setRating(rating: rating)
 //        detailView?.disableMessageView()
     }
 
@@ -93,12 +91,9 @@ class  MeetingDetailViewController: UIViewController {
     }
 
     private func initializeMeetingDetail() {
-        detailView?.titleCell?.nameLabel.text = commentDataSource?.meetingDetail?.meeting?.name
 //        detailView?.whenValueLabel.text = commentDataSource?.meetingDetail?.meeting?.populatedMeetingInterval
 //        detailView?.whereValueLabel.text = commentDataSource?.meetingDetail?.meeting?.locationName
 //        detailView?.titleCell?.organizerNameLabel.text = " - Zdeněk"
-        detailView?.titleCell?.organizerNameLabel.text = commentDataSource?.meetingDetail?.meeting?.organizer
-        detailView?.titleCell?.titleLabel.text = (detailView?.titleCell?.nameLabel.text)! + (detailView?.titleCell?.organizerNameLabel.text)!
 //        detailView?.commentTableView.reloadData()
     }
 }

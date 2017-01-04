@@ -30,11 +30,13 @@ class CommentTableViewDataSource: NSObject, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell: TitleTableViewCell = tableView.dequeueReusableCell(withIdentifier: TitleTableViewCell.titleTableViewCellReuseIdentifier) as! TitleTableViewCell
+            cell.meeting = meetingDetail?.meeting
 
             return cell
         } else if indexPath.row == 1 {
             let cell: LocationTableViewCell = tableView.dequeueReusableCell(withIdentifier: LocationTableViewCell.locationTableViewCellReuseIdentifier) as! LocationTableViewCell
-
+            cell.meeting = meetingDetail?.meeting
+            
             return cell
 
         } else {
