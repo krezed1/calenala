@@ -14,10 +14,8 @@ protocol MeetingDetailDelegate {
     func meetingDidRate(value: Int)
 }
 class  MeetingDetailViewController: UIViewController {
-
     var commentDataSource: CommentTableViewDataSource?
     public var meetingDelegate: MeetingDetailDelegate?
-//    public var titleCell: TitleTableViewCell?
     private var detailView: MeetingDetailView? {
         return view as? MeetingDetailView
     }
@@ -44,18 +42,20 @@ class  MeetingDetailViewController: UIViewController {
         edgesForExtendedLayout = UIRectEdge.bottom
         detailView?.dataSource = commentDataSource
     
-//        loadMeetingDetail()
-//        detailView?.sendButton.addTarget(self, action: #selector(sendButtonDidPress), for: .touchUpInside)
+        loadMeetingDetail()
+        detailView?.sendButton.addTarget(self, action: #selector(sendButtonDidPress), for: .touchUpInside)
+
 
         guard let rating = commentDataSource?.meetingDetail?.meeting?.rating?.intValue, rating > 0 else  {
             return
         }
-//        detailView?.disableMessageView()
+
+        detailView?.disableMessageView()
     }
 
 //  MARK: UserActions
 
-//    func sendButtonDidPress() {
+    func sendButtonDidPress() {
 //        let rating = detailView?.ratingView.getRating()
 //        let ratingDesc = detailView?.messageView.text
 //
@@ -77,7 +77,7 @@ class  MeetingDetailViewController: UIViewController {
 //                weakSelf?.showAlert(title: "Error", message: "Something went wrong", actions: [ok])
 //            }
 //        })
-//    }
+    }
 
 //  MARK: Private
 
@@ -86,14 +86,8 @@ class  MeetingDetailViewController: UIViewController {
         MeetingDetail.loadMeetingDetail(meetingId: commentDataSource!.meetingDetail!.meeting!.meetingId!) { (meetingDetail) in
             meetingDetail?.meeting = weakSelf?.commentDataSource?.meetingDetail?.meeting
             weakSelf?.commentDataSource?.meetingDetail = meetingDetail
-            weakSelf?.initializeMeetingDetail()
+            weakSelf?.detailView?.reloadData()
         }
     }
 
-    private func initializeMeetingDetail() {
-//        detailView?.whenValueLabel.text = commentDataSource?.meetingDetail?.meeting?.populatedMeetingInterval
-//        detailView?.whereValueLabel.text = commentDataSource?.meetingDetail?.meeting?.locationName
-//        detailView?.titleCell?.organizerNameLabel.text = " - Zdeněk"
-//        detailView?.commentTableView.reloadData()
-    }
 }

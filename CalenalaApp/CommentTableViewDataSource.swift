@@ -11,20 +11,28 @@ import UIKit
 class CommentTableViewDataSource: NSObject, UITableViewDataSource {
     
     public var meetingDetail: MeetingDetail?
-    public var comments: Array<Any>
 
 //  MARK: LifeCycles
 
     init(meeting: Meeting) {
+        super.init()
         meetingDetail = MeetingDetail()
         meetingDetail?.meeting = meeting
-        comments = []
     }
 
 //  MARK: UITableViewDataSource
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        var count = 3
+        if let ratingValue = meetingDetail?.meeting?.rating?.intValue, ratingValue > 0 {
+            if let commentsCount = meetingDetail?.attendeesRated()?.count {
+                count += commentsCount
+            }
+        } else {
+            count += 1            
+        }
+
+        return count
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -36,12 +44,28 @@ class CommentTableViewDataSource: NSObject, UITableViewDataSource {
         } else if indexPath.row == 1 {
             let cell: LocationTableViewCell = tableView.dequeueReusableCell(withIdentifier: LocationTableViewCell.locationTableViewCellReuseIdentifier) as! LocationTableViewCell
             cell.meeting = meetingDetail?.meeting
-            
+
             return cell
 
-        } else {
-            let cell: CommentTableViewCell = tableView.dequeueReusableCell(withIdentifier: CommentTableViewCell.commentTableViewCellReuseIdentifier) as! CommentTableViewCell
+        } else if indexPath.row == 2 {
+            let cell: AttendeeesCell = tableView.dequeueReusableCell(withIdentifier: AttendeeesCell.attendeeesCellReuseIdentifier) as! AttendeeesCell
+            cell.attendes = meetingDetail?.attendees
             return cell
+        } else {
+            if let ratingValue = meetingDetail?.meeting?.rating?.intValue, ratingValue > 0 {
+                let cell: CommentTableViewCell = tableView.dequeueReusableCell(withIdentifier: CommentTableViewCell.commentTableViewCellReuseIdentifier) as! CommentTableViewCell
+                if let count = meetingDetail?.attendeesRated()?.count, count > (indexPath.row - 3) {
+                    if let attende = meetingDetail?.attendeesRated()?[indexPath.row - 3] {
+                        cell.attende = attende
+                    }
+                }
+
+                return cell                
+            } else {
+                let cell: CreateCommentCell = tableView.dequeueReusableCell(withIdentifier: CreateCommentCell.createCommentCellReuseIdentifier) as! CreateCommentCell
+
+                return cell
+            }
         }
     }
 }

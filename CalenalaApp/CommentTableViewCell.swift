@@ -36,21 +36,26 @@ class CommentTableViewCell: UITableViewCell {
         }
     }
 
+//    MARK: LifeCycles
+
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         setupViewItems()
         layoutView()
     }
-    
+
+//    MARK: Private
+
     private func setupViewItems() {
-        addSubview(ratingView)
-        addSubview(timeAgoLabel)
-        addSubview(commentLabel)
+        contentView.addSubview(ratingView)
+        contentView.addSubview(timeAgoLabel)
+        contentView.addSubview(commentLabel)
         
         selectionStyle = .none
         backgroundColor = .white
-        
+
+        ratingView.isUserInteractionEnabled = false
         timeAgoLabel.text = NSLocalizedString("4 hours ago", comment: "")
         timeAgoLabel.font = TIME_FONT_AND_SIZE
         timeAgoLabel.textColor = TEXT_COLOR
@@ -66,14 +71,17 @@ class CommentTableViewCell: UITableViewCell {
         ratingView.autoPinEdge(toSuperviewEdge: .top, withInset: 10)
         ratingView.autoPinEdge(toSuperviewEdge: .leading)
         ratingView.autoMatch(.height, to: .width, of: self, withMultiplier: 15/320)
-        
+        ratingView.autoPinEdge(toSuperviewEdge: .left, withInset: 40)
+
         timeAgoLabel.autoPinEdge(toSuperviewEdge: .trailing)
         timeAgoLabel.autoAlignAxis(.baseline, toSameAxisOf: ratingView)
-        
+        timeAgoLabel.autoPinEdge(toSuperviewEdge: .right, withInset: 40)
+
         commentLabel.autoPinEdge(toSuperviewEdge: .leading)
         commentLabel.autoPinEdge(.top, to: .bottom, of: ratingView, withOffset: VERTICAL_SPACING)
         commentLabel.autoMatch(.width, to: .width, of: self, withMultiplier: 240/320)
         commentLabel.autoPinEdge(toSuperviewEdge: .bottom, withInset: 10)
+        commentLabel.autoPinEdge(toSuperviewEdge: .left, withInset: 40)
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -30,13 +30,14 @@ class LocationTableViewCell: UITableViewCell {
     
     public var meeting: Meeting? {
         didSet {
-            
-//            if let name = meeting?.name,
-//                let organizer = meeting?.organizer {
-//                nameLabel.text = name
-//                organizerNameLabel.text = organizer
-//                titleLabel.text = name + organizer
-//            }
+
+            if let meetingRoom = meeting?.locationName {
+                whereValueLabel.text = meetingRoom
+            }
+
+            if let timeInterval = meeting?.populatedMeetingInterval {
+                whenValueLabel.text = timeInterval
+            }
         }
     }
 
@@ -48,11 +49,11 @@ class LocationTableViewCell: UITableViewCell {
     }
     
     private func setupViewItems() {
-        addSubview(whereIcon)
-        addSubview(whereValueLabel)
-        addSubview(whenIcon)
-        addSubview(whenValueLabel)
-        addSubview(bottomSeparatorView)
+        contentView.addSubview(whereIcon)
+        contentView.addSubview(whereValueLabel)
+        contentView.addSubview(whenIcon)
+        contentView.addSubview(whenValueLabel)
+        contentView.addSubview(bottomSeparatorView)
         
         selectionStyle = .none
         backgroundColor = .white
@@ -87,6 +88,10 @@ class LocationTableViewCell: UITableViewCell {
         whenValueLabel.autoAlignAxis(.horizontal, toSameAxisOf: whenIcon)
         whenValueLabel.autoPinEdge(.leading, to: .leading, of: whereValueLabel)
         whenValueLabel.autoPinEdge(toSuperviewEdge: .bottom, withInset: VERTICAL_INSET * 1.5)
+
+        bottomSeparatorView.autoPinEdge(toSuperviewEdge: .bottom)
+        bottomSeparatorView.autoMatch(.width, to: .width, of: self)
+        bottomSeparatorView.autoSetDimension(.height, toSize: 2)
     }
     
     required init?(coder aDecoder: NSCoder) {

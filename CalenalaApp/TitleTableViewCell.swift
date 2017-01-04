@@ -55,7 +55,7 @@ class TitleTableViewCell: UITableViewCell {
         titleLabel.adjustsFontSizeToFitWidth = true
         titleLabel.numberOfLines = 2
         titleLabel.textAlignment = .center
-        
+
         ratingView.isUserInteractionEnabled = false
         
         bottomSeparatorView.backgroundColor = SEPARATOR_COLOR
