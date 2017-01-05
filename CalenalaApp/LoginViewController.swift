@@ -32,21 +32,18 @@ class LoginViewController: UIViewController {
 // MARK: UserActions
 
     func loginButtonDidPress() {
-
-        guard let username = loginView?.usernameField.text, let password = loginView?.passwordField.text else {
-            return
-        }
-        
         let okAction = UIAlertAction(title: NSLocalizedString("Ok", comment: ""),
                                      style: .cancel,
                                      handler: nil)
-        if username.isEmpty {
-            self.showAlert(title: "Empty email", message: "please enter email", actions: [okAction])
-        } else if !validateEmail(candidate: username) {
-            self.showAlert(title: "Invalid email", message: "please enter valid email", actions: [okAction])
-        } else if password.isEmpty {
-                self.showAlert(title: "Empty password", message: "please enter password", actions: [okAction])
-                }
+
+        guard let username = loginView?.usernameField.text, let password = loginView?.passwordField.text, username.characters.count > 0, password.characters.count > 0 else {
+            self.showAlert(title: "Invalid email", message: "Please fill all fields", actions: [okAction])
+            return
+        }
+        
+        if !validateEmail(candidate: username) {
+            self.showAlert(title: "Invalid email", message: "Please enter valid email", actions: [okAction])
+        }
 
         let hud = MBProgressHUD.showAdded(to: loginView!, animated: true)
         hud.mode = .indeterminate

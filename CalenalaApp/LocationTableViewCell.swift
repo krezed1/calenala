@@ -31,8 +31,10 @@ class LocationTableViewCell: UITableViewCell {
     public var meeting: Meeting? {
         didSet {
 
-            if let meetingRoom = meeting?.locationName {
+            if let meetingRoom = meeting?.locationName, meetingRoom.characters.count > 0 {
                 whereValueLabel.text = meetingRoom
+            } else {
+                whereValueLabel.text = NSLocalizedString("None", comment: "")
             }
 
             if let timeInterval = meeting?.populatedMeetingInterval {

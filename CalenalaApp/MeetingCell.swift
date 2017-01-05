@@ -30,7 +30,13 @@ class MeetingCell: UITableViewCell {
             intervalLabel.text = meeting!.populatedMeetingInterval
             timeView.startLabel.text = meeting?.start?.populateHours()
             timeView.endLabel.text = meeting?.end?.populateHours()
-            placeLabel.text = meeting?.locationName
+
+            if let locationName = meeting?.locationName, locationName.characters.count > 0 {
+                placeLabel.text = locationName
+            } else {
+                placeLabel.text = NSLocalizedString("None", comment: "")
+            }
+
             if meeting!.rating != nil && meeting!.rating!.intValue > 0 {
                 ratingView.setRating(rating: meeting!.rating!.intValue)
                 ratingView.isHidden = false
