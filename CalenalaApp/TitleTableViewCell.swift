@@ -28,7 +28,9 @@ class TitleTableViewCell: UITableViewCell {
             if let name = meeting?.name,
                 let organizer = meeting?.organizer {
                 titleLabel.text = name + " - " + organizer
-                if let rating = meeting?.rating?.intValue {
+                if let rating = meeting?.rating?.intValue,
+                    let ratedByMe = meeting?.ratedByMe?.boolValue,
+                    ratedByMe == true {
                     ratingView.setRating(rating: rating)
                 }
             }

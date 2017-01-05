@@ -21,7 +21,7 @@ class MeetingDetail: MTLModel, MTLJSONSerializing {
     public var tentative: String?
     public var price: String?
     public var potentialPrice: String?
-    public var attendees: Array<Attende>?
+    public var attendees: Array<Attende>?    
 
 //  MARK: MTLJSONSerializing
 

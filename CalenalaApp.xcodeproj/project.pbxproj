@@ -18,6 +18,7 @@
 		2A687B511DCBB24A00AB88F5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A687B501DCBB24A00AB88F5 /* LoginView.swift */; };
 		2A8AD8081DC7E050009D7918 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8AD8071DC7E050009D7918 /* User.swift */; };
 		2A8D4BF21DEF21DC007A42CC /* TimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8D4BF11DEF21DC007A42CC /* TimeView.swift */; };
+		2AAC6A8F1E1EFE4F00F84618 /* AttendeesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAC6A8E1E1EFE4F00F84618 /* AttendeesViewController.swift */; };
 		2AB64F161DCC9341005A058E /* MeetingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB64F151DCC9341005A058E /* MeetingsViewController.swift */; };
 		2AB64F181DCCADE2005A058E /* MeetingsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB64F171DCCADE2005A058E /* MeetingsDataSource.swift */; };
 		2AB64F1B1DCCAEB4005A058E /* MeetingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB64F1A1DCCAEB4005A058E /* MeetingCell.swift */; };
@@ -52,6 +53,7 @@
 		2A687B501DCBB24A00AB88F5 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2A8AD8071DC7E050009D7918 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2A8D4BF11DEF21DC007A42CC /* TimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeView.swift; sourceTree = "<group>"; };
+		2AAC6A8E1E1EFE4F00F84618 /* AttendeesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendeesViewController.swift; sourceTree = "<group>"; };
 		2AB64F151DCC9341005A058E /* MeetingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingsViewController.swift; sourceTree = "<group>"; };
 		2AB64F171DCCADE2005A058E /* MeetingsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingsDataSource.swift; sourceTree = "<group>"; };
 		2AB64F1A1DCCAEB4005A058E /* MeetingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingCell.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 		2A687B4B1DCBB1C200AB88F5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2AAC6A8D1E1EFE3C00F84618 /* Attendees */,
 				2A403D5F1DD30DD5007EBA0A /* Meeting detail */,
 				2AB64F141DCC930E005A058E /* Meeting list */,
 				2A687B4C1DCBB1E600AB88F5 /* Login */,
@@ -160,6 +163,14 @@
 				2A687B501DCBB24A00AB88F5 /* LoginView.swift */,
 			);
 			name = Login;
+			sourceTree = "<group>";
+		};
+		2AAC6A8D1E1EFE3C00F84618 /* Attendees */ = {
+			isa = PBXGroup;
+			children = (
+				2AAC6A8E1E1EFE4F00F84618 /* AttendeesViewController.swift */,
+			);
+			name = Attendees;
 			sourceTree = "<group>";
 		};
 		2AB64F141DCC930E005A058E /* Meeting list */ = {
@@ -397,6 +408,7 @@
 				F649C8CE1DF5EE3D00046CE3 /* CommentTableViewCell.swift in Sources */,
 				F6F878B51E093774001F44CC /* TitleTableViewCell.swift in Sources */,
 				2AD8DD301E1D6F390076B8E9 /* AttendeeesCell.swift in Sources */,
+				2AAC6A8F1E1EFE4F00F84618 /* AttendeesViewController.swift in Sources */,
 				F6F878B71E096EBD001F44CC /* LocationTableViewCell.swift in Sources */,
 				2A403D661DD313A9007EBA0A /* MeetingDetail.swift in Sources */,
 				2AB64F1D1DCCAECB005A058E /* Meeting.swift in Sources */,

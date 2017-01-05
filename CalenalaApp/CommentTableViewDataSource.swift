@@ -41,7 +41,7 @@ class CommentTableViewDataSource: NSObject, UITableViewDataSource {
             let cell: TitleTableViewCell = tableView.dequeueReusableCell(withIdentifier: TitleTableViewCell.titleTableViewCellReuseIdentifier) as! TitleTableViewCell
             cell.meeting = meetingDetail?.meeting
             titleCell = cell
-            if let ratingValue = meetingDetail?.meeting?.ratedByMe?.intValue, ratingValue > 0 {
+            if let ratingValue = meetingDetail?.meeting?.ratedByMe?.boolValue, ratingValue == true {
                 cell.ratingView.isUserInteractionEnabled = false
             } else {
                 cell.ratingView.isUserInteractionEnabled = true
@@ -59,7 +59,7 @@ class CommentTableViewDataSource: NSObject, UITableViewDataSource {
             cell.attendes = meetingDetail?.attendees
             return cell
         } else {
-            if let ratingValue = meetingDetail?.meeting?.ratedByMe?.intValue, ratingValue > 0 {
+            if let ratingValue = meetingDetail?.meeting?.ratedByMe?.boolValue, ratingValue == true {
                 let cell: CommentTableViewCell = tableView.dequeueReusableCell(withIdentifier: CommentTableViewCell.commentTableViewCellReuseIdentifier) as! CommentTableViewCell
                 if let count = meetingDetail?.attendeesRated()?.count, count > (indexPath.row - 3) {
                     if let attende = meetingDetail?.attendeesRated()?[indexPath.row - 3] {

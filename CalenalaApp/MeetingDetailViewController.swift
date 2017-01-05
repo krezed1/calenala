@@ -13,7 +13,7 @@ import MBProgressHUD
 protocol MeetingDetailDelegate {
     func meetingDidRate(value: Int)
 }
-class  MeetingDetailViewController: UIViewController {
+class  MeetingDetailViewController: UIViewController, UITableViewDelegate {
     var commentDataSource: CommentTableViewDataSource?
     public var meetingDelegate: MeetingDetailDelegate?
     private var detailView: MeetingDetailView? {
@@ -41,12 +41,13 @@ class  MeetingDetailViewController: UIViewController {
         navigationController?.navigationBar.barTintColor = .white
         edgesForExtendedLayout = UIRectEdge.bottom
         detailView?.dataSource = commentDataSource
-    
+        detailView?.delegate = self
+
         loadMeetingDetail()
         detailView?.sendButton.addTarget(self, action: #selector(sendButtonDidPress), for: .touchUpInside)
 
 
-        guard let rating = commentDataSource?.meetingDetail?.meeting?.ratedByMe?.intValue, rating > 0 else  {
+        guard let rating = commentDataSource?.meetingDetail?.meeting?.ratedByMe?.boolValue, rating == true else  {
             return
         }
 
@@ -75,6 +76,7 @@ class  MeetingDetailViewController: UIViewController {
             if result == true {
                 if weakSelf?.meetingDelegate != nil {
                     weakSelf?.commentDataSource?.meetingDetail?.meeting?.rating = NSNumber(integerLiteral: rating)
+                    weakSelf?.commentDataSource?.meetingDetail?.meeting?.ratedByMe = 1
                     weakSelf?.meetingDelegate?.meetingDidRate(value: rating)
                 }
 
@@ -84,6 +86,17 @@ class  MeetingDetailViewController: UIViewController {
                 weakSelf?.showAlert(title: "Error", message: "Something went wrong", actions: [ok])
             }
         })
+    }
+
+//  MARK: UITableViewDelegate
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 2 {
+            if let attendees = commentDataSource?.meetingDetail?.attendees, attendees.count > 0 {
+                let attendeesViewController = AttendeesViewController(attendees: attendees)
+                navigationController?.pushViewController(attendeesViewController, animated: true)
+            }
+        }
     }
 
 //  MARK: Private

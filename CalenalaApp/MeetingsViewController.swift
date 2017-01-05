@@ -36,6 +36,9 @@ class MeetingsViewController: UITableViewController, MeetingDetailDelegate {
         tableView.rowHeight = 182
         tableView.sectionHeaderHeight = 40
 
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(initializeMeetings), for: .valueChanged)
+
         initializeMeetings()
     }
 
@@ -56,6 +59,7 @@ class MeetingsViewController: UITableViewController, MeetingDetailDelegate {
             hud.hide(animated: true)
             weakSelf?.dataSource.meetings = meetings!
             weakSelf?.tableView.reloadData()
+            weakSelf?.refreshControl?.endRefreshing()
         }
     }
 

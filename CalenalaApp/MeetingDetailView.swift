@@ -35,6 +35,7 @@ class MeetingDetailView: UITableView, UITextViewDelegate {
 // MARK: Private
 
     private func setUpView() {
+        
         addSubview(sendButton)
         bringSubview(toFront: sendButton)
         layer.borderWidth = 10
