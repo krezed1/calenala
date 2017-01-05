@@ -60,7 +60,7 @@ class User: MTLModel, MTLJSONSerializing {
         }
     }
 
-    public static func login(username: String, password: String, completion: @escaping () -> Swift.Void) {
+    public static func login(username: String, password: String, completion: @escaping (Bool) -> Swift.Void) {
         let url = URL(string: APIManager.BASE_API_URL)
 // TODO: Use login
 
@@ -74,18 +74,28 @@ class User: MTLModel, MTLJSONSerializing {
         APIManager.callRequest(request: request) { (JSON) in
             guard let jsonResponse = JSON else {
                 DispatchQueue.main.async {
-                    completion()
+                    completion(false)
                 }
                 return
             }
 
-            guard let user: User = try! MTLJSONAdapter.model(of: User.self, fromJSONDictionary: jsonResponse) as? User else {
+            guard let user = try? MTLJSONAdapter.model(of: User.self, fromJSONDictionary: jsonResponse) else {
+                DispatchQueue.main.async {
+                    completion(false)
+                }
                 return
             }
 
-            User.setCurrentUser(user: user)
+            guard let populatedUser: User = user as? User else {
+                DispatchQueue.main.async {
+                    completion(false)
+                }                
+                return
+            }
+
+            User.setCurrentUser(user: populatedUser)
             DispatchQueue.main.async {
-                completion()
+                completion(true)
             }
         }
     }

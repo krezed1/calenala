@@ -41,12 +41,19 @@ class LoginViewController: UIViewController {
         hud.mode = .indeterminate
 
         weak var weakSelf = self
-        User.login(username: username, password: password, completion: {
+        User.login(username: username, password: password, completion: { (result) in
             hud.hide(animated: true)
-            let meetingsViewController = MeetingsViewController()
-            let navigationController = UINavigationController(rootViewController: meetingsViewController)
-            weakSelf!.present(navigationController, animated: true, completion: nil)
-            weakSelf?.initializeNotifications()
+            if result == true {
+                let meetingsViewController = MeetingsViewController()
+                let navigationController = UINavigationController(rootViewController: meetingsViewController)
+                weakSelf!.present(navigationController, animated: true, completion: nil)
+                weakSelf?.initializeNotifications()
+            } else {
+                let okAction = UIAlertAction(title: NSLocalizedString("Ok", comment: "")
+                    , style: .cancel
+                    , handler: nil)
+                weakSelf?.showAlert(title: "Error", message: "Please try again later", actions: [okAction])
+            }
         })
     }
 
