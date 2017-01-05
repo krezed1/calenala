@@ -36,6 +36,17 @@ class LoginViewController: UIViewController {
         guard let username = loginView?.usernameField.text, let password = loginView?.passwordField.text else {
             return
         }
+        
+        let okAction = UIAlertAction(title: NSLocalizedString("Ok", comment: ""),
+                                     style: .cancel,
+                                     handler: nil)
+        if username.isEmpty {
+            self.showAlert(title: "Empty email", message: "please enter email", actions: [okAction])
+        } else if !validateEmail(candidate: username) {
+            self.showAlert(title: "Invalid email", message: "please enter valid email", actions: [okAction])
+        } else if password.isEmpty {
+                self.showAlert(title: "Empty password", message: "please enter password", actions: [okAction])
+                }
 
         let hud = MBProgressHUD.showAdded(to: loginView!, animated: true)
         hud.mode = .indeterminate
@@ -59,5 +70,10 @@ class LoginViewController: UIViewController {
         }
 
         UIApplication.shared.registerForRemoteNotifications()
+    }
+    
+    private func validateEmail(candidate: String) -> Bool {
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}"
+        return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: candidate)
     }
 }
