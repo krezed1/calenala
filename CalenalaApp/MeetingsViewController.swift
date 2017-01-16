@@ -40,12 +40,28 @@ class MeetingsViewController: UITableViewController, MeetingDetailDelegate {
         refreshControl?.addTarget(self, action: #selector(initializeMeetings), for: .valueChanged)
 
         initializeMeetings()
+
+        let logoutButton = UIBarButtonItem(title: NSLocalizedString("Logout", comment: ""),
+                                           style: .plain,
+                                           target: self,
+                                           action: #selector(logoutButtonDidPress))
+
+        navigationItem.rightBarButtonItem = logoutButton
     }
 
 //  MARK: MeetingDetailDelegate
 
     func meetingDidRate(value: Int) {        
         tableView.reloadData()
+    }
+
+//  MARK: UserActions
+
+    func logoutButtonDidPress() {
+        UserDefaults.standard.removeObject(forKey: "username")
+        UserDefaults.standard.removeObject(forKey: "password")
+
+        dismiss(animated: true, completion: nil)
     }
 
 //  MARK: Private

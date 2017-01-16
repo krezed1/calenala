@@ -29,6 +29,18 @@ class LoginViewController: UIViewController {
         loginView?.loginButton.addTarget(self, action: #selector(LoginViewController.loginButtonDidPress), for: .touchUpInside)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if let password = UserDefaults.standard.object(forKey: "password") as? String,
+            let username = UserDefaults.standard.object(forKey: "username") as? String {
+            loginView?.usernameField.text = username
+            loginView?.passwordField.text = password
+
+            loginButtonDidPress()
+        }
+    }
+
 // MARK: UserActions
 
     func loginButtonDidPress() {
@@ -52,10 +64,16 @@ class LoginViewController: UIViewController {
         User.login(username: username, password: password, completion: { (result) in
             hud.hide(animated: true)
             if result == true {
+                UserDefaults.standard.set(username, forKey: "username")
+                UserDefaults.standard.set(password, forKey: "password")
+
                 let meetingsViewController = MeetingsViewController()
                 let navigationController = UINavigationController(rootViewController: meetingsViewController)
                 weakSelf!.present(navigationController, animated: true, completion: nil)
                 weakSelf?.initializeNotifications()
+
+                weakSelf?.loginView?.usernameField.text = nil
+                weakSelf?.loginView?.passwordField.text = nil
             } else {
                 let okAction = UIAlertAction(title: NSLocalizedString("Ok", comment: "")
                     , style: .cancel

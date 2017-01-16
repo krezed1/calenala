@@ -76,16 +76,12 @@ class LocationTableViewCell: UITableViewCell {
     private func layoutView() {
         whereIcon.autoPinEdge(toSuperviewEdge: .top, withInset: VERTICAL_INSET * 1.5)
         whereIcon.autoAlignAxis(.vertical, toSameAxisOf: self, withMultiplier: 0.3)
-        whereIcon.autoMatch(.width, to: .width, of: self, withMultiplier: 10/320)
-        whereIcon.autoMatch(.height, to: .width, of: whereIcon, withMultiplier: 15/10)
 
         whereValueLabel.autoAlignAxis(.horizontal, toSameAxisOf: whereIcon)
         whereValueLabel.autoPinEdge(.leading, to: .trailing, of: whereIcon, withOffset: 10)
 
         whenIcon.autoAlignAxis(.vertical, toSameAxisOf: whereIcon)
         whenIcon.autoPinEdge(.top, to: .bottom, of: whereIcon, withOffset: VERTICAL_INSET)
-        whenIcon.autoMatch(.width, to: .width, of: self, withMultiplier: 13/320)
-        whenIcon.autoMatch(.height, to: .width, of: whenIcon)
 
         whenValueLabel.autoAlignAxis(.horizontal, toSameAxisOf: whenIcon)
         whenValueLabel.autoPinEdge(.leading, to: .leading, of: whereValueLabel)
@@ -94,6 +90,9 @@ class LocationTableViewCell: UITableViewCell {
         bottomSeparatorView.autoPinEdge(toSuperviewEdge: .bottom)
         bottomSeparatorView.autoMatch(.width, to: .width, of: self)
         bottomSeparatorView.autoSetDimension(.height, toSize: 2)
+
+        whenValueLabel.autoSetDimension(.height, toSize: 18)
+        whereValueLabel.autoSetDimension(.height, toSize: 18)
     }
     
     required init?(coder aDecoder: NSCoder) {
