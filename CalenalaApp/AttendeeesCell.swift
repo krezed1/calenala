@@ -72,6 +72,6 @@ class AttendeeesCell: UITableViewCell {
 
         bottomSeparatorView.autoPinEdge(toSuperviewEdge: .bottom)
         bottomSeparatorView.autoMatch(.width, to: .width, of: self)
-        bottomSeparatorView.autoSetDimension(.height, toSize: 2)
+        bottomSeparatorView.autoSetDimension(.height, toSize: 1)
     }
 }

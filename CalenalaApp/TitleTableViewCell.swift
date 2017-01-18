@@ -74,7 +74,7 @@ class TitleTableViewCell: UITableViewCell {
         ratingView.autoMatch(.height, to: .width, of: self, withMultiplier: 17/320)
         
         bottomSeparatorView.autoPinEdge(.top, to: .bottom, of: ratingView, withOffset: VERTICAL_INSET)
-        bottomSeparatorView.autoSetDimension(.height, toSize: 2)
+        bottomSeparatorView.autoSetDimension(.height, toSize: 1)
         bottomSeparatorView.autoAlignAxis(toSuperviewAxis: .vertical)
         bottomSeparatorView.autoMatch(.width, to: .width, of: self)
         bottomSeparatorView.autoPinEdge(toSuperviewEdge: .bottom)

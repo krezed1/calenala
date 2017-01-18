@@ -89,7 +89,7 @@ class LocationTableViewCell: UITableViewCell {
 
         bottomSeparatorView.autoPinEdge(toSuperviewEdge: .bottom)
         bottomSeparatorView.autoMatch(.width, to: .width, of: self)
-        bottomSeparatorView.autoSetDimension(.height, toSize: 2)
+        bottomSeparatorView.autoSetDimension(.height, toSize: 1)
 
         whenValueLabel.autoSetDimension(.height, toSize: 18)
         whereValueLabel.autoSetDimension(.height, toSize: 18)

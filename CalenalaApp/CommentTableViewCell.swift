@@ -31,7 +31,7 @@ class CommentTableViewCell: UITableViewCell {
             let numericRating = Int(rating) {
             ratingView.setRating(rating: numericRating)
             commentLabel.text = ratingDesc
-            timeAgoLabel.text = "4 hours ago" // TODO: změnit podle API
+//            timeAgoLabel.text = "4 hours ago" // TODO: změnit podle API
             }
         }
     }
