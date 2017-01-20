@@ -56,7 +56,6 @@ class CommentTableViewCell: UITableViewCell {
         backgroundColor = .white
 
         ratingView.isUserInteractionEnabled = false
-        timeAgoLabel.text = NSLocalizedString("4 hours ago", comment: "")
         timeAgoLabel.font = TIME_FONT_AND_SIZE
         timeAgoLabel.textColor = TEXT_COLOR
         timeAgoLabel.textAlignment = .right
