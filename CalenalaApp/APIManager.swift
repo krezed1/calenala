@@ -11,6 +11,7 @@ import Foundation
 public class APIManager {
 //    public static let BASE_API_URL = "http://calendaranal.alijen.cz"
     public static let BASE_API_URL = "http://admin.calenala.com"
+    
     public static func callRequest(request: URLRequest, completion: @escaping ([AnyHashable : Any]?) -> Swift.Void) {
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
 

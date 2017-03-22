@@ -39,14 +39,22 @@ class MeetingsViewController: UITableViewController, MeetingDetailDelegate {
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(initializeMeetings), for: .valueChanged)
 
-        initializeMeetings()
-
         let logoutButton = UIBarButtonItem(title: NSLocalizedString("Logout", comment: ""),
                                            style: .plain,
                                            target: self,
                                            action: #selector(logoutButtonDidPress))
 
         navigationItem.rightBarButtonItem = logoutButton
+
+        let ratedMeetingsButton = UIBarButtonItem(title: NSLocalizedString("Rated", comment: ""),
+                                                  style: .plain,
+                                                  target:  self,
+                                                  action: #selector(ratedMeetingsButtonDidPress))
+        
+        navigationItem.rightBarButtonItem = logoutButton
+        navigationItem.leftBarButtonItem = ratedMeetingsButton
+        
+        initializeMeetings()
     }
 
 //  MARK: MeetingDetailDelegate
@@ -57,6 +65,11 @@ class MeetingsViewController: UITableViewController, MeetingDetailDelegate {
 
 //  MARK: UserActions
 
+    func ratedMeetingsButtonDidPress() {
+        let ratedMeetingsViewController = RatedMeetingsViewController()
+        navigationController?.pushViewController(ratedMeetingsViewController, animated: true)
+    }
+    
     func logoutButtonDidPress() {
         UserDefaults.standard.removeObject(forKey: "username")
         UserDefaults.standard.removeObject(forKey: "password")

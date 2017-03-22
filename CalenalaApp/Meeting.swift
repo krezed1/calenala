@@ -42,29 +42,36 @@ class Meeting: MTLModel, MTLJSONSerializing {
 
 //  MARK: Public
 
+    public static func loadRatedMeetings(completion: @escaping ([Any]?) -> Swift.Void) {
+        let params = String(format: "action=MobileApi&api_key=123456apikey&akce=getRatedMeetings&token=%@", User.currentUser.token!)
+        Meeting.loadMeetings(params: params, completion: completion)
+    }
+    
     public static func loadYourMeetings(completion: @escaping ([Any]?) -> Swift.Void) {
-        let url = URL(string: APIManager.BASE_API_URL)
-        // TODO: Pouzit login
-
         let params = String(format: "action=MobileApi&api_key=123456apikey&akce=getMeetings&token=%@", User.currentUser.token!)
+        Meeting.loadMeetings(params: params, completion: completion)
+    }
+    
+    public static func loadMeetings(params: String, completion: @escaping ([Any]?) -> Swift.Void) {
+        let url = URL(string: APIManager.BASE_API_URL)
         let body = params.data(using: .utf8)
-
+        
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
         request.httpBody = body
-
+        
         APIManager.callRequest(request: request) { (JSON) in
             let meetingsJSON = JSON?["meetings"] as? [Any]
             let result: [Meeting]? = try! MTLJSONAdapter.models(of: Meeting.self, fromJSONArray: meetingsJSON) as? [Meeting]
-
+            
             guard let meetings = result, meetings.count > 0 else {
                 DispatchQueue.main.async {
                     completion(nil)
                 }
-
+                
                 return
             }
-
+            
             var allMeetings: [Any] = []
             var meetingsInDay: [Meeting] = []
             var prevMeeting: Meeting? = meetings.first
@@ -73,11 +80,15 @@ class Meeting: MTLModel, MTLJSONSerializing {
                     allMeetings.append(meetingsInDay)
                     meetingsInDay.removeAll()
                 }
-
+                
                 meetingsInDay.append(meeting)
                 prevMeeting = meeting;
+                
+                if meetings.index(of: meeting) == meetings.count - 1 {
+                    allMeetings.append(meetingsInDay)
+                }
             }
-
+            
             DispatchQueue.main.async {
                 completion(allMeetings)
             }
