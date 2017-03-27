@@ -25,9 +25,8 @@ class TitleTableViewCell: UITableViewCell {
     public var meeting: Meeting? {
         didSet {
             
-            if let name = meeting?.name,
-                let organizer = meeting?.organizer {
-                titleLabel.text = name + " - " + organizer
+            if let name = meeting?.name {
+                titleLabel.text = name
                 if let rating = meeting?.rating?.intValue,
                     let ratedByMe = meeting?.ratedByMe?.boolValue,
                     ratedByMe == true {
