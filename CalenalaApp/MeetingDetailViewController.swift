@@ -58,7 +58,7 @@ class  MeetingDetailViewController: UIViewController, UITableViewDelegate {
 
     func sendButtonDidPress() {
         guard let rating = commentDataSource?.titleCell?.ratingView.getRating(),
-            let ratingDesc = commentDataSource?.createCommentCell?.textView.text,
+            let ratingDesc = commentDataSource?.createCommentCell?.comment(),
             rating > 0 else {
                 let okAction = UIAlertAction(title: NSLocalizedString("Ok", comment: ""),
                                              style: .cancel,

@@ -11,7 +11,7 @@ import UIKit
 import PureLayout
 
 class CreateCommentCell: UITableViewCell, UITextViewDelegate {
-
+    
     static var createCommentCellReuseIdentifier = "createCommentCellReuseIdentifier"
     public let textView: UITextView = UITextView()
 
@@ -28,6 +28,17 @@ class CreateCommentCell: UITableViewCell, UITextViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
 
+//    MARK: Public
+    
+    public func comment() -> String? {
+        var comment: String = ""
+        if textView.textColor == UIColor.black {
+            comment = textView.text
+        }
+        
+        return comment
+    }
+    
 //    MARK: Private
 
     private func setupViewItems() {
@@ -43,12 +54,13 @@ class CreateCommentCell: UITableViewCell, UITextViewDelegate {
         textView.delegate = self
     }
 
+// TODO: Improve
     private func layoutView() {
         textView.autoPinEdge(toSuperviewEdge: .left, withInset: 40)
         textView.autoPinEdge(toSuperviewEdge: .right, withInset: 40)
         textView.autoPinEdge(toSuperviewEdge: .top, withInset: 16)
         textView.autoPinEdge(toSuperviewEdge: .bottom, withInset: 16)
-        textView.autoSetDimension(.height, toSize: 150)
+        textView.autoSetDimension(.height, toSize: 130)
     }
 
 //    MARK: UITextViewDelegate
