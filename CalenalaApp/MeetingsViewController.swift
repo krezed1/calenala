@@ -19,6 +19,10 @@ class MeetingsViewController: UITableViewController, MeetingDetailDelegate {
     init() {
         super.init(nibName: nil, bundle: nil)
         title = NSLocalizedString("Your meetings", comment: "MEETINGS_TITLE")
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(showPushedDetailIfNeeded),
+                                               name: NSNotification.Name.UIApplicationDidBecomeActive,
+                                               object: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -56,7 +60,13 @@ class MeetingsViewController: UITableViewController, MeetingDetailDelegate {
         
         initializeMeetings()
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        showPushedDetailIfNeeded()
+    }
+    
 //  MARK: MeetingDetailDelegate
 
     func meetingDidRate(value: Int) {        
@@ -86,12 +96,33 @@ class MeetingsViewController: UITableViewController, MeetingDetailDelegate {
         weak var weakSelf = self
         Meeting.loadYourMeetings { (meetings) in
             hud.hide(animated: true)
+            
             weakSelf?.dataSource.meetings = meetings!
             weakSelf?.tableView.reloadData()
             weakSelf?.refreshControl?.endRefreshing()
+            weakSelf?.showPushedDetailIfNeeded()
         }
     }
 
+    func showPushedDetailIfNeeded() {
+        if let pushedMeetingId = UserDefaults.standard.string(forKey: "meeting_id"), dataSource.meetings.count > 0 {
+            showMeetingDetailWithId(meetingId: pushedMeetingId)
+        }
+    }
+    
+    func showMeetingDetailWithId(meetingId: String) {
+        UserDefaults.standard.removeObject(forKey: "meeting_id")
+        UserDefaults.standard.synchronize()
+        
+        guard let meeting = dataSource.meeting(forMeetingId: meetingId) else {
+            return
+        }
+        
+        let meetingDetailController = MeetingDetailViewController(meeting: meeting)
+        meetingDetailController.meetingDelegate = self
+        navigationController?.pushViewController(meetingDetailController, animated: true)
+    }
+    
 //  MARK: UITableViewDelegate
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

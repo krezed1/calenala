@@ -26,7 +26,7 @@ class MeetingCell: UITableViewCell {
 
     public var meeting: Meeting? {
         didSet {
-            nameLabel.text = String(format: "%@ - %@", meeting!.name!, meeting!.organizer!)
+            nameLabel.text = String(format: "%@", meeting!.name!)
             intervalLabel.text = meeting!.populatedMeetingInterval
             timeView.startLabel.text = meeting?.start?.populateHours()
             timeView.endLabel.text = meeting?.end?.populateHours()

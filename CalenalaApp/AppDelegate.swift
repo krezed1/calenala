@@ -28,7 +28,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
-
+        guard let meetingId = userInfo["meeting_id"] else {
+            return
+        }
+        
+        UserDefaults.standard.setValue(meetingId, forKey: "meeting_id")
+        UserDefaults.standard.synchronize()
     }
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
