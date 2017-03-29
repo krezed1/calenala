@@ -109,7 +109,7 @@ class MeetingCell: UITableViewCell {
         nameLabel.autoPinEdge(toSuperviewEdge: .right, withInset: 16)
         nameLabel.autoPinEdge(toSuperviewEdge: .top, withInset: 16)
 
-        ratingView.autoPinEdge(toSuperviewEdge: .left, withInset: 16)
+        ratingView.autoPinEdge(toSuperviewEdge: .left, withInset: 4)
         ratingView.autoPinEdge(.top, to: .bottom, of: nameLabel, withOffset: 8)
         ratingView.autoSetDimension(.height, toSize: 10)
 

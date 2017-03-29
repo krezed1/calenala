@@ -17,7 +17,7 @@ class RatingView: UIStackView {
     private static let BUTTON_3: UIImage = UIImage(named: "star3-icon", in: nil, compatibleWith: nil)!
     private static let BUTTON_4: UIImage = UIImage(named: "star4-icon", in: nil, compatibleWith: nil)!
     private static let BUTTON_5: UIImage = UIImage(named: "star5-icon", in: nil, compatibleWith: nil)!
-    private static let BUTTON_SIZE: CGSize = CGSize(width: 64, height: 64)
+//    private static let BUTTON_SIZE: CGSize = CGSize(width: 64, height: 64)
 
     private var button1: UIButton = UIButton(type: .custom)
     private var button2: UIButton = UIButton(type: .custom)
@@ -29,7 +29,7 @@ class RatingView: UIStackView {
         super.init(frame: CGRect.zero)
         alignment = .center
         axis = .horizontal
-        spacing = 8
+        spacing = -8
 
         setUpView()
         layoutView()
