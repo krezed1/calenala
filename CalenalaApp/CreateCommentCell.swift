@@ -49,9 +49,9 @@ class CreateCommentCell: UITableViewCell, UITextViewDelegate {
         textView.layer.borderWidth = 1
         textView.layer.cornerRadius = 8
         textView.layer.borderColor = UIColor.lightGray.cgColor
-        textView.textColor = UIColor.lightGray
-        textView.text = NSLocalizedString("Write your comment here", comment: "")
         textView.delegate = self
+        
+        setPlaceholder()
     }
 
 // TODO: Improve
@@ -70,14 +70,22 @@ class CreateCommentCell: UITableViewCell, UITextViewDelegate {
             textView.text = nil
             textView.textColor = UIColor.black
             textView.font = UIFont.systemFont(ofSize: 16)
+            textView.textAlignment = .left
         }
     }
 
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textView.text = NSLocalizedString("Write your comment here", comment: "")
-            textView.font = UIFont.systemFont(ofSize: 10)
-            textView.textColor = UIColor.lightGray
+            setPlaceholder()
         }
+    }
+    
+//    MARK: Private
+    
+    private func setPlaceholder() {
+        textView.textColor = UIColor.lightGray
+        textView.text = NSLocalizedString("Tap here and write your comment", comment: "")
+        textView.textAlignment = .center
+        textView.font = UIFont.systemFont(ofSize: 10)
     }
 }

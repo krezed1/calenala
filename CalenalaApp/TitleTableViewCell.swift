@@ -70,7 +70,7 @@ class TitleTableViewCell: UITableViewCell {
 
         ratingView.autoPinEdge(.top, to: .bottom, of: titleLabel, withOffset: VERTICAL_INSET)
         ratingView.autoAlignAxis(toSuperviewAxis: .vertical)
-        ratingView.autoMatch(.height, to: .width, of: self, withMultiplier: 17/320)
+        ratingView.autoSetDimension(.height, toSize: 25)
         
         bottomSeparatorView.autoPinEdge(.top, to: .bottom, of: ratingView, withOffset: VERTICAL_INSET)
         bottomSeparatorView.autoSetDimension(.height, toSize: 1)

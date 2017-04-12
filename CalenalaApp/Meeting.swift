@@ -54,6 +54,7 @@ class Meeting: MTLModel, MTLJSONSerializing {
     
     public static func loadMeetings(params: String, completion: @escaping ([Any]?) -> Swift.Void) {
         let url = URL(string: APIManager.BASE_API_URL)
+        
         let body = params.data(using: .utf8)
         
         var request = URLRequest(url: url!)
