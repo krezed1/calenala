@@ -11,6 +11,7 @@ import UserNotifications
 import UserNotificationsUI
 
 class NotificationViewController: UIViewController, UNNotificationContentExtension {
+    private let BUTTON_BACKGROUND_COLOR = UIColor(colorLiteralRed: 238/255 , green: 215/255, blue: 75/255, alpha: 1)
     private static let BUTTON_OFF: UIImage = UIImage(named: "star-empty", in: nil, compatibleWith: nil)!
     private static let BUTTON_1: UIImage = UIImage(named: "star1-icon", in: nil, compatibleWith: nil)!
     private static let BUTTON_2: UIImage = UIImage(named: "star2-icon", in: nil, compatibleWith: nil)!
@@ -24,6 +25,7 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
     @IBOutlet var button3: UIButton?
     @IBOutlet var button4: UIButton?
     @IBOutlet var button5: UIButton?
+    @IBOutlet var sendButton: UIButton?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +42,10 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
         button3?.setImage(NotificationViewController.BUTTON_3, for: .selected)
         button4?.setImage(NotificationViewController.BUTTON_4, for: .selected)
         button5?.setImage(NotificationViewController.BUTTON_5, for: .selected)
+        
+        sendButton?.setTitle("Send comment", for: .normal)
+        sendButton?.setTitleColor(UIColor.black, for: .normal)
+        sendButton?.backgroundColor = BUTTON_BACKGROUND_COLOR
     }
     
     func didReceive(_ notification: UNNotification) {
