@@ -26,6 +26,7 @@ class  MeetingDetailViewController: UIViewController, UITableViewDelegate {
         super.init(nibName: nil, bundle: nil)
         title = NSLocalizedString("Rate the meeting", comment: "MEETING_DETAIL_TITLE")
         commentDataSource = CommentTableViewDataSource(meeting: meeting)
+        hidesBottomBarWhenPushed = true
     }
     
     required init?(coder aDecoder: NSCoder) {
