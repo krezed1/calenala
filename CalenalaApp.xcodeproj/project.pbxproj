@@ -771,6 +771,7 @@
 				2AA1ABA61EAFD0770076051A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2AD36D4C1DC5141600F63E90 /* Build configuration list for PBXProject "CalenalaApp" */ = {
 			isa = XCConfigurationList;

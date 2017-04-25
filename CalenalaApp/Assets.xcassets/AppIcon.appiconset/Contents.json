@@ -9,17 +9,19 @@
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "Iconcalenala-20@3x.png",
+      "filename" : "calenala-app-1024-20@3x.png",
       "scale" : "3x"
     },
     {
-      "idiom" : "iphone",
       "size" : "29x29",
+      "idiom" : "iphone",
+      "filename" : "calenala-app-1024-29.png",
       "scale" : "1x"
     },
     {
-      "idiom" : "iphone",
       "size" : "29x29",
+      "idiom" : "iphone",
+      "filename" : "calenala-app-1024-29@2x.png",
       "scale" : "2x"
     },
     {
@@ -53,8 +55,9 @@
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
       "size" : "60x60",
+      "idiom" : "iphone",
+      "filename" : "calenala-app-1024-60@2x.png",
       "scale" : "2x"
     },
     {
@@ -66,13 +69,13 @@
     {
       "size" : "20x20",
       "idiom" : "ipad",
-      "filename" : "Iconcalenala-20.png",
+      "filename" : "calenala-app-1024-20.png",
       "scale" : "1x"
     },
     {
       "size" : "20x20",
       "idiom" : "ipad",
-      "filename" : "Iconcalenala-20@2x.png",
+      "filename" : "calenala-app-1024-20@2x.png",
       "scale" : "2x"
     },
     {
@@ -90,12 +93,13 @@
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "Iconcalenala-40.png",
+      "filename" : "calenala-app-1024-40.png",
       "scale" : "1x"
     },
     {
-      "idiom" : "ipad",
       "size" : "40x40",
+      "idiom" : "ipad",
+      "filename" : "calenala-app-1024-40@2x.png",
       "scale" : "2x"
     },
     {
@@ -143,13 +147,13 @@
     {
       "size" : "60x60",
       "idiom" : "car",
-      "filename" : "Iconcalenala-60@2x.png",
+      "filename" : "calenala-app-1024-60@2x-1.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "car",
-      "filename" : "Iconcalenala-60@3x.png",
+      "filename" : "calenala-app-1024-60@3x.png",
       "scale" : "3x"
     },
     {
