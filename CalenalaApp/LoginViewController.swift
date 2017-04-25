@@ -67,9 +67,16 @@ class LoginViewController: UIViewController {
                 UserDefaults.standard.set(username, forKey: "username")
                 UserDefaults.standard.set(password, forKey: "password")
 
+                let tabbar = UITabBarController()
+                
                 let meetingsViewController = MeetingsViewController()
-                let navigationController = UINavigationController(rootViewController: meetingsViewController)
-                weakSelf!.present(navigationController, animated: true, completion: nil)
+                let meetingsNavigationController = UINavigationController(rootViewController: meetingsViewController)
+                let ratedMeetingsViewController = RatedMeetingsViewController()
+                let ratedNavigationController = UINavigationController(rootViewController: ratedMeetingsViewController)
+                
+                tabbar.viewControllers = [meetingsNavigationController, ratedNavigationController]
+                
+                weakSelf!.present(tabbar, animated: true, completion: nil)
                 weakSelf?.initializeNotifications()
 
                 weakSelf?.loginView?.usernameField.text = nil

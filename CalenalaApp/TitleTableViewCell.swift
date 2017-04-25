@@ -58,6 +58,7 @@ class TitleTableViewCell: UITableViewCell {
         titleLabel.textAlignment = .center
 
         ratingView.isUserInteractionEnabled = false
+        ratingView.spacing = 4
         
         bottomSeparatorView.backgroundColor = SEPARATOR_COLOR
     }
@@ -70,7 +71,7 @@ class TitleTableViewCell: UITableViewCell {
 
         ratingView.autoPinEdge(.top, to: .bottom, of: titleLabel, withOffset: VERTICAL_INSET)
         ratingView.autoAlignAxis(toSuperviewAxis: .vertical)
-        ratingView.autoSetDimension(.height, toSize: 25)
+        ratingView.autoSetDimension(.height, toSize: 45)
         
         bottomSeparatorView.autoPinEdge(.top, to: .bottom, of: ratingView, withOffset: VERTICAL_INSET)
         bottomSeparatorView.autoSetDimension(.height, toSize: 1)

@@ -18,11 +18,12 @@ class MeetingsViewController: UITableViewController, MeetingDetailDelegate {
 
     init() {
         super.init(nibName: nil, bundle: nil)
-        title = NSLocalizedString("Your meetings", comment: "MEETINGS_TITLE")
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(showPushedDetailIfNeeded),
                                                name: NSNotification.Name.UIApplicationDidBecomeActive,
                                                object: nil)
+        tabBarItem = UITabBarItem(tabBarSystemItem: .mostViewed, tag: 0)
+        tabBarItem.title = NSLocalizedString("Your meetings", comment: "MEETINGS_TITLE")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -43,20 +44,18 @@ class MeetingsViewController: UITableViewController, MeetingDetailDelegate {
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(initializeMeetings), for: .valueChanged)
 
+        let settingsButton = UIBarButtonItem(title: NSLocalizedString("Settings", comment: ""),
+                                             style: .plain,
+                                             target: self,
+                                           	action: #selector(settingsButtonDidPress))
+        
         let logoutButton = UIBarButtonItem(title: NSLocalizedString("Logout", comment: ""),
                                            style: .plain,
                                            target: self,
                                            action: #selector(logoutButtonDidPress))
 
         navigationItem.rightBarButtonItem = logoutButton
-
-        let ratedMeetingsButton = UIBarButtonItem(title: NSLocalizedString("Rated", comment: ""),
-                                                  style: .plain,
-                                                  target:  self,
-                                                  action: #selector(ratedMeetingsButtonDidPress))
-        
-        navigationItem.rightBarButtonItem = logoutButton
-        navigationItem.leftBarButtonItem = ratedMeetingsButton
+        navigationItem.leftBarButtonItem = settingsButton
         
         initializeMeetings()
     }
@@ -75,9 +74,10 @@ class MeetingsViewController: UITableViewController, MeetingDetailDelegate {
 
 //  MARK: UserActions
 
-    func ratedMeetingsButtonDidPress() {
-        let ratedMeetingsViewController = RatedMeetingsViewController()
-        navigationController?.pushViewController(ratedMeetingsViewController, animated: true)
+    func settingsButtonDidPress() {
+        let settingsViewController = SettingsViewController()
+        let navigationController = UINavigationController(rootViewController: settingsViewController)
+        present(navigationController, animated: true, completion: nil)
     }
     
     func logoutButtonDidPress() {

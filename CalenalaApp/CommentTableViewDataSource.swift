@@ -25,7 +25,7 @@ class CommentTableViewDataSource: NSObject, UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var count = 3
-        if let ratingValue = meetingDetail?.meeting?.rating?.intValue, ratingValue > 0 {
+        if let ratingValue = meetingDetail?.meeting?.rating?.intValue, ratingValue > 0 && meetingDetail?.meeting?.ratedByMe?.boolValue == true {
             if let commentsCount = meetingDetail?.attendeesRated()?.count {
                 count += commentsCount
             }
@@ -58,22 +58,37 @@ class CommentTableViewDataSource: NSObject, UITableViewDataSource {
             let cell: AttendeeesCell = tableView.dequeueReusableCell(withIdentifier: AttendeeesCell.attendeeesCellReuseIdentifier) as! AttendeeesCell
             cell.attendes = meetingDetail?.attendees
             return cell
+        } else if indexPath.row == 3 && meetingDetail?.meeting?.ratedByMe?.boolValue == false {
+            let cell: CreateCommentCell = tableView.dequeueReusableCell(withIdentifier: CreateCommentCell.createCommentCellReuseIdentifier) as! CreateCommentCell
+            createCommentCell = cell
+            
+            return cell
+            
         } else {
-            if let ratingValue = meetingDetail?.meeting?.ratedByMe?.boolValue, ratingValue == true {
-                let cell: CommentTableViewCell = tableView.dequeueReusableCell(withIdentifier: CommentTableViewCell.commentTableViewCellReuseIdentifier) as! CommentTableViewCell
-                if let count = meetingDetail?.attendeesRated()?.count, count > (indexPath.row - 3) {
-                    if let attende = meetingDetail?.attendeesRated()?[indexPath.row - 3] {
-                        cell.attende = attende
-                    }
+            let cell: CommentTableViewCell = tableView.dequeueReusableCell(withIdentifier: CommentTableViewCell.commentTableViewCellReuseIdentifier) as! CommentTableViewCell
+            if let count = meetingDetail?.attendeesRated()?.count, count > (indexPath.row - 3) {
+                if let attende = meetingDetail?.attendeesRated()?[indexPath.row - 3] {
+                    cell.attende = attende
                 }
-
-                return cell
-            } else {
-                let cell: CreateCommentCell = tableView.dequeueReusableCell(withIdentifier: CreateCommentCell.createCommentCellReuseIdentifier) as! CreateCommentCell
-                createCommentCell = cell
-                
-                return cell
             }
+            
+            return cell
         }
     }
 }
+
+//if let ratingValue = meetingDetail?.meeting?.ratedByMe?.boolValue, ratingValue == true {
+//    let cell: CommentTableViewCell = tableView.dequeueReusableCell(withIdentifier: CommentTableViewCell.commentTableViewCellReuseIdentifier) as! CommentTableViewCell
+//    if let count = meetingDetail?.attendeesRated()?.count, count > (indexPath.row - 3) {
+//        if let attende = meetingDetail?.attendeesRated()?[indexPath.row - 3] {
+//            cell.attende = attende
+//        }
+//    }
+//
+//    return cell
+//} else {
+//    let cell: CreateCommentCell = tableView.dequeueReusableCell(withIdentifier: CreateCommentCell.createCommentCellReuseIdentifier) as! CreateCommentCell
+//    createCommentCell = cell
+//    
+//    return cell
+//}

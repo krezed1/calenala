@@ -16,7 +16,8 @@ class RatedMeetingsViewController: MeetingsViewController {
     
     override init() {
         super.init()
-        title = NSLocalizedString("Rated meetings", comment: "MEETINGS_TITLE")
+        tabBarItem = UITabBarItem(tabBarSystemItem: .topRated, tag: 1)
+        tabBarItem.title = NSLocalizedString("Rated meetings", comment: "MEETINGS_TITLE")
     }
     
     required init?(coder aDecoder: NSCoder) {

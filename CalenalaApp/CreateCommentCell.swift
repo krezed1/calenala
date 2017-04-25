@@ -55,7 +55,7 @@ class CreateCommentCell: UITableViewCell, UITextViewDelegate {
     }
 
 // TODO: Improve
-    private func layoutView() {
+    private func layoutView() {        
         textView.autoPinEdge(toSuperviewEdge: .left, withInset: 40)
         textView.autoPinEdge(toSuperviewEdge: .right, withInset: 40)
         textView.autoPinEdge(toSuperviewEdge: .top, withInset: 16)
