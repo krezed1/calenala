@@ -95,6 +95,7 @@
 		2AA1AB9C1EAFD0770076051A /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		2AA1AB9F1EAFD0770076051A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		2AA1ABA11EAFD0770076051A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2AA1ABA91EAFE9340076051A /* CalenalaPushExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CalenalaPushExtension.entitlements; sourceTree = "<group>"; };
 		2AAC6A8E1E1EFE4F00F84618 /* AttendeesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendeesViewController.swift; sourceTree = "<group>"; };
 		2AB64F151DCC9341005A058E /* MeetingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingsViewController.swift; sourceTree = "<group>"; };
 		2AB64F171DCCADE2005A058E /* MeetingsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingsDataSource.swift; sourceTree = "<group>"; };
@@ -232,6 +233,7 @@
 		2AA1AB9B1EAFD0770076051A /* CalenalaPushExtension */ = {
 			isa = PBXGroup;
 			children = (
+				2AA1ABA91EAFE9340076051A /* CalenalaPushExtension.entitlements */,
 				2AA1AB9C1EAFD0770076051A /* NotificationViewController.swift */,
 				2AA1AB9E1EAFD0770076051A /* MainInterface.storyboard */,
 				2AA1ABA11EAFD0770076051A /* Info.plist */,
@@ -407,6 +409,11 @@
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = L5425Y5HQ6;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 					2AD36D501DC5141600F63E90 = {
 						CreatedOnToolsVersion = 8.0;

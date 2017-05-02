@@ -20,6 +20,7 @@ class SettingsView: UIView {
     var emailNotificationSwitch: UISwitch = UISwitch()
     
     var pushLimitField: UITextField = UITextField()
+    var pushLimitLabel: UILabel = UILabel()
     
     init() {
         super.init(frame: .zero)
@@ -44,10 +45,14 @@ class SettingsView: UIView {
         addSubview(emailNotificationLabel)
         addSubview(emailNotificationSwitch)
         
+        pushLimitLabel.text = NSLocalizedString("Minimum people on meeting for push", comment: "MINIMUM_PEOPLE_LABEL")
+        pushLimitLabel.frame = CGRect(x: 0, y: 0, width: 300, height: 20)
+        pushLimitField.leftViewMode = .always
+        pushLimitField.leftView = pushLimitLabel
+        
         emailNotificationLabel.text = NSLocalizedString("Email Notifications", comment: "")
         pushLabel.text = NSLocalizedString("Push Notifications", comment: "")
         pushReacurringLabel.text = NSLocalizedString("Push reacurring label", comment: "")
-        pushLimitField.placeholder = "Push limit\t (0)"
         pushLimitField.keyboardType = .numberPad
     }
     

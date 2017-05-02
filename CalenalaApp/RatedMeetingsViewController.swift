@@ -11,13 +11,16 @@ import UIKit
 import MBProgressHUD
 
 class RatedMeetingsViewController: MeetingsViewController {
+    let RATED_BAR_IMAGE: UIImage? = UIImage(named: "rated")
     
 //  MARK: LifeCycles
     
     override init() {
         super.init()
-        tabBarItem = UITabBarItem(tabBarSystemItem: .topRated, tag: 1)
-        tabBarItem.title = NSLocalizedString("Rated meetings", comment: "MEETINGS_TITLE")
+        tabBarItem = UITabBarItem(title: NSLocalizedString("Rated", comment: "RATED_BAR_TITLE"),
+                                  image: RATED_BAR_IMAGE,
+                                  selectedImage: nil)
+
     }
     
     required init?(coder aDecoder: NSCoder) {

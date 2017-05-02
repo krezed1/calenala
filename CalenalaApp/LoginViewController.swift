@@ -94,8 +94,23 @@ class LoginViewController: UIViewController {
 
     private func initializeNotifications() {
         let center = UNUserNotificationCenter.current()
+//        center.setNotificationCategories(categories: Set<UNNotificationCategory>)
         center.requestAuthorization(options:[.badge, .alert, .sound]) { (granted, error) in
-            // Enable or disable features based on authorization.
+            let categoryId = "technology.tomorrow.calenalarating.notification"
+            
+            let category = UNNotificationCategory(identifier: categoryId, actions: [], intentIdentifiers: [], options: [])
+            center.setNotificationCategories([category])
+            
+//            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 30, repeats: false)
+//            let content = UNMutableNotificationContent()
+//            content.categoryIdentifier = categoryId
+//            content.title = "Notification Title"
+//            content.subtitle = "Notification Subtitle"
+//            content.body = "Notification body text"
+//            content.userInfo = ["customNumber": 100]
+//            
+//            let request = UNNotificationRequest(identifier: "myNotificationCategory", content: content, trigger: trigger)
+//            center.add(request, withCompletionHandler: nil)
         }
 
         UIApplication.shared.registerForRemoteNotifications()

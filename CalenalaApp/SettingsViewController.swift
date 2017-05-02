@@ -55,13 +55,14 @@ class SettingsViewController: UIViewController {
 //      MARK: UserActions
     
     func saveButtonDidPress() {
+        weak var weakSelf: SettingsViewController? = self
         let push: String = String(settingsView?.pushSwitch.isOn == true ? 1 : 0)
         let pushReacurring: String = String(settingsView?.pushReacurringSwitch.isOn == true ? 1 : 0)
         let email: String = String(settingsView?.emailNotificationSwitch.isOn == true ? 1 : 0)
         let pushLimit = settingsView?.pushLimitField.text
         
         Settings.saveUserSettings(push: push, pushReacurring: pushReacurring, emailNotification: email, pushLimit: pushLimit!) {
-
+            weakSelf?.dismiss(animated: true, completion: nil)
         }
     }
     

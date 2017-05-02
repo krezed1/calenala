@@ -11,7 +11,7 @@ import UIKit
 import MBProgressHUD
 
 class MeetingsViewController: UITableViewController, MeetingDetailDelegate {
-
+    let BAR_IMAGE: UIImage? = UIImage(named: "list")
     let dataSource: MeetingsDataSource = MeetingsDataSource()
 
 //  MARK: LifeCycles
@@ -22,8 +22,9 @@ class MeetingsViewController: UITableViewController, MeetingDetailDelegate {
                                                selector: #selector(showPushedDetailIfNeeded),
                                                name: NSNotification.Name.UIApplicationDidBecomeActive,
                                                object: nil)
-        tabBarItem = UITabBarItem(tabBarSystemItem: .mostViewed, tag: 0)
-        tabBarItem.title = NSLocalizedString("Your meetings", comment: "MEETINGS_TITLE")
+        tabBarItem = UITabBarItem(title: NSLocalizedString("Meetings", comment: "MEETINGS_BAR_TITLE"),
+                                  image: BAR_IMAGE,
+                                  selectedImage: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
