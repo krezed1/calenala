@@ -15,6 +15,7 @@
 		2A5297711DD4905400DB18A7 /* String+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5297701DD4905400DB18A7 /* String+Date.swift */; };
 		2A5297731DD5CFAF00DB18A7 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5297721DD5CFAF00DB18A7 /* RatingView.swift */; };
 		2A66D6841DEC38E6008C4239 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A66D6831DEC38E6008C4239 /* UIViewController+Alert.swift */; };
+		2A6804701EBA0F8400ED6FA6 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A68046F1EBA0F8400ED6FA6 /* Pods.framework */; };
 		2A687B4F1DCBB1FF00AB88F5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A687B4E1DCBB1FF00AB88F5 /* LoginViewController.swift */; };
 		2A687B511DCBB24A00AB88F5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A687B501DCBB24A00AB88F5 /* LoginView.swift */; };
 		2A8AD8081DC7E050009D7918 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8AD8071DC7E050009D7918 /* User.swift */; };
@@ -74,7 +75,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2A0F0CDD1DDBC59000698A82 /* CalenalaApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CalenalaApp.entitlements; sourceTree = "<group>"; };
 		2A2505011EAE7FE300A3D4C8 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		2A403D5D1DD1F9D7007EBA0A /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		2A403D601DD30E07007EBA0A /* MeetingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingDetailViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +83,7 @@
 		2A5297701DD4905400DB18A7 /* String+Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Date.swift"; sourceTree = "<group>"; };
 		2A5297721DD5CFAF00DB18A7 /* RatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		2A66D6831DEC38E6008C4239 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
+		2A68046F1EBA0F8400ED6FA6 /* Pods.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods.framework; path = "Pods/../build/Debug-iphoneos/Pods.framework"; sourceTree = "<group>"; };
 		2A687B4E1DCBB1FF00AB88F5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2A687B501DCBB24A00AB88F5 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2A8AD8071DC7E050009D7918 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -95,7 +96,6 @@
 		2AA1AB9C1EAFD0770076051A /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		2AA1AB9F1EAFD0770076051A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		2AA1ABA11EAFD0770076051A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2AA1ABA91EAFE9340076051A /* CalenalaPushExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CalenalaPushExtension.entitlements; sourceTree = "<group>"; };
 		2AAC6A8E1E1EFE4F00F84618 /* AttendeesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendeesViewController.swift; sourceTree = "<group>"; };
 		2AB64F151DCC9341005A058E /* MeetingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingsViewController.swift; sourceTree = "<group>"; };
 		2AB64F171DCCADE2005A058E /* MeetingsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingsDataSource.swift; sourceTree = "<group>"; };
@@ -130,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A6804701EBA0F8400ED6FA6 /* Pods.framework in Frameworks */,
 				2AA1AB9A1EAFD0770076051A /* UserNotificationsUI.framework in Frameworks */,
 				2AA1AB981EAFD0770076051A /* UserNotifications.framework in Frameworks */,
 			);
@@ -233,7 +234,6 @@
 		2AA1AB9B1EAFD0770076051A /* CalenalaPushExtension */ = {
 			isa = PBXGroup;
 			children = (
-				2AA1ABA91EAFE9340076051A /* CalenalaPushExtension.entitlements */,
 				2AA1AB9C1EAFD0770076051A /* NotificationViewController.swift */,
 				2AA1AB9E1EAFD0770076051A /* MainInterface.storyboard */,
 				2AA1ABA11EAFD0770076051A /* Info.plist */,
@@ -293,7 +293,6 @@
 			isa = PBXGroup;
 			children = (
 				2A66D6821DEC38C4008C4239 /* Extensions */,
-				2A0F0CDD1DDBC59000698A82 /* CalenalaApp.entitlements */,
 				2A403D5C1DD1F9C2007EBA0A /* Manager */,
 				2A403D5B1DD1D9FC007EBA0A /* Entities */,
 				2A687B4B1DCBB1C200AB88F5 /* Controllers */,
@@ -325,6 +324,7 @@
 		CBDFB59D505ED05324D3D9E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2A68046F1EBA0F8400ED6FA6 /* Pods.framework */,
 				3D9EBD1E82C38EB493687E06 /* Pods_CalenalaApp.framework */,
 				D0CA63E0FD7895AEB0A765D5 /* Pods.framework */,
 				2AA1AB971EAFD0770076051A /* UserNotifications.framework */,
@@ -380,8 +380,8 @@
 				140520DB1192E5CD089A6929 /* Check Pods Manifest.lock */,
 				2AD36D4D1DC5141600F63E90 /* Sources */,
 				2AD36D4E1DC5141600F63E90 /* Frameworks */,
-				2AD36D4F1DC5141600F63E90 /* Resources */,
 				2DAB227670B0D0816F12D285 /* Embed Pods Frameworks */,
+				2AD36D4F1DC5141600F63E90 /* Resources */,
 				9C6EC6F2163C33C4EAA29E0C /* Copy Pods Resources */,
 				2AA1ABA81EAFD0770076051A /* Embed App Extensions */,
 			);
@@ -603,6 +603,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Rudolf Kotas (566KU9X62W)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = L5425Y5HQ6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = CalenalaPushExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -618,6 +622,10 @@
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				DEVELOPMENT_TEAM = L5425Y5HQ6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = CalenalaPushExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -733,7 +741,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = L5425Y5HQ6;
 				INFOPLIST_FILE = CalenalaApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = technology.tomorrow.calenalarating;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -757,7 +765,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = L5425Y5HQ6;
 				INFOPLIST_FILE = CalenalaApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = technology.tomorrow.calenalarating;
 				PRODUCT_NAME = "$(TARGET_NAME)";

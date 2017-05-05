@@ -46,6 +46,7 @@ class User: MTLModel, MTLJSONSerializing {
             deviceToken += String(format: "%02.2hhx", pushToken[i] as CVarArg)
         }
 
+        print("devicetoken\n" + deviceToken)
         let params = String(format: "action=MobileApi&api_key=123456apikey&akce=savePushToken&token=%@&push_token=%@", token!, deviceToken)
         let body = params.data(using: .utf8)
 

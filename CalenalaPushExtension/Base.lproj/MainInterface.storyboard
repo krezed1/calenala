@@ -6,93 +6,44 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12084"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Notification View Controller-->
         <scene sceneID="cwh-vc-ff4">
             <objects>
-                <viewController id="M4Y-Lb-cyx" userLabel="Notification View Controller" customClass="NotificationViewController" customModule="CalenalaPushExtension" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="M4Y-Lb-cyx" userLabel="Notification View Controller" customClass="NotificationViewController" customModule="CalenalaPushExtension" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ft6-oW-KC0"/>
                         <viewControllerLayoutGuide type="bottom" id="FKl-LY-JtV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Placeholder" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GjI-84-5ug" userLabel="comment">
-                                <rect key="frame" x="192" y="10" width="118" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gUN-DD-FyT">
+                                <rect key="frame" x="32" y="16" width="256" height="24"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghz-ul-bSc" userLabel="S1">
-                                <rect key="frame" x="0.0" y="10" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="star-empty"/>
-                                <connections>
-                                    <action selector="button1DidPress" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="ySW-hT-g7G"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yF1-tn-uGh" userLabel="S2">
-                                <rect key="frame" x="38" y="10" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="star-empty"/>
-                                <connections>
-                                    <action selector="button2DidPress" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="AjU-qj-0n1"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7lp-91-U1S" userLabel="S3">
-                                <rect key="frame" x="76" y="10" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="star-empty"/>
-                                <connections>
-                                    <action selector="button3DidPress" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="CVe-ya-p9A"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jNU-FY-5jG" userLabel="S4">
-                                <rect key="frame" x="114" y="10" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="star-empty"/>
-                                <connections>
-                                    <action selector="button4DidPress" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="Hak-KJ-EW4"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mw5-3x-W9x" userLabel="S5">
-                                <rect key="frame" x="152" y="10" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="star-empty"/>
-                                <connections>
-                                    <action selector="button5DidPress" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="v8k-65-JGX"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rg3-yY-1yq" userLabel="sendButton">
-                                <rect key="frame" x="13" y="62" width="294" height="163"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.45882353186607361" green="0.74901962280273438" blue="0.66666668653488159" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="gUN-DD-FyT" secondAttribute="trailing" constant="16" id="BzJ-sL-VQg"/>
+                            <constraint firstItem="gUN-DD-FyT" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="16" id="CAx-qM-20S"/>
+                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="gUN-DD-FyT" secondAttribute="bottom" constant="16" id="Nxl-wi-iD7"/>
+                            <constraint firstItem="gUN-DD-FyT" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" constant="16" id="eUi-Yu-yhZ"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="320"/>
+                    <size key="freeformSize" width="320" height="56"/>
                     <connections>
-                        <outlet property="button1" destination="ghz-ul-bSc" id="an2-0C-tLf"/>
-                        <outlet property="button2" destination="yF1-tn-uGh" id="DIO-1h-zTp"/>
-                        <outlet property="button3" destination="7lp-91-U1S" id="rjs-k0-lrB"/>
-                        <outlet property="button4" destination="jNU-FY-5jG" id="fnG-gM-FDl"/>
-                        <outlet property="button5" destination="mw5-3x-W9x" id="Uhg-5U-32O"/>
-                        <outlet property="commentField" destination="GjI-84-5ug" id="7ct-qc-D1V"/>
-                        <outlet property="sendButton" destination="Rg3-yY-1yq" id="Z5B-YA-QYP"/>
+                        <outlet property="commentField" destination="gUN-DD-FyT" id="3KJ-5z-sIR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -100,7 +51,4 @@
             <point key="canvasLocation" x="137.59999999999999" y="136.73163418290855"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="star-empty" width="16" height="16"/>
-    </resources>
 </document>

@@ -94,23 +94,16 @@ class LoginViewController: UIViewController {
 
     private func initializeNotifications() {
         let center = UNUserNotificationCenter.current()
-//        center.setNotificationCategories(categories: Set<UNNotificationCategory>)
-        center.requestAuthorization(options:[.badge, .alert, .sound]) { (granted, error) in
+        center.requestAuthorization(options:[.alert]) { (granted, error) in
             let categoryId = "technology.tomorrow.calenalarating.notification"
+            let rate1 = UNNotificationAction(identifier: "Star1", title: "Very Dissatisfied 🖕", options: [])
+            let rate2 = UNNotificationAction(identifier: "Star2", title: "Dissatisfied 👎", options: [])
+            let rate3 = UNNotificationAction(identifier: "Star3", title: "OK 👌", options: [])
+            let rate4 = UNNotificationAction(identifier: "Star4", title: "Satisfied 👍", options: [])
+            let rate5 = UNNotificationAction(identifier: "Star5", title: "Very Satisfied 👏", options: [])
             
-            let category = UNNotificationCategory(identifier: categoryId, actions: [], intentIdentifiers: [], options: [])
+            let category = UNNotificationCategory(identifier: categoryId, actions: [rate1, rate2, rate3, rate4, rate5], intentIdentifiers: [], options: [])
             center.setNotificationCategories([category])
-            
-//            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 30, repeats: false)
-//            let content = UNMutableNotificationContent()
-//            content.categoryIdentifier = categoryId
-//            content.title = "Notification Title"
-//            content.subtitle = "Notification Subtitle"
-//            content.body = "Notification body text"
-//            content.userInfo = ["customNumber": 100]
-//            
-//            let request = UNNotificationRequest(identifier: "myNotificationCategory", content: content, trigger: trigger)
-//            center.add(request, withCompletionHandler: nil)
         }
 
         UIApplication.shared.registerForRemoteNotifications()
