@@ -47,6 +47,11 @@ class User: MTLModel, MTLJSONSerializing {
         }
 
         print("devicetoken\n" + deviceToken)
+        
+        let userDefaults = UserDefaults(suiteName: "group.technology.tomorrow.calenalarating.CalenalaPushExtension")
+        userDefaults?.set(token, forKey: "token")
+        userDefaults?.synchronize()
+        
         let params = String(format: "action=MobileApi&api_key=123456apikey&akce=savePushToken&token=%@&push_token=%@", token!, deviceToken)
         let body = params.data(using: .utf8)
 

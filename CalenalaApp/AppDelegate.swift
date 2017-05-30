@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.sharedManager().enable = true
 
 //        let center = UNUserNotificationCenter.current()
-//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 15, repeats: false)
 //        let content = UNMutableNotificationContent()
 //        content.categoryIdentifier = "technology.tomorrow.calenalarating.notification"
 //        content.title = "Meeting status"

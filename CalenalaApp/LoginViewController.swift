@@ -96,11 +96,11 @@ class LoginViewController: UIViewController {
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options:[.alert]) { (granted, error) in
             let categoryId = "technology.tomorrow.calenalarating.notification"
-            let rate1 = UNNotificationAction(identifier: "Star1", title: "Very Dissatisfied 🖕", options: [])
-            let rate2 = UNNotificationAction(identifier: "Star2", title: "Dissatisfied 👎", options: [])
-            let rate3 = UNNotificationAction(identifier: "Star3", title: "OK 👌", options: [])
-            let rate4 = UNNotificationAction(identifier: "Star4", title: "Satisfied 👍", options: [])
-            let rate5 = UNNotificationAction(identifier: "Star5", title: "Very Satisfied 👏", options: [])
+            let rate1 = UNNotificationAction(identifier: "Star1", title: "⭐️", options: [])
+            let rate2 = UNNotificationAction(identifier: "Star2", title: "⭐️⭐️", options: [])
+            let rate3 = UNNotificationAction(identifier: "Star3", title: "⭐️⭐️⭐️", options: [])
+            let rate4 = UNNotificationAction(identifier: "Star4", title: "⭐️⭐️⭐️⭐️", options: [])
+            let rate5 = UNNotificationAction(identifier: "Star5", title: "⭐️⭐️⭐️⭐️⭐️", options: [])
             
             let category = UNNotificationCategory(identifier: categoryId, actions: [rate1, rate2, rate3, rate4, rate5], intentIdentifiers: [], options: [])
             center.setNotificationCategories([category])

@@ -15,18 +15,12 @@
 		2A5297711DD4905400DB18A7 /* String+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5297701DD4905400DB18A7 /* String+Date.swift */; };
 		2A5297731DD5CFAF00DB18A7 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5297721DD5CFAF00DB18A7 /* RatingView.swift */; };
 		2A66D6841DEC38E6008C4239 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A66D6831DEC38E6008C4239 /* UIViewController+Alert.swift */; };
-		2A6804701EBA0F8400ED6FA6 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A68046F1EBA0F8400ED6FA6 /* Pods.framework */; };
 		2A687B4F1DCBB1FF00AB88F5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A687B4E1DCBB1FF00AB88F5 /* LoginViewController.swift */; };
 		2A687B511DCBB24A00AB88F5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A687B501DCBB24A00AB88F5 /* LoginView.swift */; };
 		2A8AD8081DC7E050009D7918 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8AD8071DC7E050009D7918 /* User.swift */; };
 		2A8D4BF21DEF21DC007A42CC /* TimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8D4BF11DEF21DC007A42CC /* TimeView.swift */; };
 		2AA1AB8F1EAE8BF70076051A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA1AB8E1EAE8BF70076051A /* SettingsViewController.swift */; };
 		2AA1AB911EAE8C790076051A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA1AB901EAE8C790076051A /* SettingsView.swift */; };
-		2AA1AB981EAFD0770076051A /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA1AB971EAFD0770076051A /* UserNotifications.framework */; };
-		2AA1AB9A1EAFD0770076051A /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA1AB991EAFD0770076051A /* UserNotificationsUI.framework */; };
-		2AA1AB9D1EAFD0770076051A /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA1AB9C1EAFD0770076051A /* NotificationViewController.swift */; };
-		2AA1ABA01EAFD0770076051A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AA1AB9E1EAFD0770076051A /* MainInterface.storyboard */; };
-		2AA1ABA41EAFD0770076051A /* CalenalaPushExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2AA1AB961EAFD0770076051A /* CalenalaPushExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2AAC6A8F1E1EFE4F00F84618 /* AttendeesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAC6A8E1E1EFE4F00F84618 /* AttendeesViewController.swift */; };
 		2AB64F161DCC9341005A058E /* MeetingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB64F151DCC9341005A058E /* MeetingsViewController.swift */; };
 		2AB64F181DCCADE2005A058E /* MeetingsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB64F171DCCADE2005A058E /* MeetingsDataSource.swift */; };
@@ -50,16 +44,6 @@
 		F6F878B71E096EBD001F44CC /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F878B61E096EBD001F44CC /* LocationTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		2AA1ABA21EAFD0770076051A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2AD36D491DC5141600F63E90 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2AA1AB951EAFD0770076051A;
-			remoteInfo = CalenalaPushExtension;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		2AA1ABA81EAFD0770076051A /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -67,7 +51,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				2AA1ABA41EAFD0770076051A /* CalenalaPushExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,6 +59,8 @@
 
 /* Begin PBXFileReference section */
 		2A2505011EAE7FE300A3D4C8 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		2A3F064D1ECB88F600AAA27F /* CalenalaApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CalenalaApp.entitlements; sourceTree = "<group>"; };
+		2A3F064E1ECB98A400AAA27F /* CalenalaPushExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CalenalaPushExtension.entitlements; sourceTree = "<group>"; };
 		2A403D5D1DD1F9D7007EBA0A /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		2A403D601DD30E07007EBA0A /* MeetingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingDetailViewController.swift; sourceTree = "<group>"; };
 		2A403D631DD30EF3007EBA0A /* MeetingDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingDetailView.swift; sourceTree = "<group>"; };
@@ -90,7 +75,6 @@
 		2A8D4BF11DEF21DC007A42CC /* TimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeView.swift; sourceTree = "<group>"; };
 		2AA1AB8E1EAE8BF70076051A /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2AA1AB901EAE8C790076051A /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		2AA1AB961EAFD0770076051A /* CalenalaPushExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CalenalaPushExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AA1AB971EAFD0770076051A /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		2AA1AB991EAFD0770076051A /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
 		2AA1AB9C1EAFD0770076051A /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
@@ -126,16 +110,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2AA1AB931EAFD0770076051A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2A6804701EBA0F8400ED6FA6 /* Pods.framework in Frameworks */,
-				2AA1AB9A1EAFD0770076051A /* UserNotificationsUI.framework in Frameworks */,
-				2AA1AB981EAFD0770076051A /* UserNotifications.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2AD36D4E1DC5141600F63E90 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -234,6 +208,7 @@
 		2AA1AB9B1EAFD0770076051A /* CalenalaPushExtension */ = {
 			isa = PBXGroup;
 			children = (
+				2A3F064E1ECB98A400AAA27F /* CalenalaPushExtension.entitlements */,
 				2AA1AB9C1EAFD0770076051A /* NotificationViewController.swift */,
 				2AA1AB9E1EAFD0770076051A /* MainInterface.storyboard */,
 				2AA1ABA11EAFD0770076051A /* Info.plist */,
@@ -284,7 +259,6 @@
 			isa = PBXGroup;
 			children = (
 				2AD36D511DC5141600F63E90 /* CalenalaApp.app */,
-				2AA1AB961EAFD0770076051A /* CalenalaPushExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -292,6 +266,7 @@
 		2AD36D531DC5141600F63E90 /* CalenalaApp */ = {
 			isa = PBXGroup;
 			children = (
+				2A3F064D1ECB88F600AAA27F /* CalenalaApp.entitlements */,
 				2A66D6821DEC38C4008C4239 /* Extensions */,
 				2A403D5C1DD1F9C2007EBA0A /* Manager */,
 				2A403D5B1DD1D9FC007EBA0A /* Entities */,
@@ -356,23 +331,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2AA1AB951EAFD0770076051A /* CalenalaPushExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2AA1ABA71EAFD0770076051A /* Build configuration list for PBXNativeTarget "CalenalaPushExtension" */;
-			buildPhases = (
-				2AA1AB921EAFD0770076051A /* Sources */,
-				2AA1AB931EAFD0770076051A /* Frameworks */,
-				2AA1AB941EAFD0770076051A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = CalenalaPushExtension;
-			productName = CalenalaPushExtension;
-			productReference = 2AA1AB961EAFD0770076051A /* CalenalaPushExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		2AD36D501DC5141600F63E90 /* CalenalaApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2AD36D631DC5141600F63E90 /* Build configuration list for PBXNativeTarget "CalenalaApp" */;
@@ -388,7 +346,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				2AA1ABA31EAFD0770076051A /* PBXTargetDependency */,
 			);
 			name = CalenalaApp;
 			productName = CalenalaApp;
@@ -405,22 +362,15 @@
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Krezelok, Daniel";
 				TargetAttributes = {
-					2AA1AB951EAFD0770076051A = {
-						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = L5425Y5HQ6;
-						ProvisioningStyle = Automatic;
-						SystemCapabilities = {
-							com.apple.Push = {
-								enabled = 0;
-							};
-						};
-					};
 					2AD36D501DC5141600F63E90 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = L5425Y5HQ6;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
@@ -445,20 +395,11 @@
 			projectRoot = "";
 			targets = (
 				2AD36D501DC5141600F63E90 /* CalenalaApp */,
-				2AA1AB951EAFD0770076051A /* CalenalaPushExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2AA1AB941EAFD0770076051A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2AA1ABA01EAFD0770076051A /* MainInterface.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2AD36D4F1DC5141600F63E90 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -519,14 +460,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2AA1AB921EAFD0770076051A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2AA1AB9D1EAFD0770076051A /* NotificationViewController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2AD36D4D1DC5141600F63E90 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -568,14 +501,6 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		2AA1ABA31EAFD0770076051A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2AA1AB951EAFD0770076051A /* CalenalaPushExtension */;
-			targetProxy = 2AA1ABA21EAFD0770076051A /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
 		2AA1AB9E1EAFD0770076051A /* MainInterface.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -596,46 +521,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		2AA1ABA51EAFD0770076051A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Rudolf Kotas (566KU9X62W)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = L5425Y5HQ6;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
-				);
-				INFOPLIST_FILE = CalenalaPushExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = technology.tomorrow.calenalarating.CalenalaPushExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		2AA1ABA61EAFD0770076051A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				DEVELOPMENT_TEAM = L5425Y5HQ6;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
-				);
-				INFOPLIST_FILE = CalenalaPushExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = technology.tomorrow.calenalarating.CalenalaPushExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
 		2AD36D611DC5141600F63E90 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -779,15 +664,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2AA1ABA71EAFD0770076051A /* Build configuration list for PBXNativeTarget "CalenalaPushExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2AA1ABA51EAFD0770076051A /* Debug */,
-				2AA1ABA61EAFD0770076051A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2AD36D4C1DC5141600F63E90 /* Build configuration list for PBXProject "CalenalaApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
