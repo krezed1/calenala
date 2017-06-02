@@ -78,7 +78,6 @@ class LoginViewController: UIViewController {
                 
                 weakSelf!.present(tabbar, animated: true, completion: nil)
                 weakSelf?.initializeNotifications()
-
                 weakSelf?.loginView?.usernameField.text = nil
                 weakSelf?.loginView?.passwordField.text = nil
             } else {
@@ -95,17 +94,17 @@ class LoginViewController: UIViewController {
     private func initializeNotifications() {
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options:[.alert]) { (granted, error) in
-            let categoryId = "technology.tomorrow.calenalarating.notification"
-            let rate1 = UNNotificationAction(identifier: "Star1", title: "⭐️", options: [])
-            let rate2 = UNNotificationAction(identifier: "Star2", title: "⭐️⭐️", options: [])
-            let rate3 = UNNotificationAction(identifier: "Star3", title: "⭐️⭐️⭐️", options: [])
-            let rate4 = UNNotificationAction(identifier: "Star4", title: "⭐️⭐️⭐️⭐️", options: [])
-            let rate5 = UNNotificationAction(identifier: "Star5", title: "⭐️⭐️⭐️⭐️⭐️", options: [])
-            
-            let category = UNNotificationCategory(identifier: categoryId, actions: [rate1, rate2, rate3, rate4, rate5], intentIdentifiers: [], options: [])
-            center.setNotificationCategories([category])
+//            let categoryId = "technology.tomorrow.calenalarating.notification"
+//            let rate1 = UNNotificationAction(identifier: "Star1", title: "⭐️", options: [])
+//            let rate2 = UNNotificationAction(identifier: "Star2", title: "⭐️⭐️", options: [])
+//            let rate3 = UNNotificationAction(identifier: "Star3", title: "⭐️⭐️⭐️", options: [])
+//            let rate4 = UNNotificationAction(identifier: "Star4", title: "⭐️⭐️⭐️⭐️", options: [])
+//            let rate5 = UNNotificationAction(identifier: "Star5", title: "⭐️⭐️⭐️⭐️⭐️", options: [])
+//            
+//            let category = UNNotificationCategory(identifier: categoryId, actions: [rate1, rate2, rate3, rate4, rate5], intentIdentifiers: [], options: [])
+//            center.setNotificationCategories([category])
         }
-
+        
         UIApplication.shared.registerForRemoteNotifications()
     }
     
