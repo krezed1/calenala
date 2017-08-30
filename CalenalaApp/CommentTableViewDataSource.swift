@@ -13,19 +13,21 @@ class CommentTableViewDataSource: NSObject, UITableViewDataSource {
     public var meetingDetail: MeetingDetail?
     public var titleCell: TitleTableViewCell?
     public var createCommentCell: CreateCommentCell?
+    
 //  MARK: LifeCycles
-
-    init(meeting: Meeting) {
+    
+    init(meetingId: String) {
         super.init()
+        
         meetingDetail = MeetingDetail()
-        meetingDetail?.meeting = meeting
+        meetingDetail?.meetingId = meetingId
     }
-
+    
 //  MARK: UITableViewDataSource
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var count = 3
-        if let ratingValue = meetingDetail?.meeting?.rating?.intValue, ratingValue > 0 && meetingDetail?.meeting?.ratedByMe?.boolValue == true {
+        if let ratingValue = meetingDetail?.rating?.intValue, ratingValue > 0 && meetingDetail?.ratedByMe?.boolValue == true {
             if let commentsCount = meetingDetail?.attendeesRated()?.count {
                 count += commentsCount
             }
@@ -39,9 +41,9 @@ class CommentTableViewDataSource: NSObject, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell: TitleTableViewCell = tableView.dequeueReusableCell(withIdentifier: TitleTableViewCell.titleTableViewCellReuseIdentifier) as! TitleTableViewCell
-            cell.meeting = meetingDetail?.meeting
+            cell.meeting = meetingDetail
             titleCell = cell
-            if let ratingValue = meetingDetail?.meeting?.ratedByMe?.boolValue, ratingValue == true {
+            if let ratingValue = meetingDetail?.ratedByMe?.boolValue, ratingValue == true {
                 cell.ratingView.isUserInteractionEnabled = false
             } else {
                 cell.ratingView.isUserInteractionEnabled = true
@@ -50,7 +52,7 @@ class CommentTableViewDataSource: NSObject, UITableViewDataSource {
             return cell
         } else if indexPath.row == 1 {
             let cell: LocationTableViewCell = tableView.dequeueReusableCell(withIdentifier: LocationTableViewCell.locationTableViewCellReuseIdentifier) as! LocationTableViewCell
-            cell.meeting = meetingDetail?.meeting
+            cell.meeting = meetingDetail
 
             return cell
 
@@ -58,7 +60,7 @@ class CommentTableViewDataSource: NSObject, UITableViewDataSource {
             let cell: AttendeeesCell = tableView.dequeueReusableCell(withIdentifier: AttendeeesCell.attendeeesCellReuseIdentifier) as! AttendeeesCell
             cell.attendes = meetingDetail?.attendees
             return cell
-        } else if indexPath.row == 3 && meetingDetail?.meeting?.ratedByMe?.boolValue == false {
+        } else if indexPath.row == 3 && meetingDetail?.ratedByMe?.boolValue == false {
             let cell: CreateCommentCell = tableView.dequeueReusableCell(withIdentifier: CreateCommentCell.createCommentCellReuseIdentifier) as! CreateCommentCell
             createCommentCell = cell
             

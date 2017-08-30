@@ -21,7 +21,16 @@ class Meeting: MTLModel, MTLJSONSerializing {
     public var locationName: String?
 
     public var populatedMeetingInterval: String? {
-        let meetingInterval = String(format:"%@, %@ - %@", start!.populateBaseDate(), start!.populateHours(), end!.populateHours())
+        var meetingInterval = ""
+        if let baseDate = start?.populateBaseDate(),
+            let startHours = start?.populateHours(),
+            let endHours = end?.populateHours() {
+            meetingInterval  = String(format:"%@, %@ - %@",
+                                     baseDate,
+                                     startHours,
+                                     endHours)
+        }
+        
 
         return meetingInterval
     }

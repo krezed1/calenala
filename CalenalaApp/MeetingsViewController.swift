@@ -57,14 +57,12 @@ class MeetingsViewController: UITableViewController, MeetingDetailDelegate {
 
         navigationItem.rightBarButtonItem = logoutButton
         navigationItem.leftBarButtonItem = settingsButton
-        
-        initializeMeetings()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        showPushedDetailIfNeeded()
+        initializeMeetings()
     }
     
 //  MARK: MeetingDetailDelegate
@@ -115,11 +113,7 @@ class MeetingsViewController: UITableViewController, MeetingDetailDelegate {
         UserDefaults.standard.removeObject(forKey: "meeting_id")
         UserDefaults.standard.synchronize()
         
-        guard let meeting = dataSource.meeting(forMeetingId: meetingId) else {
-            return
-        }
-        
-        let meetingDetailController = MeetingDetailViewController(meeting: meeting)
+        let meetingDetailController = MeetingDetailViewController(meetingId: meetingId)
         meetingDetailController.meetingDelegate = self
         navigationController?.pushViewController(meetingDetailController, animated: true)
     }
@@ -141,9 +135,9 @@ class MeetingsViewController: UITableViewController, MeetingDetailDelegate {
         guard let meeting = meetings?[indexPath.row] else {
             return
         }
-
-        let meetingDetailController = MeetingDetailViewController(meeting: meeting)
-        meetingDetailController.meetingDelegate = self
-        navigationController?.pushViewController(meetingDetailController, animated: true)
+        
+        if let meetingId = meeting.meetingId {
+            showMeetingDetailWithId(meetingId: meetingId)
+        }
     }
 }

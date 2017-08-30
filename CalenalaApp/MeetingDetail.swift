@@ -11,7 +11,14 @@ import Mantle
 
 class MeetingDetail: MTLModel, MTLJSONSerializing {
 
-    public var meeting: Meeting?
+    public var meetingId: String?
+    public var name: String?
+    public var start: String?
+    public var end: String?
+    public var organizer: String?
+    public var rating: NSNumber?
+    public var ratedByMe: NSNumber?
+    public var locationName: String?
     public var meetingDesc: String?
     public var roomName: String?
     public var duration: String?
@@ -22,7 +29,22 @@ class MeetingDetail: MTLModel, MTLJSONSerializing {
     public var price: String?
     public var potentialPrice: String?
     public var attendees: Array<Attende>?    
-
+    
+    public var populatedMeetingInterval: String? {
+        var meetingInterval = ""
+        if let baseDate = start?.populateBaseDate(),
+            let startHours = start?.populateHours(),
+            let endHours = end?.populateHours() {
+            meetingInterval  = String(format:"%@, %@ - %@",
+                                      baseDate,
+                                      startHours,
+                                      endHours)
+        }
+        
+        
+        return meetingInterval
+    }
+    
 //  MARK: MTLJSONSerializing
 
     public static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
@@ -34,7 +56,15 @@ class MeetingDetail: MTLModel, MTLJSONSerializing {
                 "declined" : "declined",
                 "tentative" : "tentative",
                 "price" : "price",
-                "potentialPrice" : "potentional_price"
+                "potentialPrice" : "potentional_price",
+                "meetingId" : "meeting_id",
+                "name" : "name",
+                "start" : "start",
+                "end" : "end",
+                "organizer" : "organizer",
+                "rating" : "rating",
+                "locationName" : "location_name",
+                "ratedByMe" : "rated_by_me"
         ]
     }
 
@@ -62,7 +92,7 @@ class MeetingDetail: MTLModel, MTLJSONSerializing {
 
     public func rateMeeting(rating: Int, ratingDesc: String, completion: @escaping (Bool) -> Swift.Void) {
         let url = URL(string: APIManager.BASE_API_URL)
-        let params = String(format: "action=MobileApi&api_key=123456apikey&akce=rateMeeting&token=%@&meeting_id=%@&rating=%d&rating_description=%@", User.currentUser.token!, meeting!.meetingId!, rating, ratingDesc)
+        let params = String(format: "action=MobileApi&api_key=123456apikey&akce=rateMeeting&token=%@&meeting_id=%@&rating=%d&rating_description=%@", User.currentUser.token!, meetingId!, rating, ratingDesc)
         let body = params.data(using: .utf8)
 
         var request = URLRequest(url: url!)

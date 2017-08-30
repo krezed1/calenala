@@ -21,11 +21,11 @@ class  MeetingDetailViewController: UIViewController, UITableViewDelegate {
     }
 
 //  MARK: LifeCycles
-
-    init(meeting: Meeting) {
+    
+    init(meetingId: String) {
         super.init(nibName: nil, bundle: nil)
         title = NSLocalizedString("Rate the meeting", comment: "MEETING_DETAIL_TITLE")
-        commentDataSource = CommentTableViewDataSource(meeting: meeting)
+        commentDataSource = CommentTableViewDataSource(meetingId: meetingId)
         hidesBottomBarWhenPushed = true
     }
     
@@ -48,7 +48,7 @@ class  MeetingDetailViewController: UIViewController, UITableViewDelegate {
         detailView?.sendButton.addTarget(self, action: #selector(sendButtonDidPress), for: .touchUpInside)
 
 
-        guard let rating = commentDataSource?.meetingDetail?.meeting?.ratedByMe?.boolValue, rating == true else  {
+        guard let rating = commentDataSource?.meetingDetail?.ratedByMe?.boolValue, rating == true else  {
             return
         }
 
@@ -76,8 +76,8 @@ class  MeetingDetailViewController: UIViewController, UITableViewDelegate {
             hud.hide(animated: false)
             if result == true {
                 if weakSelf?.meetingDelegate != nil {
-                    weakSelf?.commentDataSource?.meetingDetail?.meeting?.rating = NSNumber(integerLiteral: rating)
-                    weakSelf?.commentDataSource?.meetingDetail?.meeting?.ratedByMe = 1
+                    weakSelf?.commentDataSource?.meetingDetail?.rating = NSNumber(integerLiteral: rating)
+                    weakSelf?.commentDataSource?.meetingDetail?.ratedByMe = 1
                     weakSelf?.meetingDelegate?.meetingDidRate(value: rating)
                 }
 
@@ -104,8 +104,7 @@ class  MeetingDetailViewController: UIViewController, UITableViewDelegate {
 
     private func loadMeetingDetail() {
         weak var weakSelf = self
-        MeetingDetail.loadMeetingDetail(meetingId: commentDataSource!.meetingDetail!.meeting!.meetingId!) { (meetingDetail) in
-            meetingDetail?.meeting = weakSelf?.commentDataSource?.meetingDetail?.meeting
+        MeetingDetail.loadMeetingDetail(meetingId: commentDataSource!.meetingDetail!.meetingId!) { (meetingDetail) in
             weakSelf?.commentDataSource?.meetingDetail = meetingDetail
             weakSelf?.detailView?.reloadData()
         }

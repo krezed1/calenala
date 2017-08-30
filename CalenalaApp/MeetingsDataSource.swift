@@ -14,25 +14,6 @@ class MeetingsDataSource: NSObject, UITableViewDataSource {
 //  MARK: LifeCycles
 
     public var meetings: [Any] = []
-
-    public func meeting(forMeetingId: String) -> Meeting? {
-        var foundMeeting: Meeting?
-        
-        guard let populatedMeetings = meetings as? [[Meeting]] else {
-            return nil
-        }
-        
-        for section in populatedMeetings {
-            for meeting in section {
-                if meeting.meetingId == forMeetingId {
-                    foundMeeting = meeting
-                    break
-                }
-            }
-        }
-        
-        return foundMeeting
-    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return meetings.count

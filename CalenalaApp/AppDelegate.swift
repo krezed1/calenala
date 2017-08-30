@@ -27,16 +27,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.sharedManager().enable = true
 
 //        let center = UNUserNotificationCenter.current()
-//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 6, repeats: false)
 //        let content = UNMutableNotificationContent()
 //        content.categoryIdentifier = "technology.tomorrow.calenalarating.notification"
 //        content.title = "Meeting status"
 //        content.subtitle = "Ended"
 //        content.body = "Please rate"
-//
+//        
 //        let request = UNNotificationRequest(identifier: "a", content: content, trigger: trigger)
 //        center.add(request, withCompletionHandler: nil)
-
+        
         return true
     }
 

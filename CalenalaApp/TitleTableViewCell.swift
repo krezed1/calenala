@@ -22,9 +22,8 @@ class TitleTableViewCell: UITableViewCell {
     private let TEXT_COLOR = UIColor(colorLiteralRed: 153/255, green: 153/255, blue: 153/255, alpha: 1)
     private let SEPARATOR_COLOR = UIColor(colorLiteralRed: 223/255, green: 223/255, blue: 223/255, alpha: 1)
     
-    public var meeting: Meeting? {
-        didSet {
-            
+    public var meeting: MeetingDetail? {
+        didSet {            
             if let name = meeting?.name {
                 titleLabel.text = name
                 if let rating = meeting?.rating?.intValue,
