@@ -57,7 +57,7 @@ class MeetingDetail: MTLModel, MTLJSONSerializing {
                 "tentative" : "tentative",
                 "price" : "price",
                 "potentialPrice" : "potentional_price",
-                "meetingId" : "meeting_id",
+                "meetingId" : "id",
                 "name" : "name",
                 "start" : "start",
                 "end" : "end",
