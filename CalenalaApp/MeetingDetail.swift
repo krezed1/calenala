@@ -115,8 +115,7 @@ class MeetingDetail: MTLModel, MTLJSONSerializing {
 
     public static func loadMeetingDetail(meetingId: String, completion: @escaping (MeetingDetail?) -> Swift.Void) {
         let url = URL(string: APIManager.BASE_API_URL)
-        // TODO: Pouzit login
-
+        
         let params = String(format: "action=MobileApi&api_key=123456apikey&akce=getMeetingInfo&token=%@&meeting_id=%@", User.currentUser.token!, meetingId)
         let body = params.data(using: .utf8)
 
