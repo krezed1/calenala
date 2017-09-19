@@ -46,12 +46,8 @@
 
 /* Begin PBXFileReference section */
 		297E65251F02F01300162321 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		297E65281F02F01300162321 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
-		297E652B1F02F01300162321 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		297E652D1F02F01300162321 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A2505011EAE7FE300A3D4C8 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		2A3F064D1ECB88F600AAA27F /* CalenalaApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CalenalaApp.entitlements; sourceTree = "<group>"; };
-		2A3F064E1ECB98A400AAA27F /* CalenalaPushExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CalenalaPushExtension.entitlements; sourceTree = "<group>"; };
 		2A403D5D1DD1F9D7007EBA0A /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		2A403D601DD30E07007EBA0A /* MeetingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingDetailViewController.swift; sourceTree = "<group>"; };
 		2A403D631DD30EF3007EBA0A /* MeetingDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingDetailView.swift; sourceTree = "<group>"; };
@@ -68,9 +64,6 @@
 		2AA1AB901EAE8C790076051A /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		2AA1AB971EAFD0770076051A /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		2AA1AB991EAFD0770076051A /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
-		2AA1AB9C1EAFD0770076051A /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
-		2AA1AB9F1EAFD0770076051A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		2AA1ABA11EAFD0770076051A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AAC6A8E1E1EFE4F00F84618 /* AttendeesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendeesViewController.swift; sourceTree = "<group>"; };
 		2AB64F151DCC9341005A058E /* MeetingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingsViewController.swift; sourceTree = "<group>"; };
 		2AB64F171DCCADE2005A058E /* MeetingsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingsDataSource.swift; sourceTree = "<group>"; };
@@ -112,16 +105,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		297E65271F02F01300162321 /* TodayExtension */ = {
-			isa = PBXGroup;
-			children = (
-				297E65281F02F01300162321 /* TodayViewController.swift */,
-				297E652A1F02F01300162321 /* MainInterface.storyboard */,
-				297E652D1F02F01300162321 /* Info.plist */,
-			);
-			path = TodayExtension;
-			sourceTree = "<group>";
-		};
 		2A403D5B1DD1D9FC007EBA0A /* Entities */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,17 +189,6 @@
 			name = Settings;
 			sourceTree = "<group>";
 		};
-		2AA1AB9B1EAFD0770076051A /* CalenalaPushExtension */ = {
-			isa = PBXGroup;
-			children = (
-				2A3F064E1ECB98A400AAA27F /* CalenalaPushExtension.entitlements */,
-				2AA1AB9C1EAFD0770076051A /* NotificationViewController.swift */,
-				2AA1AB9E1EAFD0770076051A /* MainInterface.storyboard */,
-				2AA1ABA11EAFD0770076051A /* Info.plist */,
-			);
-			path = CalenalaPushExtension;
-			sourceTree = "<group>";
-		};
 		2AAC6A8D1E1EFE3C00F84618 /* Attendees */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,8 +221,6 @@
 			isa = PBXGroup;
 			children = (
 				2AD36D531DC5141600F63E90 /* CalenalaApp */,
-				2AA1AB9B1EAFD0770076051A /* CalenalaPushExtension */,
-				297E65271F02F01300162321 /* TodayExtension */,
 				2AD36D521DC5141600F63E90 /* Products */,
 				5E3BA76E2942EC889E73A935 /* Pods */,
 				CBDFB59D505ED05324D3D9E2 /* Frameworks */,
@@ -504,22 +474,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		297E652A1F02F01300162321 /* MainInterface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				297E652B1F02F01300162321 /* Base */,
-			);
-			name = MainInterface.storyboard;
-			sourceTree = "<group>";
-		};
-		2AA1AB9E1EAFD0770076051A /* MainInterface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2AA1AB9F1EAFD0770076051A /* Base */,
-			);
-			name = MainInterface.storyboard;
-			sourceTree = "<group>";
-		};
 		2AD36D5D1DC5141600F63E90 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
