@@ -1,0 +1,6 @@
+framework module Pods_CalenalaApp {
+  umbrella header "Pods-CalenalaApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
