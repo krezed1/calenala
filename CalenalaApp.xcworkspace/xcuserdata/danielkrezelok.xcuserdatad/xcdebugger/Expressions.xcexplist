@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "static MeetingDetail.(loadMeetingDetail(meetingId : String, completion : (MeetingDetail?) -&gt; ()) -&gt; ()).(closure #1):MeetingDetail.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "ratedByMe">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "MeetingDetail.rateMeeting(rating:ratingDesc:completion:):MeetingDetail.swift">
          <PersistentStrings>
             <PersistentString

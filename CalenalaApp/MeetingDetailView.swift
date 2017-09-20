@@ -26,11 +26,6 @@ class MeetingDetailView: UITableView, UITextViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
 
-// MARK: Public
-
-    public func disableMessageView() {
-        sendButton.isHidden = true
-    }
 
 // MARK: Private
 
@@ -56,6 +51,7 @@ class MeetingDetailView: UITableView, UITextViewDelegate {
                  forCellReuseIdentifier: LocationTableViewCell.locationTableViewCellReuseIdentifier)
         contentInset = UIEdgeInsetsMake(0, 0, 60, 0)
 
+        sendButton.isHidden = true
         sendButton.setTitle("Send comment", for: .normal)
         sendButton.setTitleColor(UIColor.black, for: .normal)
         sendButton.backgroundColor = BUTTON_BACKGROUND_COLOR

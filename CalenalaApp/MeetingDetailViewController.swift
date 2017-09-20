@@ -46,13 +46,6 @@ class  MeetingDetailViewController: UIViewController, UITableViewDelegate {
 
         loadMeetingDetail()
         detailView?.sendButton.addTarget(self, action: #selector(sendButtonDidPress), for: .touchUpInside)
-
-
-        guard let rating = commentDataSource?.meetingDetail?.ratedByMe?.boolValue, rating == true else  {
-            return
-        }
-
-        detailView?.disableMessageView()
     }
 
 //  MARK: UserActions
@@ -107,6 +100,13 @@ class  MeetingDetailViewController: UIViewController, UITableViewDelegate {
         MeetingDetail.loadMeetingDetail(meetingId: commentDataSource!.meetingDetail!.meetingId!) { (meetingDetail) in
             weakSelf?.commentDataSource?.meetingDetail = meetingDetail
             weakSelf?.detailView?.reloadData()
+            
+            if let rating = weakSelf?.commentDataSource?.meetingDetail?.ratedByMe?.boolValue, rating == true {                
+                weakSelf?.detailView?.sendButton.isHidden = true
+            } else {
+                weakSelf?.detailView?.sendButton.isHidden = false
+            }
+
         }
     }
 
